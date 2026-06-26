@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:#F3EFE7}
+  ::selection{background:#15120E;color:#F3EFE7}
+  a{color:inherit;text-decoration:none}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div dir="{{ dir }}" style="background:#F3EFE7;color:#15120E;font-family:'Hanken Grotesk','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',system-ui,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden">
+
+  <!-- ===== NAV ===== -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(243,239,231,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(21,18,14,.10)">
+    <nav style="max-width:1240px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="#top" style="display:flex;align-items:baseline;gap:10px">
+        <span style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:700;font-size:21px;letter-spacing:.22em">AURION</span>
+        <span style="width:7px;height:7px;border-radius:50%;background:#A87C3D;align-self:center;margin-bottom:1px"></span>
+      </a>
+      <div style="display:flex;align-items:center;gap:34px">
+        <div style="display:flex;gap:28px;font-size:14px;font-weight:500;letter-spacing:.01em">
+          <a href="#services" style="opacity:.78" style-hover="opacity:1">{{ t.navServices }}</a>
+          <a href="#approach" style="opacity:.78" style-hover="opacity:1">{{ t.navApproach }}</a>
+          <a href="#sectors" style="opacity:.78" style-hover="opacity:1">{{ t.navSectors }}</a>
+          <a href="#clients" style="opacity:.78" style-hover="opacity:1">{{ t.navClients }}</a>
+        </div>
+        <div data-lang-menu="1" style="position:relative">
+          <button onClick="{{ toggleMenu }}" style="display:flex;align-items:center;gap:8px;border:1px solid rgba(21,18,14,.18);border-radius:999px;padding:7px 14px;background:transparent;font-family:inherit;font-size:13px;font-weight:600;letter-spacing:.02em;cursor:pointer;color:#15120E">
+            <span style="font-size:15px;line-height:1">{{ currentFlag }}</span>
+            <span>{{ currentLabel }}</span>
+            <span style="font-size:9px;opacity:.5">▾</span>
+          </button>
+          <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;top:calc(100% + 8px);inset-inline-end:0;background:#F3EFE7;border:1px solid rgba(21,18,14,.16);border-radius:9px;padding:6px;min-width:184px;box-shadow:0 16px 40px rgba(21,18,14,.18);z-index:60;display:flex;flex-direction:column;gap:2px">
+              <sc-for list="{{ langList }}" as="lng" hint-placeholder-count="7">
+                <button onClick="{{ lng.pick }}" style="{{ lng.style }}">
+                  <span style="font-size:16px;line-height:1;min-width:22px">{{ lng.flag }}</span>
+                  <span style="font-weight:700;font-size:10px;letter-spacing:.1em;opacity:.5;min-width:22px">{{ lng.code }}</span>
+                  <span>{{ lng.label }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+        <a href="#contact" onClick="{{ trackCta }}" style="background:#15120E;color:#F3EFE7;font-size:13.5px;font-weight:600;padding:10px 18px;border-radius:999px" style-hover="background:#A87C3D">{{ t.cta }}</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="top" style="max-width:1240px;margin:0 auto;padding:84px 32px 96px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:60px;align-items:center">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:26px">
+          <span style="width:30px;height:1px;background:#A87C3D"></span>
+          <span style="font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A87C3D">{{ t.heroEyebrow }}</span>
+        </div>
+        <h1 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:clamp(38px,5.6vw,76px);line-height:.99;letter-spacing:-.03em;max-width:13ch">{{ t.heroTitle }}</h1>
+        <p style="margin-top:28px;font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:#574F40;max-width:46ch">{{ t.heroSub }}</p>
+        <div style="margin-top:38px;display:flex;flex-wrap:wrap;gap:14px">
+          <a href="#contact" onClick="{{ trackCta }}" style="background:#15120E;color:#F3EFE7;font-size:15px;font-weight:600;padding:15px 28px;border-radius:999px" style-hover="background:#A87C3D">{{ t.heroPrimary }}</a>
+          <a href="#approach" style="border:1px solid rgba(21,18,14,.22);font-size:15px;font-weight:600;padding:15px 28px;border-radius:999px" style-hover="border-color:#15120E">{{ t.heroSecondary }}</a>
+        </div>
+        <p style="margin-top:34px;font-size:14px;color:#8A8270;display:flex;align-items:center;gap:10px">
+          <span style="width:6px;height:6px;border-radius:50%;background:#A87C3D"></span>{{ t.heroNote }}
+        </p>
+      </div>
+      <div style="position:relative">
+        <div style="position:relative;border:1px solid rgba(21,18,14,.16);border-radius:4px;padding:14px;background:linear-gradient(160deg,#EFE9DD,#F3EFE7)">
+          <image-slot id="aurion-hero" style="width:100%;height:560px;display:block" shape="rounded" radius="2" placeholder="Drop a photo — Moscow skyline, a factory floor, a handshake"></image-slot>
+          <div style="position:absolute;inset-inline-start:26px;bottom:26px;background:rgba(21,18,14,.86);color:#F3EFE7;font-size:11.5px;font-weight:600;letter-spacing:.14em;padding:7px 12px;border-radius:2px;backdrop-filter:blur(4px)">{{ t.coord }}</div>
+        </div>
+        <div style="position:absolute;top:-16px;inset-inline-end:-12px;background:#A87C3D;color:#15120E;font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:700;font-size:13px;letter-spacing:.06em;padding:10px 14px;border-radius:2px;transform:rotate(2deg)">RU</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CREDIBILITY STRIP ===== -->
+  <section style="background:#15120E;color:#F3EFE7">
+    <div style="max-width:1240px;margin:0 auto;padding:30px 32px;display:flex;flex-wrap:wrap;gap:14px 48px;align-items:center;justify-content:space-between">
+      <sc-for list="{{ t.strip }}" as="item" hint-placeholder-count="4">
+        <div style="display:flex;align-items:center;gap:13px;font-size:15px;font-weight:500">
+          <span style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;color:#A87C3D;font-size:13px">/</span>{{ item }}
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===== PROOF ===== -->
+  <section style="max-width:1240px;margin:0 auto;padding:64px 32px 0">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:rgba(21,18,14,.12);border:1px solid rgba(21,18,14,.12)">
+      <sc-for list="{{ t.proof }}" as="p" hint-placeholder-count="4">
+        <div style="background:#F3EFE7;padding:30px 26px">
+          <div style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:700;font-size:33px;letter-spacing:-.02em;color:#15120E">{{ p.k }}</div>
+          <div style="margin-top:8px;font-size:14px;line-height:1.45;color:#574F40">{{ p.v }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" style="max-width:1240px;margin:0 auto;padding:108px 32px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:56px">
+      <div>
+        <div style="font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A87C3D;margin-bottom:14px">{{ t.servicesEyebrow }}</div>
+        <h2 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,46px);line-height:1.02;letter-spacing:-.025em;max-width:18ch">{{ t.servicesTitle }}</h2>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:rgba(21,18,14,.12);border:1px solid rgba(21,18,14,.12)">
+      <sc-for list="{{ t.services }}" as="s" hint-placeholder-count="3">
+        <div style="background:#F3EFE7;padding:40px 34px 46px;min-height:300px;display:flex;flex-direction:column" style-hover="background:#EFE9DD">
+          <div style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:700;font-size:14px;color:#A87C3D;letter-spacing:.1em">{{ s.n }}</div>
+          <h3 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:25px;letter-spacing:-.01em;margin-top:26px">{{ s.t }}</h3>
+          <p style="margin-top:16px;font-size:15.5px;line-height:1.6;color:#574F40">{{ s.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===== APPROACH (dark) ===== -->
+  <section id="approach" style="background:#15120E;color:#F3EFE7">
+    <div style="max-width:1240px;margin:0 auto;padding:108px 32px">
+      <div style="max-width:620px;margin-bottom:60px">
+        <div style="font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#CDA869;margin-bottom:14px">{{ t.approachEyebrow }}</div>
+        <h2 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:clamp(32px,4.2vw,54px);line-height:1;letter-spacing:-.025em">{{ t.approachTitle }}</h2>
+        <p style="margin-top:22px;font-size:18px;line-height:1.55;color:rgba(243,239,231,.7)">{{ t.approachSub }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:38px">
+        <sc-for list="{{ t.steps }}" as="st" hint-placeholder-count="4">
+          <div style="border-top:1px solid rgba(243,239,231,.22);padding-top:22px">
+            <div style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:700;font-size:30px;color:#CDA869;letter-spacing:-.02em">{{ st.n }}</div>
+            <h3 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:21px;margin-top:16px">{{ st.t }}</h3>
+            <p style="margin-top:12px;font-size:15px;line-height:1.55;color:rgba(243,239,231,.66)">{{ st.d }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTORS ===== -->
+  <section id="sectors" style="max-width:1240px;margin:0 auto;padding:108px 32px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:center">
+      <div>
+        <div style="font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A87C3D;margin-bottom:14px">{{ t.sectorsEyebrow }}</div>
+        <h2 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,46px);line-height:1.02;letter-spacing:-.025em">{{ t.sectorsTitle }}</h2>
+        <p style="margin-top:20px;font-size:16.5px;line-height:1.6;color:#574F40;max-width:34ch">{{ t.sectorsBody }}</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <sc-for list="{{ t.sectors }}" as="sec" hint-placeholder-count="6">
+          <div style="border:1px solid rgba(21,18,14,.18);border-radius:999px;padding:13px 22px;font-size:15.5px;font-weight:500" style-hover="border-color:#A87C3D;color:#A87C3D">{{ sec }}</div>
+        </sc-for>
+        <div style="border:1px dashed rgba(21,18,14,.3);border-radius:999px;padding:13px 22px;font-size:15.5px;font-weight:500;color:#8A8270">{{ t.sectorsMore }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHO WE HELP ===== -->
+  <section id="clients" style="background:#EFE9DD;border-top:1px solid rgba(21,18,14,.1);border-bottom:1px solid rgba(21,18,14,.1)">
+    <div style="max-width:1240px;margin:0 auto;padding:108px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:60px;align-items:center">
+      <div style="position:relative;border:1px solid rgba(21,18,14,.16);border-radius:4px;padding:14px;background:#F3EFE7">
+        <image-slot id="aurion-clients" style="width:100%;height:440px;display:block" shape="rounded" radius="2" placeholder="Drop a photo — a client meeting, a port, a production line"></image-slot>
+      </div>
+      <div>
+        <div style="font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A87C3D;margin-bottom:14px">{{ t.clientsEyebrow }}</div>
+        <h2 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:clamp(30px,3.8vw,48px);line-height:1.02;letter-spacing:-.025em;max-width:16ch">{{ t.clientsTitle }}</h2>
+        <p style="margin-top:22px;font-size:17px;line-height:1.6;color:#574F40;max-width:48ch">{{ t.clientsBody }}</p>
+        <div style="margin-top:30px;display:flex;flex-wrap:wrap;gap:10px">
+          <sc-for list="{{ t.clientsTags }}" as="tag" hint-placeholder-count="5">
+            <div style="background:#15120E;color:#F3EFE7;border-radius:2px;padding:9px 16px;font-size:14px;font-weight:600;letter-spacing:.02em">{{ tag }}</div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY AURION ===== -->
+  <section style="max-width:1240px;margin:0 auto;padding:108px 32px">
+    <div style="margin-bottom:54px;max-width:620px">
+      <div style="font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A87C3D;margin-bottom:14px">{{ t.whyEyebrow }}</div>
+      <h2 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:clamp(30px,3.8vw,48px);line-height:1.02;letter-spacing:-.025em">{{ t.whyTitle }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:44px 40px">
+      <sc-for list="{{ t.why }}" as="w" hint-placeholder-count="4">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="width:26px;height:1px;background:#A87C3D"></span>
+            <h3 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em">{{ w.t }}</h3>
+          </div>
+          <p style="margin-top:16px;font-size:15.5px;line-height:1.6;color:#574F40">{{ w.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===== ENGAGEMENT / DEAL ===== -->
+  <section id="engagement" style="background:#EFE9DD;border-top:1px solid rgba(21,18,14,.1)">
+    <div style="max-width:1240px;margin:0 auto;padding:108px 32px">
+      <div style="max-width:620px;margin-bottom:54px">
+        <div style="font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A87C3D;margin-bottom:14px">{{ t.dealEyebrow }}</div>
+        <h2 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:clamp(30px,3.8vw,48px);line-height:1.02;letter-spacing:-.025em">{{ t.dealTitle }}</h2>
+        <p style="margin-top:20px;font-size:17px;line-height:1.6;color:#574F40;max-width:52ch">{{ t.dealSub }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+        <sc-for list="{{ t.deal }}" as="d" hint-placeholder-count="3">
+          <div style="background:#F3EFE7;border:1px solid rgba(21,18,14,.14);border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;min-height:230px">
+            <div style="align-self:flex-start;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#A87C3D;border:1px solid rgba(168,124,61,.45);border-radius:999px;padding:5px 12px">{{ d.meta }}</div>
+            <h3 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:24px;letter-spacing:-.01em;margin-top:22px">{{ d.t }}</h3>
+            <p style="margin-top:14px;font-size:15.5px;line-height:1.6;color:#574F40">{{ d.d }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section style="max-width:1240px;margin:0 auto;padding:108px 32px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:start">
+      <div>
+        <div style="font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A87C3D;margin-bottom:14px">{{ t.faqEyebrow }}</div>
+        <h2 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,46px);line-height:1.02;letter-spacing:-.025em">{{ t.faqTitle }}</h2>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ t.faq }}" as="f" hint-placeholder-count="4">
+          <div style="border-top:1px solid rgba(21,18,14,.14);padding:24px 0">
+            <h3 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:18.5px;line-height:1.3">{{ f.q }}</h3>
+            <p style="margin-top:12px;font-size:15.5px;line-height:1.6;color:#574F40">{{ f.a }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / FORM (dark) ===== -->
+  <section id="contact" style="background:#15120E;color:#F3EFE7">
+    <div style="max-width:1240px;margin:0 auto;padding:108px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:start">
+      <div>
+        <div style="font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#CDA869;margin-bottom:14px">{{ t.formEyebrow }}</div>
+        <h2 style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:600;font-size:clamp(30px,4vw,52px);line-height:1.02;letter-spacing:-.03em">{{ t.formTitle }}</h2>
+        <p style="margin-top:20px;font-size:17px;line-height:1.55;color:rgba(243,239,231,.7);max-width:42ch">{{ t.formSub }}</p>
+        <div style="margin-top:36px">
+          <div style="font-size:13px;letter-spacing:.04em;color:rgba(243,239,231,.55);margin-bottom:14px">{{ t.msgPrompt }}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <a href="https://wa.me/" target="_blank" rel="noopener" onClick="{{ trackCta }}" style="display:flex;align-items:center;gap:8px;border:1px solid rgba(243,239,231,.25);border-radius:999px;padding:11px 18px;font-size:14px;font-weight:600;color:#F3EFE7" style-hover="border-color:#CDA869">WhatsApp</a>
+            <a href="weixin://" onClick="{{ trackCta }}" style="display:flex;align-items:center;gap:8px;border:1px solid rgba(243,239,231,.25);border-radius:999px;padding:11px 18px;font-size:14px;font-weight:600;color:#F3EFE7" style-hover="border-color:#CDA869">WeChat</a>
+            <a href="https://t.me/" target="_blank" rel="noopener" onClick="{{ trackCta }}" style="display:flex;align-items:center;gap:8px;border:1px solid rgba(243,239,231,.25);border-radius:999px;padding:11px 18px;font-size:14px;font-weight:600;color:#F3EFE7" style-hover="border-color:#CDA869">Telegram</a>
+            <a href="mailto:hello@aurion.fund" onClick="{{ trackCta }}" style="display:flex;align-items:center;gap:8px;border:1px solid rgba(243,239,231,.25);border-radius:999px;padding:11px 18px;font-size:14px;font-weight:600;color:#F3EFE7" style-hover="border-color:#CDA869">hello@aurion.fund</a>
+          </div>
+        </div>
+      </div>
+      <div style="background:#F3EFE7;color:#15120E;border-radius:6px;padding:30px 28px">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="min-height:330px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+            <div style="width:52px;height:52px;border-radius:50%;background:#A87C3D;color:#15120E;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:700;font-size:26px">✓</div>
+            <p style="margin-top:18px;font-size:18px;font-weight:600;line-height:1.4;max-width:24ch">{{ t.formSuccess }}</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:15px">
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#8A8270">{{ t.formCompany }}
+              <input value="{{ form.company }}" onChange="{{ onCompany }}" style="border:1px solid rgba(21,18,14,.2);border-radius:4px;padding:12px 14px;font-family:inherit;font-size:15px;color:#15120E;background:#fff" />
+            </label>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px">
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#8A8270">{{ t.formCountry }}
+                <input value="{{ form.country }}" onChange="{{ onCountry }}" style="border:1px solid rgba(21,18,14,.2);border-radius:4px;padding:12px 14px;font-family:inherit;font-size:15px;color:#15120E;background:#fff" />
+              </label>
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#8A8270">{{ t.formIndustry }}
+                <input value="{{ form.industry }}" onChange="{{ onIndustry }}" style="border:1px solid rgba(21,18,14,.2);border-radius:4px;padding:12px 14px;font-family:inherit;font-size:15px;color:#15120E;background:#fff" />
+              </label>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#8A8270">{{ t.formMessage }}
+              <textarea value="{{ form.message }}" onChange="{{ onMessage }}" rows="3" style="border:1px solid rgba(21,18,14,.2);border-radius:4px;padding:12px 14px;font-family:inherit;font-size:15px;color:#15120E;background:#fff;resize:vertical"></textarea>
+            </label>
+            <button type="submit" onClick="{{ trackCta }}" style="margin-top:6px;background:#15120E;color:#F3EFE7;border:none;border-radius:999px;padding:15px 28px;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer" style-hover="background:#A87C3D">{{ t.formSubmit }}</button>
+            <div style="font-size:13px;color:#8A8270;text-align:center">{{ t.formNote }}</div>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="background:#0E0C09;color:rgba(243,239,231,.62)">
+    <div style="max-width:1240px;margin:0 auto;padding:54px 32px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:baseline;gap:10px">
+        <span style="font-family:'Archivo','Noto Sans SC','Noto Naskh Arabic','Noto Sans Devanagari',sans-serif;font-weight:700;font-size:18px;letter-spacing:.22em;color:#F3EFE7">AURION</span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#A87C3D;align-self:center"></span>
+      </div>
+      <div style="font-size:14px;max-width:42ch">{{ t.footerTag }}</div>
+      <div style="font-size:13px;letter-spacing:.04em">© 2026 AURION</div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { lang: 'en', menuOpen: false, sent: false, form: { company: '', country: '', industry: '', message: '' } };
+
+  componentDidMount() {
+    let initial = 'en';
+    try { const s = localStorage.getItem('aurion_lang'); if (s && ['en','ru','zh','tr','hi','ar','fa'].includes(s)) initial = s; } catch (e) {}
+    this.applyHtml(initial); this.ensureFont(initial);
+    if (initial !== this.state.lang) this.setState({ lang: initial });
+    this._onDocClick = (e) => { if (this.state.menuOpen && e.target && e.target.closest && !e.target.closest('[data-lang-menu]')) this.setState({ menuOpen: false }); };
+    document.addEventListener('mousedown', this._onDocClick);
+  }
+  componentWillUnmount() { if (this._onDocClick) document.removeEventListener('mousedown', this._onDocClick); }
+  applyHtml(lang) { const rtl = (lang === 'ar' || lang === 'fa'); try { document.documentElement.setAttribute('lang', lang); document.documentElement.setAttribute('dir', rtl ? 'rtl' : 'ltr'); } catch (e) {} }
+  ensureFont(lang) {
+    if (['zh','ar','hi','fa'].includes(lang) && !this._fontsLoaded) {
+      this._fontsLoaded = true;
+      try { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Naskh+Arabic:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap'; document.head.appendChild(l); } catch (e) {}
+    }
+  }
+  track(action, payload) {
+    const p = payload || {};
+    try { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: action }, p)); } catch (e) {}
+    try { if (typeof window.gtag === 'function') window.gtag('event', action, p); } catch (e) {}
+    try { if (window.Tinybird && window.Tinybird.trackEvent) window.Tinybird.trackEvent(action, p); } catch (e) {}
+    try { if (window._hmt) window._hmt.push(['_trackEvent', 'aurion', action, JSON.stringify(p)]); } catch (e) {}
+    try { if (typeof window.ym === 'function' && window.__ymId) window.ym(window.__ymId, 'reachGoal', action); } catch (e) {}
+  }
+  choose(key) { try { localStorage.setItem('aurion_lang', key); } catch (e) {} this.applyHtml(key); this.ensureFont(key); this.track('language_change', { lang: key }); this.setState({ lang: key, menuOpen: false }); }
+  setField(field, e) { const v = e.target.value; this.setState((s) => ({ form: Object.assign({}, s.form, { [field]: v }) })); }
+  submit(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const f = this.state.form;
+    this.track('lead_submit', { lang: this.state.lang, country: f.country, industry: f.industry });
+    try { const body = encodeURIComponent('Company: ' + f.company + '\nCountry: ' + f.country + '\nIndustry: ' + f.industry + '\n\n' + f.message); window.location.href = 'mailto:hello@aurion.fund?subject=' + encodeURIComponent('Market entry enquiry') + '&body=' + body; } catch (err) {}
+    this.setState({ sent: true });
+  }
+
+  renderVals() {
+    const C = {
+      en: {
+        navServices: 'Services', navApproach: 'Approach', navSectors: 'Sectors', navClients: 'Who we help',
+        cta: 'Start your entry',
+        heroEyebrow: 'Market entry into Russia',
+        heroTitle: 'We help companies enter Russia through execution, not theory.',
+        heroSub: 'Market entry, sales launch and venture building across technology, manufacturing, agriculture and more.',
+        heroPrimary: 'Start your entry',
+        heroSecondary: 'See how we work',
+        heroNote: 'On the ground in Russia for companies entering from abroad.',
+        coord: 'MOSCOW · 55.75°N 37.62°E',
+        strip: ['Local entity & licensing', 'Sales from day one', 'We operate on the ground', 'Aligned incentives'],
+        servicesEyebrow: 'What we do',
+        servicesTitle: 'Three ways we get you into the market.',
+        services: [
+          { n: '01', t: 'Market Entry', d: 'Company registration, licensing, banking and compliance — a local entity that is ready to operate, not a slide deck.' },
+          { n: '02', t: 'Sales Launch', d: 'Distribution, first customers and a working revenue pipeline. We sell — we don\u2019t just advise.' },
+          { n: '03', t: 'Venture Building', d: 'We co-build and run the business on the ground with you, sharing the risk and the upside.' }
+        ],
+        approachEyebrow: 'Approach',
+        approachTitle: 'Execution, not theory.',
+        approachSub: 'One team that takes you from a decision to revenue on the ground in Russia.',
+        steps: [
+          { n: '01', t: 'Assess', d: 'We map the real opportunity, the regulation and the fastest route to revenue.' },
+          { n: '02', t: 'Establish', d: 'Entity, licenses, banking, logistics and your first local hires.' },
+          { n: '03', t: 'Launch', d: 'Distribution, first deals and a sales engine that runs from day one.' },
+          { n: '04', t: 'Scale', d: 'We keep operating with you — growing the business, not handing over a report.' }
+        ],
+        sectorsEyebrow: 'Sectors',
+        sectorsTitle: 'Where we work.',
+        sectorsBody: 'Deep operating experience across the sectors that move goods and build presence in Russia.',
+        sectors: ['Technology', 'Manufacturing', 'Agriculture', 'Consumer & Retail', 'Industrial & Energy', 'Logistics'],
+        sectorsMore: 'and more',
+        clientsEyebrow: 'Who we help',
+        clientsTitle: 'Built for companies entering from abroad.',
+        clientsBody: 'Manufacturers, technology and agriculture companies from China, India, the Gulf and beyond that want a real presence in Russia — without building one from scratch. We become your team on the ground.',
+        clientsTags: ['China', 'India', 'Gulf', 'T\u00fcrkiye', 'Southeast Asia'],
+        whyEyebrow: 'Why Aurion',
+        whyTitle: 'A partner that builds, not just advises.',
+        why: [
+          { t: 'Execution over theory', d: 'We are measured by entities registered, deals closed and revenue booked — not pages written.' },
+          { t: 'On the ground', d: 'A local team, local entity and local relationships from the very first day.' },
+          { t: 'Aligned incentives', d: 'We build alongside you and share the risk, so our success is your success.' },
+          { t: 'One team, end to end', d: 'Entry, sales and operations under one roof — no hand-offs, no lost months.' }
+        ],
+        ctaTitle: 'Let\u2019s plan your entry into Russia.',
+        ctaSub: 'Tell us about your company and where you want to be. We\u2019ll come back with a concrete route to revenue.',
+        ctaBtn: 'Get in touch',
+        proof: [
+          { k: '90 days', v: 'to a working local entity, typically' },
+          { k: 'Day one', v: 'a sales motion, not a slide deck' },
+          { k: '6+', v: 'sectors we operate in' },
+          { k: 'One team', v: 'entry, sales and operations' }
+        ],
+        dealEyebrow: 'Engagement',
+        dealTitle: 'How we work — and how we’re paid.',
+        dealSub: 'Choose the model that fits your risk appetite. Most clients start with one and grow into the next.',
+        deal: [
+          { meta: 'Advisory · fixed fee', t: 'Market Entry', d: 'A fixed-scope mandate: entity, licensing, banking and compliance for a clear fee. You own 100% of the result.' },
+          { meta: 'Sales launch · retainer + success', t: 'Sales Launch', d: 'A monthly retainer plus a success fee tied to revenue and first signed deals. We are paid when you sell.' },
+          { meta: 'Venture · shared equity', t: 'Venture Building', d: 'We co-invest time and capital for a minority stake. Aligned for the long term — your upside is our upside.' }
+        ],
+        faqEyebrow: 'FAQ',
+        faqTitle: 'Questions we hear first.',
+        faq: [
+          { q: 'Do we need a registered company in Russia?', a: 'For most goods and contracts, yes — and we handle registration, licensing and banking so you get a working local entity, not just paperwork.' },
+          { q: 'How fast can we start selling?', a: 'We build the sales motion in parallel with setup, so first commercial conversations usually begin within weeks — not after everything is finished.' },
+          { q: 'Can you handle payments and logistics today?', a: 'Yes. Cross-border payments, banking and logistics are part of every engagement, within the current regulatory framework.' },
+          { q: 'Which markets and languages do you cover?', a: 'We work with companies from China, India, the Gulf, Türkiye and Southeast Asia, and operate in your language throughout.' }
+        ],
+        formEyebrow: 'Start',
+        formTitle: 'Tell us about your entry.',
+        formSub: 'Share a few details and we’ll come back with a concrete route to revenue.',
+        formCompany: 'Company',
+        formCountry: 'Country',
+        formIndustry: 'Industry',
+        formMessage: 'What do you want to achieve in Russia?',
+        formSubmit: 'Request a plan',
+        formNote: 'or reach us directly',
+        formSuccess: 'Thank you — we’ll be in touch shortly.',
+        msgPrompt: 'Message us on',
+        footerTag: 'Market entry into Russia through execution, not theory.'
+      },
+      ru: {
+        navServices: 'Услуги', navApproach: 'Подход', navSectors: 'Отрасли', navClients: 'Кому подходит',
+        cta: 'Начать выход',
+        heroEyebrow: 'Выход на рынок России',
+        heroTitle: 'Мы помогаем компаниям выйти на рынок России через действие, а не теорию.',
+        heroSub: 'Выход на рынок, запуск продаж и построение бизнеса в технологиях, производстве, сельском хозяйстве и не только.',
+        heroPrimary: 'Начать выход',
+        heroSecondary: 'Как мы работаем',
+        heroNote: 'Мы на месте в России — для компаний, выходящих из-за рубежа.',
+        coord: 'МОСКВА · 55.75°N 37.62°E',
+        strip: ['Юрлицо и лицензии', 'Продажи с первого дня', 'Работаем на месте', 'Общие интересы'],
+        servicesEyebrow: 'Что мы делаем',
+        servicesTitle: 'Три способа вывести вас на рынок.',
+        services: [
+          { n: '01', t: 'Выход на рынок', d: 'Регистрация компании, лицензии, банкинг и комплаенс — готовое к работе юрлицо, а не презентация.' },
+          { n: '02', t: 'Запуск продаж', d: 'Дистрибуция, первые клиенты и работающая воронка выручки. Мы продаём, а не только советуем.' },
+          { n: '03', t: 'Построение бизнеса', d: 'Мы вместе с вами строим и управляем бизнесом на месте, разделяя риск и результат.' }
+        ],
+        approachEyebrow: 'Подход',
+        approachTitle: 'Действие, а не теория.',
+        approachSub: 'Одна команда ведёт вас от решения до выручки на месте в России.',
+        steps: [
+          { n: '01', t: 'Оценка', d: 'Определяем реальную возможность, регулирование и кратчайший путь к выручке.' },
+          { n: '02', t: 'Запуск структуры', d: 'Юрлицо, лицензии, банкинг, логистика и первые местные сотрудники.' },
+          { n: '03', t: 'Старт', d: 'Дистрибуция, первые сделки и продажи, которые работают с первого дня.' },
+          { n: '04', t: 'Масштаб', d: 'Мы продолжаем работать с вами — растим бизнес, а не сдаём отчёт.' }
+        ],
+        sectorsEyebrow: 'Отрасли',
+        sectorsTitle: 'Где мы работаем.',
+        sectorsBody: 'Глубокий операционный опыт в отраслях, которые двигают товары и создают присутствие в России.',
+        sectors: ['Технологии', 'Производство', 'Сельское хозяйство', 'Потребтовары и ритейл', 'Промышленность и энергетика', 'Логистика'],
+        sectorsMore: 'и не только',
+        clientsEyebrow: 'Кому подходит',
+        clientsTitle: 'Создано для компаний, выходящих из-за рубежа.',
+        clientsBody: 'Производственные, технологические и аграрные компании из Китая, Индии, стран Залива и не только, которым нужно реальное присутствие в России — без необходимости строить его с нуля. Мы становимся вашей командой на месте.',
+        clientsTags: ['Китай', 'Индия', 'Залив', 'Турция', 'Юго-Восточная Азия'],
+        whyEyebrow: 'Почему Aurion',
+        whyTitle: 'Партнёр, который строит, а не только советует.',
+        why: [
+          { t: 'Действие важнее теории', d: 'Нас оценивают по созданным юрлицам, закрытым сделкам и полученной выручке — не по числу страниц.' },
+          { t: 'На месте', d: 'Местная команда, местное юрлицо и местные связи с самого первого дня.' },
+          { t: 'Общие интересы', d: 'Мы строим вместе с вами и разделяем риск — ваш успех это наш успех.' },
+          { t: 'Одна команда от и до', d: 'Выход, продажи и операции под одной крышей — без передач и потерянных месяцев.' }
+        ],
+        ctaTitle: 'Давайте спланируем ваш выход на рынок России.',
+        ctaSub: 'Расскажите о вашей компании и о том, где вы хотите быть. Мы вернёмся с конкретным маршрутом к выручке.',
+        ctaBtn: 'Связаться',
+        proof: [
+          { k: '90 дней', v: 'до работающего юрлица, как правило' },
+          { k: 'С первого дня', v: 'продажи, а не презентация' },
+          { k: '6+', v: 'отраслей, где мы работаем' },
+          { k: 'Одна команда', v: 'выход, продажи и операции' }
+        ],
+        dealEyebrow: 'Сотрудничество',
+        dealTitle: 'Как мы работаем — и как нам платят.',
+        dealSub: 'Выберите модель под ваш аппетит к риску. Большинство клиентов начинают с одной и переходят к следующей.',
+        deal: [
+          { meta: 'Консалтинг · фикс', t: 'Выход на рынок', d: 'Мандат с фиксированным объёмом: юрлицо, лицензии, банкинг и комплаенс за понятную плату. Результат на 100% ваш.' },
+          { meta: 'Запуск продаж · ретейнер + успех', t: 'Запуск продаж', d: 'Ежемесячный ретейнер плюс гонорар за результат, привязанный к выручке и первым сделкам. Нам платят, когда вы продаёте.' },
+          { meta: 'Венчур · доля в капитале', t: 'Построение бизнеса', d: 'Мы инвестируем время и капитал за миноритарную долю. Согласованы вдолгую — ваш результат это наш результат.' }
+        ],
+        faqEyebrow: 'Вопросы',
+        faqTitle: 'О чём спрашивают первым.',
+        faq: [
+          { q: 'Нужна ли регистрация компании в России?', a: 'Для большинства товаров и контрактов — да, и мы берём на себя регистрацию, лицензии и банкинг, чтобы у вас было работающее юрлицо, а не бумаги.' },
+          { q: 'Как быстро можно начать продавать?', a: 'Мы выстраиваем продажи параллельно с запуском структуры, поэтому первые переговоры обычно начинаются в первые недели, а не после завершения всего.' },
+          { q: 'Справитесь ли с платежами и логистикой сейчас?', a: 'Да. Трансграничные платежи, банкинг и логистика входят в каждый проект — в рамках текущего регулирования.' },
+          { q: 'Какие рынки и языки вы поддерживаете?', a: 'Мы работаем с компаниями из Китая, Индии, стран Залива, Турции и Юго-Восточной Азии и ведём проект на вашем языке.' }
+        ],
+        formEyebrow: 'Старт',
+        formTitle: 'Расскажите о вашем выходе.',
+        formSub: 'Поделитесь деталями — и мы вернёмся с конкретным маршрутом к выручке.',
+        formCompany: 'Компания',
+        formCountry: 'Страна',
+        formIndustry: 'Отрасль',
+        formMessage: 'Чего вы хотите достичь в России?',
+        formSubmit: 'Запросить план',
+        formNote: 'или свяжитесь напрямую',
+        formSuccess: 'Спасибо — мы скоро свяжемся с вами.',
+        msgPrompt: 'Напишите нам в',
+        footerTag: 'Выход на рынок России через действие, а не теорию.'
+      },
+      zh: {
+        navServices: '服务', navApproach: '方法', navSectors: '行业', navClients: '服务对象',
+        cta: '开启进入',
+        heroEyebrow: '进入俄罗斯市场',
+        heroTitle: '我们以执行而非理论，助力企业进入俄罗斯。',
+        heroSub: '涵盖科技、制造、农业等领域的市场进入、销售启动与业务共建。',
+        heroPrimary: '开启进入',
+        heroSecondary: '了解我们如何工作',
+        heroNote: '我们扎根俄罗斯，服务来自海外的进入者。',
+        coord: '莫斯科 · 55.75°N 37.62°E',
+        strip: ['本地实体与牌照', '首日即开始销售', '我们在当地实地运营', '利益一致'],
+        servicesEyebrow: '我们的工作',
+        servicesTitle: '三种方式带您进入市场。',
+        services: [
+          { n: '01', t: '市场进入', d: '公司注册、牌照、银行与合规——一个可立即运营的本地实体，而非一份演示文稿。' },
+          { n: '02', t: '销售启动', d: '渠道分销、首批客户与可运转的营收管线。我们亲自销售，而不只是提供建议。' },
+          { n: '03', t: '业务共建', d: '我们与您一起在当地共建并运营业务，共担风险、共享收益。' }
+        ],
+        approachEyebrow: '方法',
+        approachTitle: '执行，而非理论。',
+        approachSub: '一支团队，带您从决策走到在俄罗斯当地的真实营收。',
+        steps: [
+          { n: '01', t: '评估', d: '我们梳理真实机会、监管环境与最快的营收路径。' },
+          { n: '02', t: '落地', d: '实体、牌照、银行、物流以及您的首批本地员工。' },
+          { n: '03', t: '启动', d: '渠道、首批交易，以及首日即运转的销售引擎。' },
+          { n: '04', t: '扩张', d: '我们持续与您并肩运营——做大业务，而非交付一份报告。' }
+        ],
+        sectorsEyebrow: '行业',
+        sectorsTitle: '我们的领域。',
+        sectorsBody: '在推动货物流通、于俄罗斯建立存在感的各行业拥有深厚的运营经验。',
+        sectors: ['科技', '制造业', '农业', '消费与零售', '工业与能源', '物流'],
+        sectorsMore: '以及更多',
+        clientsEyebrow: '服务对象',
+        clientsTitle: '为来自海外的进入者而打造。',
+        clientsBody: '来自中国、印度、海湾地区及其他地区的制造、科技与农业企业，希望在俄罗斯建立真正的存在——无需从零开始。我们成为您在当地的团队。',
+        clientsTags: ['中国', '印度', '海湾地区', '土耳其', '东南亚'],
+        whyEyebrow: '为何选择 Aurion',
+        whyTitle: '一个共建的伙伴，而不仅是顾问。',
+        why: [
+          { t: '执行高于理论', d: '衡量我们的是注册的实体、达成的交易与入账的营收——而非写了多少页报告。' },
+          { t: '扎根当地', d: '从第一天起就拥有本地团队、本地实体与本地关系。' },
+          { t: '利益一致', d: '我们与您共建并共担风险，您的成功就是我们的成功。' },
+          { t: '一支团队，全程贯通', d: '进入、销售与运营尽在一处——没有交接，没有失去的时间。' }
+        ],
+        ctaTitle: '让我们一起规划您进入俄罗斯的路径。',
+        ctaSub: '告诉我们您的企业以及您想达成的目标。我们将带来一条通向营收的具体路径。',
+        ctaBtn: '联系我们',
+        proof: [
+          { k: '90 天', v: '通常即可拥有可运营的本地实体' },
+          { k: '第一天', v: '即开始销售，而非一份PPT' },
+          { k: '6+', v: '我们运营的行业' },
+          { k: '一支团队', v: '进入、销售与运营' }
+        ],
+        dealEyebrow: '合作方式',
+        dealTitle: '我们如何工作，以及如何收费。',
+        dealSub: '选择符合您风险偏好的模式。多数客户从一种开始，逐步迈向下一种。',
+        deal: [
+          { meta: '顾问 · 固定费用', t: '市场进入', d: '固定范围的委托：实体、牌照、银行与合规，费用清晰。成果100%归您所有。' },
+          { meta: '销售启动 · 月费 + 成功费', t: '销售启动', d: '按月固定费用，加上与营收和首批成交挂钩的成功费。您卖出，我们才获酬。' },
+          { meta: '共建 · 股权共享', t: '业务共建', d: '我们投入时间与资本，换取少数股权。长期一致——您的收益就是我们的收益。' }
+        ],
+        faqEyebrow: '常见问题',
+        faqTitle: '客户最先问的问题。',
+        faq: [
+          { q: '我们需要在俄罗斯注册公司吗？', a: '对于大多数商品与合同，是的——我们负责注册、牌照与银行，让您获得一个可运营的本地实体，而非一堆文件。' },
+          { q: '我们多快能开始销售？', a: '我们在搭建的同时并行启动销售，因此首次商务洽谈通常在最初几周内开始，而非等一切就绪之后。' },
+          { q: '当前你们能处理支付与物流吗？', a: '可以。跨境支付、银行与物流是每个项目的一部分，均在现行监管框架内进行。' },
+          { q: '你们覆盖哪些市场与语言？', a: '我们服务来自中国、印度、海湾地区、土耳其与东南亚的企业，并全程以您的语言沟通。' }
+        ],
+        formEyebrow: '开始',
+        formTitle: '告诉我们您的进入计划。',
+        formSub: '留下几项信息，我们将带来一条通向营收的具体路径。',
+        formCompany: '公司',
+        formCountry: '国家/地区',
+        formIndustry: '行业',
+        formMessage: '您希望在俄罗斯实现什么？',
+        formSubmit: '获取方案',
+        formNote: '或直接联系我们',
+        formSuccess: '感谢——我们会尽快与您联系。',
+        msgPrompt: '通过以下方式联系我们',
+        footerTag: '以执行而非理论进入俄罗斯市场。'
+      },
+      ar: {
+        navServices: 'الخدمات', navApproach: 'المنهجية', navSectors: 'القطاعات', navClients: 'لمن نعمل',
+        cta: 'ابدأ دخولك',
+        heroEyebrow: 'الدخول إلى السوق الروسية',
+        heroTitle: 'نساعد الشركات على دخول روسيا بالتنفيذ، لا بالنظريات.',
+        heroSub: 'دخول السوق وإطلاق المبيعات وبناء الأعمال في التقنية والتصنيع والزراعة وغيرها.',
+        heroPrimary: 'ابدأ دخولك',
+        heroSecondary: 'شاهد كيف نعمل',
+        heroNote: 'حاضرون على الأرض في روسيا للشركات القادمة من الخارج.',
+        coord: 'موسكو · 55.75°N 37.62°E',
+        strip: ['كيان محلي وتراخيص', 'مبيعات من اليوم الأول', 'نعمل على الأرض', 'مصالح متوافقة'],
+        servicesEyebrow: 'ما نقوم به',
+        servicesTitle: 'ثلاث طرق ندخلك بها إلى السوق.',
+        services: [
+          { n: '01', t: 'دخول السوق', d: 'تسجيل الشركة والتراخيص والخدمات المصرفية والامتثال — كيان محلي جاهز للعمل، لا مجرد عرض تقديمي.' },
+          { n: '02', t: 'إطلاق المبيعات', d: 'التوزيع وأول العملاء وخط إيرادات فعّال. نحن نبيع، لا نكتفي بتقديم النصح.' },
+          { n: '03', t: 'بناء الأعمال', d: 'نبني وندير العمل معك على الأرض، ونتقاسم المخاطر والعوائد.' }
+        ],
+        approachEyebrow: 'المنهجية',
+        approachTitle: 'تنفيذ، لا نظريات.',
+        approachSub: 'فريق واحد ينقلك من القرار إلى إيرادات حقيقية على الأرض في روسيا.',
+        steps: [
+          { n: '01', t: 'التقييم', d: 'نحدد الفرصة الحقيقية والتنظيمات وأسرع طريق إلى الإيرادات.' },
+          { n: '02', t: 'التأسيس', d: 'كيان وتراخيص وخدمات مصرفية ولوجستيات وأول موظفيك المحليين.' },
+          { n: '03', t: 'الإطلاق', d: 'التوزيع وأول الصفقات ومحرك مبيعات يعمل من اليوم الأول.' },
+          { n: '04', t: 'التوسّع', d: 'نواصل العمل معك — ننمّي العمل، لا نسلّم تقريراً.' }
+        ],
+        sectorsEyebrow: 'القطاعات',
+        sectorsTitle: 'أين نعمل.',
+        sectorsBody: 'خبرة تشغيلية عميقة في القطاعات التي تحرّك السلع وتبني الحضور في روسيا.',
+        sectors: ['التقنية', 'التصنيع', 'الزراعة', 'الاستهلاك والتجزئة', 'الصناعة والطاقة', 'الخدمات اللوجستية'],
+        sectorsMore: 'وغيرها',
+        clientsEyebrow: 'لمن نعمل',
+        clientsTitle: 'مصمّم للشركات القادمة من الخارج.',
+        clientsBody: 'شركات التصنيع والتقنية والزراعة من الصين والهند والخليج وغيرها التي تريد حضوراً حقيقياً في روسيا — دون بنائه من الصفر. نصبح فريقك على الأرض.',
+        clientsTags: ['الصين', 'الهند', 'الخليج', 'تركيا', 'جنوب شرق آسيا'],
+        whyEyebrow: 'لماذا Aurion',
+        whyTitle: 'شريك يبني، لا ينصح فقط.',
+        why: [
+          { t: 'التنفيذ قبل النظرية', d: 'يُقاس عملنا بالكيانات المسجّلة والصفقات المُنجزة والإيرادات المحقّقة — لا بعدد الصفحات.' },
+          { t: 'على الأرض', d: 'فريق محلي وكيان محلي وعلاقات محلية من اليوم الأول.' },
+          { t: 'مصالح متوافقة', d: 'نبني معك ونتقاسم المخاطر، فنجاحك هو نجاحنا.' },
+          { t: 'فريق واحد من البداية للنهاية', d: 'الدخول والمبيعات والتشغيل تحت سقف واحد — دون تسليمات أو أشهر ضائعة.' }
+        ],
+        ctaTitle: 'لنخطّط معاً لدخولك إلى روسيا.',
+        ctaSub: 'حدّثنا عن شركتك وأين تريد أن تكون. سنعود إليك بمسار ملموس نحو الإيرادات.',
+        ctaBtn: 'تواصل معنا',
+        proof: [
+          { k: '٩٠ يوماً', v: 'للوصول إلى كيان محلي فعّال، عادةً' },
+          { k: 'اليوم الأول', v: 'مبيعات، لا عرض تقديمي' },
+          { k: '+٦', v: 'قطاعات نعمل فيها' },
+          { k: 'فريق واحد', v: 'الدخول والمبيعات والتشغيل' }
+        ],
+        dealEyebrow: 'التعاون',
+        dealTitle: 'كيف نعمل — وكيف نتقاضى أجرنا.',
+        dealSub: 'اختر النموذج الذي يناسب قدرتك على تحمّل المخاطر. يبدأ معظم العملاء بنموذج ثم ينتقلون إلى التالي.',
+        deal: [
+          { meta: 'استشارة · رسوم ثابتة', t: 'دخول السوق', d: 'تكليف بنطاق ثابت: كيان وتراخيص وخدمات مصرفية وامتثال مقابل رسوم واضحة. النتيجة ملك لك بنسبة 100%.' },
+          { meta: 'إطلاق المبيعات · أتعاب + نجاح', t: 'إطلاق المبيعات', d: 'أتعاب شهرية إضافة إلى رسوم نجاح مرتبطة بالإيرادات وأول الصفقات. نتقاضى أجرنا عندما تبيع.' },
+          { meta: 'مشروع · حصة مشتركة', t: 'بناء الأعمال', d: 'نستثمر الوقت ورأس المال مقابل حصة أقلية. متوافقون على المدى الطويل — مكسبك هو مكسبنا.' }
+        ],
+        faqEyebrow: 'الأسئلة الشائعة',
+        faqTitle: 'أسئلة نسمعها أولاً.',
+        faq: [
+          { q: 'هل نحتاج إلى شركة مسجّلة في روسيا؟', a: 'بالنسبة لمعظم السلع والعقود، نعم — ونتولى التسجيل والتراخيص والخدمات المصرفية لتحصل على كيان محلي فعّال، لا مجرد أوراق.' },
+          { q: 'ما السرعة التي يمكننا بها البدء بالبيع؟', a: 'نبني عملية البيع بالتوازي مع التأسيس، لذا تبدأ أولى المحادثات التجارية عادةً خلال أسابيع، لا بعد اكتمال كل شيء.' },
+          { q: 'هل يمكنكم التعامل مع المدفوعات واللوجستيات اليوم؟', a: 'نعم. المدفوعات العابرة للحدود والخدمات المصرفية واللوجستيات جزء من كل تكليف، ضمن الإطار التنظيمي الحالي.' },
+          { q: 'ما الأسواق واللغات التي تغطونها؟', a: 'نعمل مع شركات من الصين والهند والخليج وتركيا وجنوب شرق آسيا، ونتعامل بلغتك طوال التكليف.' }
+        ],
+        formEyebrow: 'ابدأ',
+        formTitle: 'حدّثنا عن دخولك.',
+        formSub: 'شارك بعض التفاصيل وسنعود إليك بمسار ملموس نحو الإيرادات.',
+        formCompany: 'الشركة',
+        formCountry: 'الدولة',
+        formIndustry: 'القطاع',
+        formMessage: 'ماذا تريد أن تحقق في روسيا؟',
+        formSubmit: 'اطلب خطة',
+        formNote: 'أو تواصل معنا مباشرة',
+        formSuccess: 'شكراً لك — سنتواصل معك قريباً.',
+        msgPrompt: 'راسلنا عبر',
+        footerTag: 'الدخول إلى السوق الروسية بالتنفيذ، لا بالنظريات.'
+      },
+      hi: {
+        navServices: 'सेवाएँ', navApproach: 'तरीका', navSectors: 'क्षेत्र', navClients: 'किनके लिए',
+        cta: 'प्रवेश शुरू करें',
+        heroEyebrow: 'रूस के बाज़ार में प्रवेश',
+        heroTitle: 'हम कंपनियों को सिद्धांत से नहीं, क्रियान्वयन से रूस में प्रवेश दिलाते हैं।',
+        heroSub: 'तकनीक, विनिर्माण, कृषि और अन्य क्षेत्रों में बाज़ार प्रवेश, बिक्री लॉन्च और वेंचर निर्माण।',
+        heroPrimary: 'प्रवेश शुरू करें',
+        heroSecondary: 'हम कैसे काम करते हैं',
+        heroNote: 'विदेश से आने वाली कंपनियों के लिए रूस में ज़मीनी मौजूदगी।',
+        coord: 'मास्को · 55.75°N 37.62°E',
+        strip: ['स्थानीय इकाई और लाइसेंस', 'पहले दिन से बिक्री', 'हम ज़मीन पर काम करते हैं', 'साझा हित'],
+        servicesEyebrow: 'हम क्या करते हैं',
+        servicesTitle: 'बाज़ार में पहुँचाने के तीन तरीके।',
+        services: [
+          { n: '01', t: 'बाज़ार प्रवेश', d: 'कंपनी पंजीकरण, लाइसेंस, बैंकिंग और अनुपालन — एक तैयार स्थानीय इकाई, कोई प्रेज़ेंटेशन नहीं।' },
+          { n: '02', t: 'बिक्री लॉन्च', d: 'वितरण, पहले ग्राहक और एक कार्यशील राजस्व पाइपलाइन। हम बेचते हैं — सिर्फ़ सलाह नहीं देते।' },
+          { n: '03', t: 'वेंचर निर्माण', d: 'हम आपके साथ ज़मीन पर व्यवसाय बनाते और चलाते हैं, जोखिम और लाभ दोनों साझा करते हैं।' }
+        ],
+        approachEyebrow: 'तरीका',
+        approachTitle: 'क्रियान्वयन, सिद्धांत नहीं।',
+        approachSub: 'एक टीम जो आपको निर्णय से रूस में ज़मीनी राजस्व तक ले जाती है।',
+        steps: [
+          { n: '01', t: 'आकलन', d: 'हम वास्तविक अवसर, नियमन और राजस्व तक का सबसे तेज़ रास्ता तय करते हैं।' },
+          { n: '02', t: 'स्थापना', d: 'इकाई, लाइसेंस, बैंकिंग, लॉजिस्टिक्स और आपके पहले स्थानीय कर्मचारी।' },
+          { n: '03', t: 'लॉन्च', d: 'वितरण, पहले सौदे और पहले दिन से चलने वाला बिक्री इंजन।' },
+          { n: '04', t: 'विस्तार', d: 'हम आपके साथ काम करते रहते हैं — व्यवसाय बढ़ाते हैं, रिपोर्ट नहीं सौंपते।' }
+        ],
+        sectorsEyebrow: 'क्षेत्र',
+        sectorsTitle: 'हम कहाँ काम करते हैं।',
+        sectorsBody: 'उन क्षेत्रों में गहरा परिचालन अनुभव जो माल को आगे बढ़ाते और रूस में उपस्थिति बनाते हैं।',
+        sectors: ['तकनीक', 'विनिर्माण', 'कृषि', 'उपभोक्ता और रिटेल', 'उद्योग और ऊर्जा', 'लॉजिस्टिक्स'],
+        sectorsMore: 'और भी',
+        clientsEyebrow: 'किनके लिए',
+        clientsTitle: 'विदेश से आने वाली कंपनियों के लिए बनाया गया।',
+        clientsBody: 'चीन, भारत, खाड़ी और अन्य क्षेत्रों की विनिर्माण, तकनीक और कृषि कंपनियाँ जो रूस में वास्तविक उपस्थिति चाहती हैं — शून्य से बनाए बिना। हम ज़मीन पर आपकी टीम बन जाते हैं।',
+        clientsTags: ['चीन', 'भारत', 'खाड़ी', 'तुर्किये', 'दक्षिण-पूर्व एशिया'],
+        whyEyebrow: 'Aurion ही क्यों',
+        whyTitle: 'एक साझेदार जो बनाता है, सिर्फ़ सलाह नहीं देता।',
+        why: [
+          { t: 'सिद्धांत से ऊपर क्रियान्वयन', d: 'हमें पंजीकृत इकाइयों, बंद सौदों और दर्ज राजस्व से आँका जाता है — लिखे गए पन्नों से नहीं।' },
+          { t: 'ज़मीन पर', d: 'पहले ही दिन से स्थानीय टीम, स्थानीय इकाई और स्थानीय संबंध।' },
+          { t: 'साझा हित', d: 'हम आपके साथ बनाते हैं और जोखिम साझा करते हैं, इसलिए हमारी सफलता आपकी सफलता है।' },
+          { t: 'एक टीम, आरंभ से अंत तक', d: 'प्रवेश, बिक्री और संचालन एक ही छत के नीचे — कोई हस्तांतरण नहीं, कोई खोया महीना नहीं।' }
+        ],
+        ctaTitle: 'आइए रूस में आपके प्रवेश की योजना बनाएँ।',
+        ctaSub: 'हमें अपनी कंपनी और अपने लक्ष्य के बारे में बताएँ। हम राजस्व तक का एक ठोस रास्ता लेकर लौटेंगे।',
+        ctaBtn: 'संपर्क करें',
+        proof: [
+          { k: '90 दिन', v: 'आमतौर पर एक कार्यशील स्थानीय इकाई तक' },
+          { k: 'पहले दिन', v: 'बिक्री, कोई प्रेज़ेंटेशन नहीं' },
+          { k: '6+', v: 'क्षेत्र जिनमें हम काम करते हैं' },
+          { k: 'एक टीम', v: 'प्रवेश, बिक्री और संचालन' }
+        ],
+        dealEyebrow: 'सहयोग',
+        dealTitle: 'हम कैसे काम करते हैं — और हमें भुगतान कैसे होता है।',
+        dealSub: 'अपने जोखिम के अनुसार मॉडल चुनें। अधिकांश ग्राहक एक से शुरू करते हैं और अगले तक बढ़ते हैं।',
+        deal: [
+          { meta: 'सलाह · निश्चित शुल्क', t: 'बाज़ार प्रवेश', d: 'निश्चित दायरे का अधिदेश: इकाई, लाइसेंस, बैंकिंग और अनुपालन एक स्पष्ट शुल्क पर। परिणाम 100% आपका।' },
+          { meta: 'बिक्री लॉन्च · रिटेनर + सफलता', t: 'बिक्री लॉन्च', d: 'मासिक रिटेनर के साथ राजस्व और पहले सौदों से जुड़ा सफलता शुल्क। आप बेचते हैं तब हमें भुगतान होता है।' },
+          { meta: 'वेंचर · साझा इक्विटी', t: 'वेंचर निर्माण', d: 'हम अल्पांश हिस्सेदारी के लिए समय और पूँजी लगाते हैं। दीर्घकाल के लिए संरेखित — आपका लाभ हमारा लाभ है।' }
+        ],
+        faqEyebrow: 'सामान्य प्रश्न',
+        faqTitle: 'जो सवाल पहले पूछे जाते हैं।',
+        faq: [
+          { q: 'क्या हमें रूस में पंजीकृत कंपनी चाहिए?', a: 'अधिकांश वस्तुओं और अनुबंधों के लिए, हाँ — और हम पंजीकरण, लाइसेंस और बैंकिंग संभालते हैं ताकि आपको काग़ज नहीं, एक कार्यशील स्थानीय इकाई मिले।' },
+          { q: 'हम कितनी जल्दी बेचना शुरू कर सकते हैं?', a: 'हम सेटअप के साथ-साथ बिक्री तैयार करते हैं, इसलिए पहली व्यावसायिक बातचीत आमतौर पर कुछ हफ़्तों में शुरू हो जाती है, सब कुछ पूरा होने के बाद नहीं।' },
+          { q: 'क्या आप आज भुगतान और लॉजिस्टिक्स संभाल सकते हैं?', a: 'हाँ। सीमा-पार भुगतान, बैंकिंग और लॉजिस्टिक्स हर परियोजना का हिस्सा हैं, मौजूदा नियामक ढाँचे के भीतर।' },
+          { q: 'आप कौन-से बाज़ार और भाषाएँ कवर करते हैं?', a: 'हम चीन, भारत, खाड़ी, तुर्किये और दक्षिण-पूर्व एशिया की कंपनियों के साथ काम करते हैं और पूरे समय आपकी भाषा में काम करते हैं।' }
+        ],
+        formEyebrow: 'शुरुआत',
+        formTitle: 'अपने प्रवेश के बारे में बताएं।',
+        formSub: 'कुछ विवरण साझा करें और हम राजस्व तक का एक ठोस रास्ता लेकर लौटेंगे।',
+        formCompany: 'कंपनी',
+        formCountry: 'देश',
+        formIndustry: 'उद्योग',
+        formMessage: 'आप रूस में क्या हासिल करना चाहते हैं?',
+        formSubmit: 'योजना का अनुरोध करें',
+        formNote: 'या सीधे संपर्क करें',
+        formSuccess: 'धन्यवाद — हम जल्द ही संपर्क करेंगे।',
+        msgPrompt: 'हमें यहाँ संदेश भेजें',
+        footerTag: 'सिद्धांत से नहीं, क्रियान्वयन से रूस के बाज़ार में प्रवेश।'
+      },
+      tr: {
+        navServices: 'Hizmetler', navApproach: 'Yaklaşım', navSectors: 'Sektörler', navClients: 'Kimlere',
+        cta: 'Girişe başlayın',
+        heroEyebrow: 'Rusya pazarına giriş',
+        heroTitle: 'Şirketlerin Rusya’ya teoriyle değil, icraatla girmesini sağlıyoruz.',
+        heroSub: 'Teknoloji, üretim, tarım ve daha fazlasında pazara giriş, satış lansmanı ve girişim inşası.',
+        heroPrimary: 'Girişe başlayın',
+        heroSecondary: 'Nasıl çalıştığımızı görün',
+        heroNote: 'Yurt dışından gelen şirketler için Rusya’da sahadayız.',
+        coord: 'MOSKOVA · 55.75°N 37.62°E',
+        strip: ['Yerel tüzel kişilik ve lisanslar', 'İlk günden satış', 'Sahada çalışıyoruz', 'Uyumlu çıkarlar'],
+        servicesEyebrow: 'Ne yapıyoruz',
+        servicesTitle: 'Sizi pazara sokmanın üç yolu.',
+        services: [
+          { n: '01', t: 'Pazara Giriş', d: 'Şirket kuruluşu, lisanslar, bankacılık ve uyum — sunum değil, faaliyete hazır yerel bir tüzel kişilik.' },
+          { n: '02', t: 'Satış Lansmanı', d: 'Dağıtım, ilk müşteriler ve işleyen bir gelir hattı. Yalnızca tavsiye vermiyor, satıyoruz.' },
+          { n: '03', t: 'Girişim İnşası', d: 'İşi sahada sizinle birlikte kurar ve yönetiriz; riski ve kazancı paylaşırız.' }
+        ],
+        approachEyebrow: 'Yaklaşım',
+        approachTitle: 'İcraat, teori değil.',
+        approachSub: 'Sizi karardan Rusya’da sahadaki gerçek gelire taşıyan tek bir ekip.',
+        steps: [
+          { n: '01', t: 'Değerlendirme', d: 'Gerçek fırsatı, mevzuatı ve gelire giden en hızlı yolu belirleriz.' },
+          { n: '02', t: 'Kuruluş', d: 'Tüzel kişilik, lisanslar, bankacılık, lojistik ve ilk yerel çalışanlarınız.' },
+          { n: '03', t: 'Lansman', d: 'Dağıtım, ilk anlaşmalar ve ilk günden çalışan bir satış motoru.' },
+          { n: '04', t: 'Ölçeklenme', d: 'Sizinle çalışmaya devam ederiz — rapor teslim etmeyiz, işi büyütürüz.' }
+        ],
+        sectorsEyebrow: 'Sektörler',
+        sectorsTitle: 'Nerede çalışıyoruz.',
+        sectorsBody: 'Malları hareket ettiren ve Rusya’da varlık inşa eden sektörlerde derin operasyonel deneyim.',
+        sectors: ['Teknoloji', 'Üretim', 'Tarım', 'Tüketim ve Perakende', 'Sanayi ve Enerji', 'Lojistik'],
+        sectorsMore: 've daha fazlası',
+        clientsEyebrow: 'Kimlere',
+        clientsTitle: 'Yurt dışından gelen şirketler için tasarlandı.',
+        clientsBody: 'Çin, Hindistan, Körfez ve ötesinden Rusya’da gerçek bir varlık isteyen üretim, teknoloji ve tarım şirketleri — sıfırdan kurmadan. Sahadaki ekibiniz oluruz.',
+        clientsTags: ['Çin', 'Hindistan', 'Körfez', 'Türkiye', 'Güneydoğu Asya'],
+        whyEyebrow: 'Neden Aurion',
+        whyTitle: 'Yalnızca öğüt vermeyen, inşa eden bir ortak.',
+        why: [
+          { t: 'Teoriden çok icraat', d: 'Bizi kurulan tüzel kişilikler, kapatılan anlaşmalar ve elde edilen gelir ölçer — yazılan sayfalar değil.' },
+          { t: 'Sahada', d: 'İlk günden yerel ekip, yerel tüzel kişilik ve yerel ilişkiler.' },
+          { t: 'Uyumlu çıkarlar', d: 'Sizinle birlikte inşa eder ve riski paylaşırız; başarınız başarımızdır.' },
+          { t: 'Baştan sona tek ekip', d: 'Giriş, satış ve operasyon tek çatı altında — devir yok, kaybedilen ay yok.' }
+        ],
+        ctaTitle: 'Rusya’ya girişinizi birlikte planlayalım.',
+        ctaSub: 'Bize şirketinizi ve nerede olmak istediğinizi anlatın. Gelire giden somut bir yolla döneriz.',
+        ctaBtn: 'İletişime geçin',
+        proof: [
+          { k: '90 gün', v: 'genellikle faaliyete hazır yerel bir tüzel kişiliğe' },
+          { k: 'İlk gün', v: 'sunum değil, satış' },
+          { k: '6+', v: 'faaliyet gösterdiğimiz sektör' },
+          { k: 'Tek ekip', v: 'giriş, satış ve operasyon' }
+        ],
+        dealEyebrow: 'İş birliği',
+        dealTitle: 'Nasıl çalışırız — ve nasıl ücretlendiriliriz.',
+        dealSub: 'Risk iştahınıza uyan modeli seçin. Çoğu müşteri biriyle başlar ve sonrakine geçer.',
+        deal: [
+          { meta: 'Danışmanlık · sabit ücret', t: 'Pazara Giriş', d: 'Sabit kapsamlı görev: tüzel kişilik, lisanslar, bankacılık ve uyum, net bir ücret karşılığı. Sonuç %100 size ait.' },
+          { meta: 'Satış lansmanı · sabit + başarı', t: 'Satış Lansmanı', d: 'Aylık sabit ücret artı gelire ve ilk anlaşmalara bağlı başarı ücreti. Siz sattığınızda ücret alırız.' },
+          { meta: 'Girişim · ortak pay', t: 'Girişim İnşası', d: 'Azınlık payı karşılığında zaman ve sermaye yatırırız. Uzun vadede uyumlu — sizin kazancınız bizim kazancımızdır.' }
+        ],
+        faqEyebrow: 'SSS',
+        faqTitle: 'İlk duyduğumuz sorular.',
+        faq: [
+          { q: 'Rusya’da kayıtlı bir şirkete ihtiyacımız var mı?', a: 'Çoğu ürün ve sözleşme için evet — kayıt, lisans ve bankacılığı biz hallederiz; böylece evrak değil, faaliyete hazır yerel bir tüzel kişilik elde edersiniz.' },
+          { q: 'Ne kadar hızlı satışa başlayabiliriz?', a: 'Satışı kurulumla paralel inşa ederiz; bu yüzden ilk ticari görüşmeler genellikle her şey bitmeden, ilk haftalar içinde başlar.' },
+          { q: 'Bugün ödemeleri ve lojistiği yönetebilir misiniz?', a: 'Evet. Sınır ötesi ödemeler, bankacılık ve lojistik her görevin parçasıdır; mevcut düzenleyici çerçeve içinde.' },
+          { q: 'Hangi pazarları ve dilleri kapsıyorsunuz?', a: 'Çin, Hindistan, Körfez, Türkiye ve Güneydoğu Asya’dan şirketlerle çalışır, süreç boyunca sizin dilinizde ilerleriz.' }
+        ],
+        formEyebrow: 'Başla',
+        formTitle: 'Girişinizi bize anlatın.',
+        formSub: 'Birkaç ayrıntı paylaşın, gelire giden somut bir yolla dönelim.',
+        formCompany: 'Şirket',
+        formCountry: 'Ülke',
+        formIndustry: 'Sektör',
+        formMessage: 'Rusya’da neyi başarmak istiyorsunuz?',
+        formSubmit: 'Plan isteyin',
+        formNote: 'veya doğrudan bize ulaşın',
+        formSuccess: 'Teşekkürler — kısa süre içinde sizinle iletişime geçeceğiz.',
+        msgPrompt: 'Bize şuradan yazın',
+        footerTag: 'Rusya pazarına teoriyle değil, icraatla giriş.'
+      },
+      fa: {
+        navServices: 'خدمات', navApproach: 'رویکرد', navSectors: 'حوزه‌ها', navClients: 'برای چه کسانی',
+        cta: 'ورود را آغاز کنید',
+        heroEyebrow: 'ورود به بازار روسیه',
+        heroTitle: 'ما به شرکت‌ها کمک می‌کنیم با اجرا، نه نظریه، وارد روسیه شوند.',
+        heroSub: 'ورود به بازار، راه‌اندازی فروش و ساخت کسب‌وکار در فناوری، تولید، کشاورزی و فراتر از آن.',
+        heroPrimary: 'ورود را آغاز کنید',
+        heroSecondary: 'ببینید چگونه کار می‌کنیم',
+        heroNote: 'برای شرکت‌هایی که از خارج وارد می‌شوند، در روسیه حاضریم.',
+        coord: 'مسکو · 55.75°N 37.62°E',
+        strip: ['نهاد محلی و مجوزها', 'فروش از روز نخست', 'در میدان کار می‌کنیم', 'منافع هم‌سو'],
+        servicesEyebrow: 'آنچه انجام می‌دهیم',
+        servicesTitle: 'سه راه برای ورود شما به بازار.',
+        services: [
+          { n: '01', t: 'ورود به بازار', d: 'ثبت شرکت، مجوزها، بانکداری و انطباق — یک نهاد محلیِ آمادهٔ فعالیت، نه یک ارائه.' },
+          { n: '02', t: 'راه‌اندازی فروش', d: 'توزیع، نخستین مشتریان و خط درآمدِ فعال. ما می‌فروشیم، نه فقط مشاوره می‌دهیم.' },
+          { n: '03', t: 'ساخت کسب‌وکار', d: 'کسب‌وکار را در میدان همراه شما می‌سازیم و اداره می‌کنیم و ریسک و سود را تقسیم می‌کنیم.' }
+        ],
+        approachEyebrow: 'رویکرد',
+        approachTitle: 'اجرا، نه نظریه.',
+        approachSub: 'یک تیم که شما را از تصمیم تا درآمد واقعی در میدان روسیه می‌رساند.',
+        steps: [
+          { n: '01', t: 'ارزیابی', d: 'فرصت واقعی، مقررات و سریع‌ترین مسیر به درآمد را مشخص می‌کنیم.' },
+          { n: '02', t: 'استقرار', d: 'نهاد، مجوزها، بانکداری، لجستیک و نخستین کارکنان محلی شما.' },
+          { n: '03', t: 'راه‌اندازی', d: 'توزیع، نخستین معاملات و موتور فروشی که از روز اول کار می‌کند.' },
+          { n: '04', t: 'مقیاس‌پذیری', d: 'همراه شما به کار ادامه می‌دهیم — کسب‌وکار را رشد می‌دهیم، نه اینکه گزارشی تحویل دهیم.' }
+        ],
+        sectorsEyebrow: 'حوزه‌ها',
+        sectorsTitle: 'کجا کار می‌کنیم.',
+        sectorsBody: 'تجربهٔ عملیاتی عمیق در حوزه‌هایی که کالا را جابه‌جا می‌کنند و حضور را در روسیه می‌سازند.',
+        sectors: ['فناوری', 'تولید', 'کشاورزی', 'مصرف و خرده‌فروشی', 'صنعت و انرژی', 'لجستیک'],
+        sectorsMore: 'و بیشتر',
+        clientsEyebrow: 'برای چه کسانی',
+        clientsTitle: 'ساخته‌شده برای شرکت‌هایی که از خارج وارد می‌شوند.',
+        clientsBody: 'شرکت‌های تولیدی، فناوری و کشاورزی از چین، هند، خلیج‌فارس و فراتر که حضوری واقعی در روسیه می‌خواهند — بدون ساختن از صفر. ما تیم شما در میدان می‌شویم.',
+        clientsTags: ['چین', 'هند', 'خلیج‌فارس', 'ترکیه', 'جنوب شرق آسیا'],
+        whyEyebrow: 'چرا Aurion',
+        whyTitle: 'شریکی که می‌سازد، نه فقط مشاوره می‌دهد.',
+        why: [
+          { t: 'اجرا مهم‌تر از نظریه', d: 'ما را با نهادهای ثبت‌شده، معاملات بسته‌شده و درآمد محقق‌شده می‌سنجند — نه با تعداد صفحات.' },
+          { t: 'در میدان', d: 'تیم محلی، نهاد محلی و روابط محلی از همان روز نخست.' },
+          { t: 'منافع هم‌سو', d: 'همراه شما می‌سازیم و ریسک را تقسیم می‌کنیم؛ موفقیت شما موفقیت ماست.' },
+          { t: 'یک تیم، از ابتدا تا انتها', d: 'ورود، فروش و عملیات زیر یک سقف — بدون واگذاری و بدون ماه‌های ازدست‌رفته.' }
+        ],
+        ctaTitle: 'بیایید ورود شما به روسیه را با هم برنامه‌ریزی کنیم.',
+        ctaSub: 'از شرکت خود و جایی که می‌خواهید باشید به ما بگویید. با مسیری مشخص به‌سوی درآمد بازمی‌گردیم.',
+        ctaBtn: 'تماس بگیرید',
+        proof: [
+          { k: '۹۰ روز', v: 'معمولاً تا یک نهاد محلیِ فعال' },
+          { k: 'روز نخست', v: 'فروش، نه یک ارائه' },
+          { k: '+۶', v: 'حوزه‌هایی که در آن کار می‌کنیم' },
+          { k: 'یک تیم', v: 'ورود، فروش و عملیات' }
+        ],
+        dealEyebrow: 'همکاری',
+        dealTitle: 'چگونه کار می‌کنیم — و چگونه دستمزد می‌گیریم.',
+        dealSub: 'مدلی را برگزینید که با ریسک‌پذیری شما هم‌خوان باشد. بیشتر مشتریان با یکی آغاز می‌کنند و به بعدی می‌رسند.',
+        deal: [
+          { meta: 'مشاوره · هزینهٔ ثابت', t: 'ورود به بازار', d: 'مأموریتی با دامنهٔ ثابت: نهاد، مجوزها، بانکداری و انطباق در ازای هزینه‌ای روشن. نتیجه ۱۰۰٪ از آنِ شماست.' },
+          { meta: 'راه‌اندازی فروش · حق‌الزحمه + موفقیت', t: 'راه‌اندازی فروش', d: 'حق‌الزحمهٔ ماهانه به‌علاوهٔ پاداش موفقیت گره‌خورده به درآمد و نخستین معاملات. وقتی بفروشید، دستمزد می‌گیریم.' },
+          { meta: 'سرمایه‌گذاری · سهام مشترک', t: 'ساخت کسب‌وکار', d: 'زمان و سرمایه را در ازای سهمی اقلیت سرمایه‌گذاری می‌کنیم. هم‌سو در بلندمدت — سود شما سود ماست.' }
+        ],
+        faqEyebrow: 'پرسش‌های پرتکرار',
+        faqTitle: 'پرسش‌هایی که نخست می‌شنویم.',
+        faq: [
+          { q: 'آیا به شرکتی ثبت‌شده در روسیه نیاز داریم؟', a: 'برای بیشتر کالاها و قراردادها، بله — و ما ثبت، مجوزها و بانکداری را برعهده می‌گیریم تا یک نهاد محلیِ فعال داشته باشید، نه صرفاً کاغذبازی.' },
+          { q: 'چه‌قدر زود می‌توانیم فروش را آغاز کنیم؟', a: 'فرایند فروش را هم‌زمان با راه‌اندازی می‌سازیم؛ بنابراین نخستین گفت‌وگوهای تجاری معمولاً ظرف چند هفته آغاز می‌شود، نه پس از پایان همه‌چیز.' },
+          { q: 'آیا امروز می‌توانید پرداخت‌ها و لجستیک را مدیریت کنید؟', a: 'بله. پرداخت‌های فرامرزی، بانکداری و لجستیک بخشی از هر پروژه است، در چارچوب مقررات کنونی.' },
+          { q: 'کدام بازارها و زبان‌ها را پوشش می‌دهید؟', a: 'با شرکت‌هایی از چین، هند، خلیج‌فارس، ترکیه و جنوب شرق آسیا کار می‌کنیم و در سراسر پروژه به زبان شما پیش می‌رویم.' }
+        ],
+        formEyebrow: 'آغاز',
+        formTitle: 'از ورود خود به ما بگویید.',
+        formSub: 'چند جزئیات را در میان بگذارید تا با مسیری مشخص به‌سوی درآمد بازگردیم.',
+        formCompany: 'شرکت',
+        formCountry: 'کشور',
+        formIndustry: 'حوزه',
+        formMessage: 'در روسیه می‌خواهید به چه چیزی برسید؟',
+        formSubmit: 'درخواست برنامه',
+        formNote: 'یا مستقیم با ما در تماس باشید',
+        formSuccess: 'سپاسگزاریم — به‌زودی با شما در تماس خواهیم بود.',
+        msgPrompt: 'به ما پیام دهید در',
+        footerTag: 'ورود به بازار روسیه با اجرا، نه نظریه.'
+      }
+    };
+
+    const lang = this.state.lang;
+    const langs = [
+      { key: 'en', code: 'EN', flag: '🇬🇧', label: 'English' },
+      { key: 'ru', code: 'RU', flag: '🇷🇺', label: 'Русский' },
+      { key: 'zh', code: 'ZH', flag: '🇨🇳', label: '中文' },
+      { key: 'tr', code: 'TR', flag: '🇹🇷', label: 'Türkçe' },
+      { key: 'hi', code: 'HI', flag: '🇮🇳', label: 'हिन्दी' },
+      { key: 'ar', code: 'AR', flag: '🇸🇦', label: 'العربية' },
+      { key: 'fa', code: 'FA', flag: '🇮🇷', label: 'فارسی' }
+    ];
+    const itemBase = 'display:flex;align-items:center;gap:11px;width:100%;text-align:start;border:none;border-radius:6px;padding:9px 12px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer';
+    const langList = langs.map((l) => ({
+      code: l.code,
+      label: l.label,
+      flag: l.flag,
+      pick: () => this.choose(l.key),
+      style: itemBase + (l.key === lang ? ';background:#15120E;color:#F3EFE7' : ';background:transparent;color:#15120E')
+    }));
+    const cur = langs.find((l) => l.key === lang) || langs[0];
+    const t = C[lang] || C.en;
+    try { document.title = 'AURION — ' + t.heroEyebrow; const m = document.querySelector('meta[name=description]'); if (m) m.setAttribute('content', t.heroSub); } catch (e) {}
+
+    return {
+      t: t,
+      dir: (lang === 'ar' || lang === 'fa') ? 'rtl' : 'ltr',
+      menuOpen: this.state.menuOpen,
+      currentLabel: cur.label,
+      currentFlag: cur.flag,
+      langList: langList,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      form: this.state.form,
+      sent: this.state.sent,
+      showForm: !this.state.sent,
+      onCompany: (e) => this.setField('company', e),
+      onCountry: (e) => this.setField('country', e),
+      onIndustry: (e) => this.setField('industry', e),
+      onMessage: (e) => this.setField('message', e),
+      submit: (e) => this.submit(e),
+      trackCta: () => this.track('cta_click', { lang: this.state.lang })
+    };
+  }
+}
+</script>
+</body>
+</html>

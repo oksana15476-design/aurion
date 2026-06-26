@@ -1,0 +1,62 @@
+<!-- @dsCard group="Website" viewport="1240x760" name="AURION landing" subtitle="Full marketing page — nav, hero, services, engagement, contact" -->
+<!-- @startingPoint section="Website" subtitle="AURION market-entry landing page" viewport="1240x760" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AURION — Market entry into Russia</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--surface-page);font-family:var(--font-body)}
+  ::selection{background:var(--selection-bg);color:var(--selection-fg)}
+  footer{background:var(--surface-footer);color:rgba(243,239,231,.62)}
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel" src="./Nav.jsx"></script>
+<script type="text/babel" src="./Hero.jsx"></script>
+<script type="text/babel" src="./Services.jsx"></script>
+<script type="text/babel" src="./Engagement.jsx"></script>
+<script type="text/babel" src="./Contact.jsx"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+  const DS = Object.values(window).find(v => v && v.Button && v.Card && v.LangSwitcher && v.Field) || {};
+  const { Nav, Hero, Services, Engagement, Contact } = window.AurionKit;
+
+  function App() {
+    const [lang, setLang] = React.useState("en");
+    React.useEffect(() => {
+      const rtl = lang === "ar" || lang === "fa";
+      document.documentElement.setAttribute("lang", lang);
+      document.documentElement.setAttribute("dir", rtl ? "rtl" : "ltr");
+    }, [lang]);
+    return (
+      <>
+        <Nav DS={DS} lang={lang} setLang={setLang} />
+        <Hero DS={DS} />
+        <Services DS={DS} />
+        <Engagement DS={DS} />
+        <Contact DS={DS} />
+        <footer>
+          <div style={{ maxWidth: "var(--container-max)", margin: "0 auto", padding: "54px 32px", display: "flex", flexWrap: "wrap", gap: 24, alignItems: "center", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+              <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 18, letterSpacing: "var(--tracking-wordmark)", color: "var(--parchment-100)" }}>AURION</span>
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent)", alignSelf: "center" }} />
+            </div>
+            <div style={{ fontSize: 14, maxWidth: "42ch" }}>Market entry into Russia through execution, not theory.</div>
+            <div style={{ fontSize: 13, letterSpacing: "0.04em" }}>© 2026 AURION</div>
+          </div>
+        </footer>
+      </>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

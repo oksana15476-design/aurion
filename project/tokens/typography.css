@@ -1,0 +1,50 @@
+/* ============================================================
+   AURION — TYPOGRAPHY
+   Two families. Archivo (grotesque) sets every heading, eyebrow
+   and big numeral, always tight (-0.025em) and weight 600.
+   Hanken Grotesk carries all body, UI and labels.
+   Non-Latin fallbacks keep the localized site coherent.
+   ============================================================ */
+:root {
+  --font-display: "Archivo", "Noto Sans SC", "Noto Naskh Arabic", "Noto Sans Devanagari", system-ui, sans-serif;
+  --font-body:    "Hanken Grotesk", "Noto Sans SC", "Noto Naskh Arabic", "Noto Sans Devanagari", system-ui, sans-serif;
+
+  /* --- Weights --- */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold: 600;
+  --weight-bold:    700;
+
+  /* --- Display / heading scale (fluid; Archivo 600) --- */
+  --display-hero:    clamp(38px, 5.6vw, 76px); /* h1 hero */
+  --display-xl:      clamp(34px, 5.2vw, 68px); /* big CTA */
+  --display-lg:      clamp(32px, 4.2vw, 54px); /* dark section title */
+  --display-md:      clamp(30px, 3.8vw, 48px); /* section title */
+  --display-sm:      clamp(30px, 3.6vw, 46px); /* section title (compact) */
+  --heading-card:    25px;                      /* card h3 */
+  --heading-sub:     20px;                      /* sub-heading */
+
+  /* --- Body scale (Hanken Grotesk) --- */
+  --body-lg:   20px;   /* hero sub / lead */
+  --body-md:   17px;   /* standard paragraph */
+  --body-sm:   15.5px; /* card copy, dense */
+  --body-xs:   14px;   /* notes, captions */
+
+  /* --- Eyebrow / label (uppercase, tracked) --- */
+  --eyebrow-size: 12.5px;
+  --eyebrow-tracking: 0.18em;
+  --label-size: 12px;
+  --label-tracking: 0.04em;
+
+  /* --- Line heights --- */
+  --leading-tight:  0.99; /* hero display */
+  --leading-snug:   1.02; /* section headings */
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+
+  /* --- Letter-spacing --- */
+  --tracking-display: -0.03em;
+  --tracking-heading: -0.025em;
+  --tracking-tight:   -0.01em;
+  --tracking-wordmark: 0.22em; /* AURION logotype */
+}

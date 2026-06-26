@@ -1,0 +1,27 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Field" subtitle="Labelled inputs for the lead form" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>body{margin:0;font-family:var(--font-body);background:var(--ink-800)}
+#r{padding:26px;background:var(--surface-page);margin:20px;border-radius:var(--radius-md);display:flex;flex-direction:column;gap:15px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+</head><body><div id="r"></div>
+<script type="text/babel">
+const NS = Object.values(window).find(v => v && v.Field) || {};
+const { Field } = NS;
+function Demo(){
+  const [v,setV]=React.useState({c:'Lotus Materials',co:'India',i:'Manufacturing',m:''});
+  return (<>
+    <Field label="Company" value={v.c} onChange={e=>setV({...v,c:e.target.value})}/>
+    <div className="two">
+      <Field label="Country" value={v.co} onChange={e=>setV({...v,co:e.target.value})}/>
+      <Field label="Industry" value={v.i} onChange={e=>setV({...v,i:e.target.value})}/>
+    </div>
+    <Field label="What do you want to achieve in Russia?" multiline value={v.m} onChange={e=>setV({...v,m:e.target.value})}/>
+  </>);
+}
+ReactDOM.createRoot(document.getElementById('r')).render(<Demo/>);
+</script>
+</body></html>

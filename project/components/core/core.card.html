@@ -1,0 +1,33 @@
+<!-- @dsCard group="Components" viewport="700x200" name="Button & Tag" subtitle="Pill CTAs and sector chips" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>body{margin:0;font-family:var(--font-body);background:var(--surface-page)}
+#r{padding:26px 24px;display:flex;flex-direction:column;gap:18px}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+</head><body><div id="r"></div>
+<script type="text/babel">
+const NS = Object.values(window).find(v => v && v.Button && v.Tag) || {};
+const { Button, Tag } = NS;
+function Demo(){
+  return (<>
+    <div className="row">
+      <Button href="#">Start your entry</Button>
+      <Button variant="ghost" href="#">See how we work</Button>
+      <Button variant="gold" size="lg">Get in touch</Button>
+      <Button disabled>Disabled</Button>
+    </div>
+    <div className="row">
+      <Tag>Technology</Tag>
+      <Tag>Manufacturing</Tag>
+      <Tag variant="dashed">and more</Tag>
+      <Tag variant="solid">China</Tag>
+      <Tag variant="solid">India</Tag>
+    </div>
+  </>);
+}
+ReactDOM.createRoot(document.getElementById('r')).render(<Demo/>);
+</script>
+</body></html>

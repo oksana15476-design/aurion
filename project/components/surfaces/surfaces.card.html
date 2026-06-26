@@ -1,0 +1,21 @@
+<!-- @dsCard group="Components" viewport="700x280" name="Card" subtitle="Service & engagement cards" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>body{margin:0;font-family:var(--font-body);background:var(--surface-page)}
+#r{padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px}</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+</head><body><div id="r"></div>
+<script type="text/babel">
+const NS = Object.values(window).find(v => v && v.Card) || {};
+const { Card } = NS;
+function Demo(){
+  return (<>
+    <Card number="01" title="Market Entry">Company registration, licensing, banking and compliance — a local entity that is ready to operate, not a slide deck.</Card>
+    <Card meta="Venture · shared equity" title="Venture Building">We co-invest time and capital for a minority stake. Aligned for the long term — your upside is our upside.</Card>
+  </>);
+}
+ReactDOM.createRoot(document.getElementById('r')).render(<Demo/>);
+</script>
+</body></html>

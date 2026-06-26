@@ -1,0 +1,28 @@
+<!-- @dsCard group="Brand" viewport="700x190" name="Radius & buttons" subtitle="Tight radii; pill buttons; gold hover" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;font-family:var(--font-body);background:var(--surface-page);color:var(--text-primary)}
+.wrap{padding:24px;display:flex;flex-direction:column;gap:18px}
+.row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.btn{font-size:14px;font-weight:600;padding:13px 24px;border-radius:var(--radius-pill);border:1px solid transparent;cursor:default}
+.solid{background:var(--ink-800);color:var(--parchment-100)}
+.solid.gold{background:var(--accent);color:var(--ink-800)}
+.ghost{border-color:var(--border-strong);color:var(--ink-800)}
+.tag{border:1px solid var(--border-strong);border-radius:var(--radius-pill);padding:11px 20px;font-size:14px}
+.sq{display:flex;gap:10px}
+.sq i{width:46px;height:46px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--text-muted);background:var(--surface-card);border:1px solid var(--line)}
+</style></head><body>
+<div class="wrap">
+  <div class="row">
+    <span class="btn solid">Start your entry</span>
+    <span class="btn solid gold">Gold (hover)</span>
+    <span class="btn ghost">See how we work</span>
+    <span class="tag">Technology</span>
+  </div>
+  <div class="sq">
+    <i style="border-radius:var(--radius-xs)">2</i>
+    <i style="border-radius:var(--radius-sm)">4</i>
+    <i style="border-radius:var(--radius-md)">6</i>
+    <i style="border-radius:var(--radius-pill)">999</i>
+  </div>
+</div>
+</body></html>

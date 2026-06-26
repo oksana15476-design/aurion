@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>AURION — Market entry into Russia, through execution not theory</title>
+<meta name="description" content="AURION is the operational partner for international companies entering the Russian market — market entry, sales launch and venture building from strategy to first revenue.">
+<meta name="theme-color" content="#15120E">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://aurion.fund/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AURION">
+<meta property="og:title" content="AURION — Market entry into Russia">
+<meta property="og:description" content="We help companies enter Russia through execution, not theory. Market entry, sales launch & venture building for companies from China, India, the Gulf, Türkiye and beyond.">
+<meta property="og:url" content="https://aurion.fund/">
+<meta property="og:image" content="https://aurion.fund/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AURION — Market entry into Russia">
+<meta name="twitter:description" content="We help companies enter Russia through execution, not theory.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
+<script src="./image-slot.js"></script>
+<!-- PRODUCTION: replace GTM-XXXXXXX with your container, or remove. -->
+<script>window.dataLayer=window.dataLayer||[];</script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--parchment-100)}
+  ::selection{background:var(--selection-bg);color:var(--selection-fg)}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  button{font-family:inherit}
+  input,textarea,select{font-family:inherit}
+  input::placeholder,textarea::placeholder{color:var(--stone-500)}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{transition-duration:0.001ms !important;animation-duration:0.001ms !important}
+  }
+</style>
+</helmet>
+
+<div style="background:var(--parchment-100);color:var(--ink-800);font-family:var(--font-body);min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden">
+
+  <!-- ===== NAV ===== -->
+  <header style="position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:var(--blur-nav);border-bottom:1px solid var(--line-weak)">
+    <nav style="max-width:var(--container-max);margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="#top" style="display:flex;align-items:baseline;gap:10px">
+        <span style="font-family:var(--font-display);font-weight:700;font-size:21px;letter-spacing:var(--tracking-wordmark)">AURION</span>
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--accent);align-self:center;margin-bottom:1px"></span>
+      </a>
+      <div style="{{ navDesktopStyle }}">
+        <div style="display:flex;gap:26px;font-size:14px;font-weight:500">
+          <a href="#approach" style="opacity:.78" style-hover="opacity:1">Approach</a>
+          <a href="#about" style="opacity:.78" style-hover="opacity:1">About</a>
+          <a href="#faq" style="opacity:.78" style-hover="opacity:1">FAQ</a>
+          <a href="#packages" style="opacity:.78" style-hover="opacity:1">Solutions</a>
+          <a href="#deal" style="opacity:.78" style-hover="opacity:1">Deal Structure</a>
+        </div>
+        <div data-lang-menu="1" style="position:relative">
+          <button onClick="{{ toggleLangMenu }}" aria-label="Select language" aria-expanded="{{ langMenuOpen }}" style="display:flex;align-items:center;gap:8px;border:1px solid var(--border-strong);border-radius:var(--radius-pill);padding:9px 14px;background:transparent;font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink-800);white-space:nowrap" style-hover="border-color:var(--ink-800)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="flex:none"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"></path></svg>
+            <span>{{ currentLangName }}</span>
+            <span style="font-size:9px;opacity:.5">▾</span>
+          </button>
+          <sc-if value="{{ langMenuOpen }}" hint-placeholder-val="{{ false }}">
+            <div role="menu" style="position:absolute;top:calc(100% + 10px);inset-inline-end:0;min-width:188px;background:var(--parchment-50);border:1px solid var(--line);border-radius:var(--radius-md);box-shadow:var(--shadow-card-float);padding:6px;z-index:60;overflow:hidden">
+              <sc-for list="{{ langOptions }}" as="lo" hint-placeholder-count="7">
+                <button role="menuitem" onClick="{{ lo.pick }}" style="{{ lo.style }}">
+                  <span>{{ lo.name }}</span>
+                  <span style="display:flex;align-items:center;gap:8px"><span style="font-size:10px;font-weight:700;letter-spacing:.1em;opacity:.4">{{ lo.code }}</span><span style="color:var(--accent);width:10px">{{ lo.check }}</span></span>
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+        <a href="#contact" onClick="{{ trackContact }}" style="background:var(--ink-800);color:var(--parchment-100);font-size:13.5px;font-weight:600;padding:11px 20px;border-radius:var(--radius-pill);white-space:nowrap" style-hover="background:var(--accent)">Get in Touch</a>
+      </div>
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" aria-expanded="{{ menuOpen }}" style="{{ hamburgerStyle }}">
+        <span style="display:block;width:20px;height:2px;background:var(--ink-800)"></span>
+        <span style="display:block;width:20px;height:2px;background:var(--ink-800)"></span>
+        <span style="display:block;width:20px;height:2px;background:var(--ink-800)"></span>
+      </button>
+    </nav>
+    <sc-if value="{{ showMobileMenu }}" hint-placeholder-val="{{ false }}">
+      <div style="border-top:1px solid var(--line-weak);background:var(--parchment-50);padding:14px 32px 20px;display:flex;flex-direction:column;gap:4px">
+        <sc-for list="{{ navLinks }}" as="nl" hint-placeholder-count="5">
+          <a href="{{ nl.href }}" onClick="{{ nl.go }}" style="padding:12px 4px;font-size:16px;font-weight:600;border-bottom:1px solid var(--line-weak)">{{ nl.label }}</a>
+        </sc-for>
+        <a href="#contact" onClick="{{ closeMenuContact }}" style="margin-top:12px;background:var(--ink-800);color:var(--parchment-100);font-size:15px;font-weight:600;padding:14px 20px;border-radius:var(--radius-pill);text-align:center">Get in Touch</a>
+        <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--line-weak)">
+          <div style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500);margin-bottom:10px">Language</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ langOptions }}" as="lo" hint-placeholder-count="7">
+              <button onClick="{{ lo.pick }}" style="border:1px solid var(--border-strong);border-radius:var(--radius-pill);padding:9px 15px;background:transparent;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;color:var(--ink-800)">{{ lo.name }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="top" style="max-width:var(--container-max);margin:0 auto;padding:88px 32px 84px;text-align:center">
+    <div style="font-size:var(--eyebrow-size);font-weight:600;letter-spacing:var(--eyebrow-tracking);text-transform:uppercase;color:var(--accent);margin-bottom:26px">Your first step into the Russian market</div>
+    <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(40px,6vw,82px);line-height:.99;letter-spacing:var(--tracking-display);max-width:16ch;margin:0 auto">We help companies <span style="font-style:italic;color:var(--accent)">enter Russia</span> through execution, <span style="font-style:italic;color:var(--accent)">not theory.</span></h1>
+    <p style="margin:30px auto 0;font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:var(--stone-600);max-width:54ch">Market entry, sales launch &amp; venture building — across technology, manufacturing, agriculture, real estate and other industries.</p>
+    <div style="margin:34px auto 0;max-width:560px;background:var(--parchment-200);border:1px solid var(--line);border-radius:var(--radius-md);padding:18px 24px;font-size:16px;line-height:1.5">We <span style="color:var(--accent);font-weight:600">co-invest</span> in your market entry infrastructure — skin in the game from day one.</div>
+    <div style="margin-top:36px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+      <a href="#contact" onClick="{{ trackContact }}" style="background:var(--ink-800);color:var(--parchment-100);font-size:15px;font-weight:600;padding:15px 30px;border-radius:var(--radius-pill)" style-hover="background:var(--accent)">Start a Conversation</a>
+      <a href="#approach" style="border:1px solid var(--border-strong);font-size:15px;font-weight:600;padding:15px 30px;border-radius:var(--radius-pill)" style-hover="border-color:var(--ink-800)">Our Methodology</a>
+    </div>
+    <div style="margin-top:42px;display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:center;align-items:center">
+      <span style="font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stone-500)">Built for companies from</span>
+      <sc-for list="{{ audience }}" as="a" hint-placeholder-count="5">
+        <span style="display:flex;align-items:center;gap:18px;font-size:14.5px;font-weight:600;color:var(--ink-800)"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent)"></span>{{ a.name }}</span>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===== WHY RUSSIA ===== -->
+  <section style="background:var(--parchment-200);border-top:1px solid var(--line-weak);border-bottom:1px solid var(--line-weak)">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:80px 32px">
+      <div style="background:var(--parchment-50);border:1px solid var(--line);border-radius:var(--radius-md);box-shadow:var(--shadow-card-float);padding:48px 40px">
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3vw,36px);letter-spacing:var(--tracking-heading);text-align:center;margin-bottom:40px">Why Russia?</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px">
+          <sc-for list="{{ whyRussia }}" as="s" hint-placeholder-count="5">
+            <div style="text-align:center">
+              <div style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3vw,40px);letter-spacing:-.02em;color:var(--accent)">{{ s.v }}</div>
+              <div style="margin-top:10px;font-size:14.5px;line-height:1.45;color:var(--stone-600)">{{ s.l }}</div>
+              <div style="margin-top:8px;font-size:12px;color:var(--stone-500);border-top:1px solid var(--line);padding-top:8px;display:inline-block">{{ s.src }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin-top:38px;padding-top:30px;border-top:1px solid var(--line);text-align:center;font-style:italic;font-size:16px;line-height:1.55;color:var(--stone-600);max-width:70ch;margin-left:auto;margin-right:auto">A rare convergence: large domestic market, rising consumer spending, and historically low foreign competition — a textbook entry window.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE VACUUM (dark) ===== -->
+  <section style="background:var(--ink-800);color:var(--parchment-100)">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:104px 32px 60px;text-align:center">
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(28px,3.8vw,50px);line-height:1.08;letter-spacing:var(--tracking-heading);max-width:24ch;margin:0 auto">Western brands leaving created a <span style="color:var(--accent-on-dark)">vacuum</span> — <span style="color:var(--accent-on-dark)">massive opportunity</span> for companies from China, India, GCC, Turkey, LATAM, and beyond.</h2>
+      <div style="margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+        <sc-for list="{{ vacuum }}" as="s" hint-placeholder-count="4">
+          <div style="background:var(--ink-700);border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:30px 24px">
+            <div style="font-family:var(--font-display);font-weight:700;font-size:40px;letter-spacing:-.02em;color:var(--accent-on-dark)">{{ s.v }}</div>
+            <div style="margin-top:10px;font-size:14.5px;line-height:1.45;color:var(--text-on-inverse-dim)">{{ s.l }}</div>
+            <div style="margin-top:12px;font-size:12px;color:rgba(243,239,231,.5)">{{ s.src }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- WHO LEFT -->
+    <div style="max-width:var(--container-max);margin:0 auto;padding:40px 32px 104px">
+      <h3 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,2.6vw,34px);text-align:center;letter-spacing:var(--tracking-heading);margin-bottom:44px">Who left. What opened.</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px">
+        <sc-for list="{{ sectors }}" as="sec" hint-placeholder-count="5">
+          <div style="background:var(--ink-700);border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:26px 22px;display:flex;flex-direction:column">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:18px;color:var(--accent-on-dark);letter-spacing:-.01em">{{ sec.name }}</div>
+            <div style="margin-top:12px;font-family:var(--font-body);font-size:12.5px;line-height:1.5;color:rgba(243,239,231,.55);letter-spacing:.01em">{{ sec.brands }}</div>
+            <div style="margin-top:16px;font-size:14px;line-height:1.55;color:var(--text-on-inverse-dim)">{{ sec.body }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE PAIN (dark deeper) ===== -->
+  <section id="about" style="background:var(--ink-900);color:var(--parchment-100)">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:104px 32px;text-align:center">
+      <div style="font-size:var(--eyebrow-size);font-weight:600;letter-spacing:var(--eyebrow-tracking);text-transform:uppercase;color:var(--accent-on-dark);margin-bottom:18px">The pain is real</div>
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(30px,4.4vw,56px);line-height:1.02;letter-spacing:var(--tracking-heading)">Why entering Russia is <span style="text-decoration:line-through;opacity:.45">easy</span> <span style="font-style:italic;color:var(--accent-on-dark)">not straightforward</span></h2>
+      <div style="margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;text-align:left">
+        <sc-for list="{{ pains }}" as="p" hint-placeholder-count="4">
+          <div style="background:var(--ink-700);border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:30px 28px">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+              <span style="width:26px;height:1px;background:var(--accent-on-dark)"></span>
+              <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">{{ p.t }}</h3>
+            </div>
+            <p style="font-size:15px;line-height:1.6;color:var(--text-on-inverse-dim)">{{ p.d }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS (timeline) ===== -->
+  <section id="approach" style="max-width:var(--container-max);margin:0 auto;padding:108px 32px">
+    <div style="text-align:center;margin-bottom:60px">
+      <div style="display:inline-block;background:var(--ink-800);color:var(--parchment-100);font-size:12px;font-weight:600;letter-spacing:var(--eyebrow-tracking);text-transform:uppercase;padding:9px 18px;border-radius:var(--radius-pill);margin-bottom:24px">How it works</div>
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(30px,4.4vw,56px);line-height:1.0;letter-spacing:var(--tracking-display);max-width:18ch;margin:0 auto">Your office in Russia — <span style="font-style:italic;color:var(--accent)">without opening one.</span></h2>
+      <p style="margin:24px auto 0;font-size:18px;line-height:1.55;color:var(--stone-600);max-width:58ch">We become your local team, sales force, and legal cover. Not consulting — <span style="color:var(--ink-800);font-weight:600">execution.</span> A proven 5-phase methodology to get you operating in Russia, fast.</p>
+    </div>
+
+    <div style="max-width:780px;margin:0 auto">
+      <sc-for list="{{ phases }}" as="p" hint-placeholder-count="5">
+        <div style="display:flex;gap:24px">
+          <div style="display:flex;flex-direction:column;align-items:center">
+            <div style="flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink-800);color:var(--accent-on-dark);font-family:var(--font-display);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center">{{ p.n }}</div>
+            <div style="flex:1;width:2px;background:var(--line);margin-top:8px"></div>
+          </div>
+          <div style="flex:1;margin-bottom:28px;background:var(--parchment-50);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px 30px">
+            <div style="display:inline-block;background:var(--parchment-200);color:var(--stone-600);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:var(--radius-pill);margin-bottom:14px">{{ p.week }}</div>
+            <h3 style="font-family:var(--font-display);font-weight:600;font-size:23px;letter-spacing:-.01em">{{ p.t }}</h3>
+            <p style="margin-top:12px;font-style:italic;font-size:15px;line-height:1.55;color:var(--stone-600)">{{ p.d }}</p>
+            <div style="margin-top:18px;display:flex;flex-direction:column;gap:10px">
+              <sc-for list="{{ p.items }}" as="it" hint-placeholder-count="4">
+                <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;line-height:1.45;color:var(--stone-600)">
+                  <span style="color:var(--accent);font-weight:700;flex:none">✓</span><span>{{ it }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="text-align:center;margin-top:46px">
+      <p style="font-family:var(--font-display);font-weight:600;font-size:clamp(20px,2.4vw,30px);letter-spacing:-.02em;max-width:24ch;margin:0 auto">Operating in Russia in <span style="color:var(--accent)">~10 weeks</span> — scaling until <span style="color:var(--accent)">you're ready to take over</span></p>
+      <p style="margin-top:14px;font-size:16px;color:var(--stone-600)">We run it for you. You incorporate only when it makes sense.</p>
+    </div>
+  </section>
+
+  <!-- ===== WHERE WE'LL BE ===== -->
+  <section style="background:var(--parchment-200);border-top:1px solid var(--line-weak);border-bottom:1px solid var(--line-weak)">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:104px 32px">
+      <div style="text-align:center;margin-bottom:48px">
+        <div style="font-size:var(--eyebrow-size);font-weight:600;letter-spacing:var(--eyebrow-tracking);text-transform:uppercase;color:var(--accent);margin-bottom:14px">Meet us</div>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(28px,3.6vw,46px);letter-spacing:var(--tracking-heading)">Where We'll Be</h2>
+        <p style="margin:18px auto 0;font-size:17px;line-height:1.55;color:var(--stone-600);max-width:56ch">We attend the most important trade forums across Russia, China, India, and the Middle East — so you don't have to navigate alone.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0;background:var(--parchment-50);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-card-float)">
+        <div style="position:relative;min-height:320px">
+          <image-slot id="{{ activeEvent.slot }}" style="position:absolute;inset:0;width:100%;height:100%;display:block" shape="rect" placeholder="{{ activeEvent.photo }}"></image-slot>
+          <div style="position:absolute;top:18px;left:18px;background:var(--parchment-50);color:var(--ink-800);font-size:13px;font-weight:600;padding:7px 14px;border-radius:var(--radius-pill);box-shadow:var(--shadow-card-float)">{{ activeEvent.loc }}</div>
+        </div>
+        <div style="padding:40px 38px;display:flex;flex-direction:column;justify-content:center">
+          <h3 style="font-family:var(--font-display);font-weight:600;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.01em">{{ activeEvent.title }}</h3>
+          <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:18px;font-size:14.5px;color:var(--stone-600)">
+            <span>{{ activeEvent.date }}</span>
+            <span>{{ activeEvent.loc }}</span>
+          </div>
+          <p style="margin-top:18px;font-size:15.5px;line-height:1.6;color:var(--stone-600)">{{ activeEvent.body }}</p>
+          <div style="margin-top:28px;display:flex;align-items:center;gap:16px">
+            <button onClick="{{ prevEvent }}" aria-label="Previous event" style="width:42px;height:42px;border-radius:50%;border:1px solid var(--border-strong);background:transparent;cursor:pointer;font-size:16px;color:var(--ink-800)" style-hover="border-color:var(--ink-800)">‹</button>
+            <button onClick="{{ nextEvent }}" aria-label="Next event" style="width:42px;height:42px;border-radius:50%;border:1px solid var(--border-strong);background:transparent;cursor:pointer;font-size:16px;color:var(--ink-800)" style-hover="border-color:var(--ink-800)">›</button>
+            <div style="display:flex;gap:7px;margin-left:6px">
+              <sc-for list="{{ eventDots }}" as="d" hint-placeholder-count="4">
+                <button onClick="{{ d.go }}" style="{{ d.style }}"></button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY AURION / EDGE ===== -->
+  <section style="max-width:var(--container-max);margin:0 auto;padding:108px 32px">
+    <div style="margin-bottom:54px;max-width:620px">
+      <div style="font-size:var(--eyebrow-size);font-weight:600;letter-spacing:var(--eyebrow-tracking);text-transform:uppercase;color:var(--accent);margin-bottom:14px">Why Aurion</div>
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(30px,3.8vw,48px);line-height:1.02;letter-spacing:var(--tracking-heading)">Everything you need, already on the ground.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px">
+      <sc-for list="{{ edge }}" as="e" hint-placeholder-count="6">
+        <div style="background:var(--parchment-50);border:1px solid var(--line);border-radius:var(--radius-md);padding:32px 28px" style-hover="border-color:var(--accent)">
+          <div style="width:30px;height:1px;background:var(--accent);margin-bottom:18px"></div>
+          <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">{{ e.t }}</h3>
+          <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--stone-600)">{{ e.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===== PACKAGES ===== -->
+  <section id="packages" style="background:var(--parchment-200);border-top:1px solid var(--line-weak);border-bottom:1px solid var(--line-weak)">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:108px 32px">
+      <div style="text-align:center;margin-bottom:54px">
+        <div style="font-size:var(--eyebrow-size);font-weight:600;letter-spacing:var(--eyebrow-tracking);text-transform:uppercase;color:var(--accent);margin-bottom:14px">Standard solutions</div>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(30px,3.8vw,48px);letter-spacing:var(--tracking-heading)">Ready-to-Launch Packages</h2>
+        <p style="margin:18px auto 0;font-size:17px;color:var(--stone-600);max-width:48ch">Choose a package that fits your goals — we handle the rest.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px">
+        <sc-for list="{{ packages }}" as="pk" hint-placeholder-count="3">
+          <div style="background:var(--parchment-50);border:1px solid var(--line);border-radius:var(--radius-md);padding:36px 30px;display:flex;flex-direction:column;box-shadow:var(--shadow-card-float)">
+            <div style="font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--accent);letter-spacing:.1em">{{ pk.n }}</div>
+            <h3 style="font-family:var(--font-display);font-weight:600;font-size:22px;letter-spacing:-.01em;margin-top:18px">{{ pk.t }}</h3>
+            <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--stone-600)">{{ pk.d }}</p>
+            <div style="margin-top:22px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:11px">
+              <sc-for list="{{ pk.items }}" as="it" hint-placeholder-count="5">
+                <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;line-height:1.45;color:var(--stone-600)">
+                  <span style="color:var(--accent);font-weight:700;flex:none">✓</span><span>{{ it }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEAL STRUCTURE (dark) ===== -->
+  <section id="deal" style="background:var(--ink-800);color:var(--parchment-100)">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:108px 32px">
+      <div style="text-align:center;margin-bottom:54px">
+        <div style="font-size:var(--eyebrow-size);font-weight:600;letter-spacing:var(--eyebrow-tracking);text-transform:uppercase;color:var(--accent-on-dark);margin-bottom:14px">Deal structure</div>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(30px,4.2vw,54px);letter-spacing:var(--tracking-display)">Every deal is <span style="font-style:italic;color:var(--accent-on-dark)">custom-built.</span></h2>
+        <p style="margin:20px auto 0;font-size:17px;line-height:1.55;color:var(--text-on-inverse-dim);max-width:56ch">We don't have a fixed price list. We negotiate the balance between our investment and your payment — case by case, deal by deal.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+        <sc-for list="{{ models }}" as="m" hint-placeholder-count="2">
+          <div style="background:var(--ink-700);border:1px solid var(--border-on-dark);border-top:3px solid var(--accent-on-dark);border-radius:var(--radius-md);padding:36px 32px;display:flex;flex-direction:column">
+            <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(243,239,231,.5)">{{ m.label }}</div>
+            <h3 style="font-family:var(--font-display);font-weight:600;font-size:24px;margin-top:14px;color:var(--parchment-100)">{{ m.t }}</h3>
+            <p style="margin-top:16px;font-size:15.5px;line-height:1.6;color:var(--text-on-inverse-dim)">{{ m.d }}</p>
+            <div style="margin-top:22px;padding-top:20px;border-top:1px solid var(--border-on-dark);font-size:14px;line-height:1.5;color:rgba(243,239,231,.6)"><span style="color:var(--accent-on-dark);font-weight:600">Best for:</span> {{ m.best }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="margin-top:20px;background:var(--ink-700);border:1px solid var(--border-on-dark);border-radius:var(--radius-md);padding:44px 38px;text-align:center">
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.01em">Most deals are a <span style="font-style:italic;color:var(--accent-on-dark)">combination</span> of both.</h3>
+        <p style="margin:18px auto 0;font-size:15.5px;line-height:1.6;color:var(--text-on-inverse-dim);max-width:70ch">The split between investment and service fee is a negotiation — from 100% revenue share (we invest everything) to 100% service fee (you pay for everything), and every ratio in between. The balance reflects risk appetite, market potential, and timeline.</p>
+        <div style="margin:30px auto 0;max-width:560px;display:flex;align-items:center;gap:14px">
+          <span style="font-size:13.5px;color:var(--text-on-inverse-dim);white-space:nowrap">Our investment</span>
+          <div style="flex:1;height:8px;border-radius:999px;background:rgba(243,239,231,.18);position:relative;overflow:hidden">
+            <div style="position:absolute;inset:0 42% 0 0;background:var(--accent-on-dark)"></div>
+          </div>
+          <span style="font-size:13.5px;color:var(--text-on-inverse-dim);white-space:nowrap">Your fee</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:38px">
+        <a href="#contact" onClick="{{ trackContact }}" style="display:inline-block;background:var(--accent);color:var(--ink-800);font-size:16px;font-weight:700;padding:16px 34px;border-radius:var(--radius-pill)" style-hover="background:var(--parchment-100)">Discuss Your Deal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" style="max-width:920px;margin:0 auto;padding:108px 32px">
+    <div style="text-align:center;margin-bottom:48px">
+      <div style="font-size:var(--eyebrow-size);font-weight:600;letter-spacing:var(--eyebrow-tracking);text-transform:uppercase;color:var(--accent);margin-bottom:14px">FAQ</div>
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(30px,3.8vw,48px);letter-spacing:var(--tracking-heading)">Common questions</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <sc-for list="{{ faq }}" as="f" hint-placeholder-count="8">
+        <div style="background:var(--parchment-50);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden">
+          <button onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="width:100%;text-align:left;background:transparent;border:none;cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:18px;color:var(--ink-800);padding:24px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+            <span>{{ f.q }}</span>
+            <span style="font-size:20px;color:var(--accent);flex:none">{{ f.sign }}</span>
+          </button>
+          <div style="{{ f.bodyStyle }}">
+            <p style="padding:0 26px 24px;font-size:15.5px;line-height:1.65;color:var(--stone-600)">{{ f.a }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===== CTA / LEAD FORM ===== -->
+  <section id="contact" style="background:var(--parchment-200);border-top:1px solid var(--line-weak)">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:108px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:start">
+      <div>
+        <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(34px,4.6vw,60px);line-height:1;letter-spacing:var(--tracking-display);max-width:14ch">Ready to enter Russia?</h2>
+        <p style="margin:24px 0 0;font-size:18px;line-height:1.55;color:var(--stone-600);max-width:46ch">Let's discuss how we can help your company launch in the Russian market — with a clear methodology, a dedicated team, and real results.</p>
+        <div style="margin-top:34px">
+          <div style="font-size:13px;letter-spacing:.04em;color:var(--stone-500);margin-bottom:14px">Or reach us directly</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <a href="mailto:info@aurion.fund" onClick="{{ trackContact }}" style="display:flex;align-items:center;gap:8px;border:1px solid var(--border-strong);border-radius:var(--radius-pill);padding:11px 18px;font-size:14px;font-weight:600;color:var(--ink-800)" style-hover="border-color:var(--accent)">info@aurion.fund</a>
+            <a href="https://wa.me/" target="_blank" rel="noopener" onClick="{{ trackContact }}" style="display:flex;align-items:center;gap:8px;border:1px solid var(--border-strong);border-radius:var(--radius-pill);padding:11px 18px;font-size:14px;font-weight:600;color:var(--ink-800)" style-hover="border-color:var(--accent)">WhatsApp</a>
+            <a href="https://t.me/" target="_blank" rel="noopener" onClick="{{ trackContact }}" style="display:flex;align-items:center;gap:8px;border:1px solid var(--border-strong);border-radius:var(--radius-pill);padding:11px 18px;font-size:14px;font-weight:600;color:var(--ink-800)" style-hover="border-color:var(--accent)">Telegram</a>
+            <button onClick="{{ toggleWechat }}" aria-expanded="{{ wechatOpen }}" style="display:flex;align-items:center;gap:8px;border:1px solid var(--border-strong);border-radius:var(--radius-pill);padding:11px 18px;font-size:14px;font-weight:600;color:var(--ink-800);background:transparent;cursor:pointer" style-hover="border-color:var(--accent)">WeChat 微信</button>
+          </div>
+          <sc-if value="{{ wechatOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:16px;display:flex;align-items:center;gap:16px;background:var(--parchment-50);border:1px solid var(--line);border-radius:var(--radius-md);padding:16px">
+              <image-slot id="aurion-wechat-qr" style="width:104px;height:104px;flex:none;display:block" shape="rounded" radius="6" placeholder="WeChat QR"></image-slot>
+              <div style="font-size:13.5px;line-height:1.5;color:var(--stone-600)">扫码加微信 · Scan to chat with us on WeChat. Drop your official account QR here.</div>
+            </div>
+          </sc-if>
+          <div style="margin-top:18px;display:flex;align-items:center;gap:10px;font-size:14px;color:var(--accent)"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent)"></span>We respond instantly</div>
+          <div style="margin-top:12px;font-size:13.5px;line-height:1.5;color:var(--stone-600)">Teams in <strong style="color:var(--ink-800);font-weight:600">Moscow · Dubai · New Delhi · Shanghai</strong> — we work in your timezone and language.</div>
+        </div>
+      </div>
+
+      <div style="background:var(--parchment-50);border:1px solid var(--line);border-radius:var(--radius-md);padding:32px 30px;box-shadow:var(--shadow-card-float)">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="min-height:360px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+            <div style="width:54px;height:54px;border-radius:50%;background:var(--accent);color:var(--ink-800);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:27px">✓</div>
+            <p style="margin-top:20px;font-family:var(--font-display);font-weight:600;font-size:22px;line-height:1.3;max-width:22ch">Thank you — we'll be in touch shortly.</p>
+            <p style="margin-top:12px;font-size:14.5px;color:var(--stone-600);max-width:30ch">Your message has been prepared. We typically reply the same business day.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" noValidate="{{ true }}" style="display:flex;flex-direction:column;gap:16px">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em;color:var(--ink-800)">Tell us about your entry</div>
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--stone-500)">Company *
+              <input value="{{ form.company }}" onInput="{{ onCompany }}" required="{{ true }}" autoComplete="organization" style="{{ companyStyle }}" />
+            </label>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--stone-500)">Name *
+                <input value="{{ form.name }}" onInput="{{ onName }}" required="{{ true }}" autoComplete="name" style="{{ nameStyle }}" />
+              </label>
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--stone-500)">Email *
+                <input type="email" value="{{ form.email }}" onInput="{{ onEmail }}" required="{{ true }}" autoComplete="email" style="{{ emailStyle }}" />
+              </label>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--stone-500)">Country
+                <input value="{{ form.country }}" onInput="{{ onCountry }}" autoComplete="country-name" style="{{ inputStyle }}" />
+              </label>
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--stone-500)">Industry
+                <input value="{{ form.industry }}" onInput="{{ onIndustry }}" style="{{ inputStyle }}" />
+              </label>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--stone-500)">What do you want to achieve in Russia?
+              <textarea value="{{ form.message }}" onInput="{{ onMessage }}" rows="3" style="{{ inputStyle }}"></textarea>
+            </label>
+            <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+              <div role="alert" style="font-size:13.5px;color:#9B2C2C;background:rgba(155,44,44,.08);border:1px solid rgba(155,44,44,.25);border-radius:var(--radius-sm);padding:10px 14px">{{ errorMsg }}</div>
+            </sc-if>
+            <button type="submit" onClick="{{ trackContact }}" style="margin-top:4px;background:var(--ink-800);color:var(--parchment-100);border:none;border-radius:var(--radius-pill);padding:16px 28px;font-size:15px;font-weight:700;cursor:pointer" style-hover="background:var(--accent)">Request a plan</button>
+            <div style="font-size:12px;color:var(--stone-500);text-align:center;line-height:1.5">By submitting you agree to our <a href="#" style="text-decoration:underline">Privacy Policy</a>. We never share your data.</div>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="background:var(--surface-footer);color:rgba(243,239,231,.62)">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:72px 32px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:44px">
+      <div>
+        <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:18px">
+          <span style="font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:var(--tracking-wordmark);color:var(--parchment-100)">AURION</span>
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);align-self:center"></span>
+        </div>
+        <p style="font-size:14.5px;line-height:1.6;max-width:34ch">Operational partner for international companies entering the Russian market — from strategy to first revenue.</p>
+      </div>
+      <div>
+        <div style="font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--parchment-100);margin-bottom:16px">Locations</div>
+        <div style="display:flex;flex-direction:column;gap:11px;font-size:14.5px">
+          <sc-for list="{{ locations }}" as="loc" hint-placeholder-count="4">
+            <div style="display:flex;align-items:center;gap:10px"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent-on-dark)"></span>{{ loc }}</div>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--parchment-100);margin-bottom:16px">Legal</div>
+        <div style="display:flex;flex-direction:column;gap:11px;font-size:14.5px">
+          <a href="#" style="opacity:.7" style-hover="opacity:1">Privacy Policy</a>
+          <a href="#" style="opacity:.7" style-hover="opacity:1">Terms of Service</a>
+          <a href="#" style="opacity:.7" style-hover="opacity:1">Cookie Policy</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--parchment-100);margin-bottom:16px">Contact</div>
+        <div style="display:flex;flex-direction:column;gap:11px;font-size:14.5px">
+          <a href="mailto:info@aurion.fund" style="color:var(--parchment-100);font-weight:600">info@aurion.fund</a>
+          <div style="display:flex;align-items:center;gap:10px;color:var(--accent-on-dark)"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent-on-dark)"></span>We respond instantly</div>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:var(--container-max);margin:0 auto;padding:24px 32px;border-top:1px solid rgba(243,239,231,.12);text-align:center;font-size:13px;letter-spacing:.03em">© 2026 AURION. All rights reserved.</div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    faqOpen: 0, eventIndex: 0, lang: 'en',
+    isMobile: false, menuOpen: false, langMenuOpen: false,
+    form: { company: '', name: '', email: '', country: '', industry: '', message: '' },
+    sent: false, errorMsg: '', touched: false, wechatOpen: false
+  };
+
+  componentDidMount() {
+    try { const s = localStorage.getItem('aurion_lang'); if (s) this.setState({ lang: s }); } catch (e) {}
+    this._onResize = () => {
+      const m = window.innerWidth < 860;
+      if (m !== this.state.isMobile) this.setState({ isMobile: m, menuOpen: m ? this.state.menuOpen : false });
+    };
+    this._onResize();
+    window.addEventListener('resize', this._onResize);
+    this._onDocClick = (e) => {
+      if (this.state.langMenuOpen && e.target && e.target.closest && !e.target.closest('[data-lang-menu]')) this.setState({ langMenuOpen: false });
+    };
+    document.addEventListener('mousedown', this._onDocClick);
+  }
+  componentWillUnmount() {
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+    if (this._onDocClick) document.removeEventListener('mousedown', this._onDocClick);
+  }
+
+  track(action, payload) {
+    const p = payload || {};
+    try { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: action }, p)); } catch (e) {}
+    try { if (typeof window.gtag === 'function') window.gtag('event', action, p); } catch (e) {}
+    try { if (window.Tinybird && window.Tinybird.trackEvent) window.Tinybird.trackEvent(action, p); } catch (e) {}
+    try { if (typeof window.ym === 'function' && window.__ymId) window.ym(window.__ymId, 'reachGoal', action); } catch (e) {}
+    try { if (window._hmt) window._hmt.push(['_trackEvent', 'aurion', action, JSON.stringify(p)]); } catch (e) {}
+  }
+
+  pickLang(k) {
+    try { localStorage.setItem('aurion_lang', k); } catch (e) {}
+    const rtl = (k === 'ar');
+    try { document.documentElement.setAttribute('lang', k); document.documentElement.setAttribute('dir', rtl ? 'rtl' : 'ltr'); } catch (e) {}
+    this.track('language_change', { lang: k });
+    this.setState({ lang: k });
+  }
+  toggleMenu() { this.setState(s => ({ menuOpen: !s.menuOpen })); }
+  closeMenu() { this.setState({ menuOpen: false }); }
+  toggleWechat() { this.setState(s => ({ wechatOpen: !s.wechatOpen })); this.track('cta_click', { id: 'wechat' }); }
+
+  setField(field, v) { this.setState(s => ({ form: Object.assign({}, s.form, { [field]: v }) })); }
+  submit(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const f = this.state.form;
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim());
+    if (!f.company.trim() || !f.name.trim() || !emailOk) {
+      this.setState({ touched: true, errorMsg: !f.company.trim() ? 'Please enter your company name.' : (!f.name.trim() ? 'Please enter your name.' : 'Please enter a valid email address.') });
+      return;
+    }
+    this.track('lead_submit', { country: f.country, industry: f.industry, lang: this.state.lang });
+    try {
+      const body = encodeURIComponent('Company: ' + f.company + '\nName: ' + f.name + '\nEmail: ' + f.email + '\nCountry: ' + f.country + '\nIndustry: ' + f.industry + '\n\n' + f.message);
+      window.location.href = 'mailto:info@aurion.fund?subject=' + encodeURIComponent('Market entry enquiry — ' + f.company) + '&body=' + body;
+    } catch (err) {}
+    this.setState({ sent: true, errorMsg: '' });
+  }
+
+  toggleFaq(i) { this.setState(s => ({ faqOpen: s.faqOpen === i ? -1 : i })); }
+  prevEvent() { this.setState(s => ({ eventIndex: (s.eventIndex - 1 + 4) % 4 })); }
+  nextEvent() { this.setState(s => ({ eventIndex: (s.eventIndex + 1) % 4 })); }
+
+  renderVals() {
+    const whyRussia = [
+      { v: '$5.5T', l: "GDP (PPP) 2025 — world's 4th largest economy", src: 'IMF, 2025' },
+      { v: '$406B', l: 'Imports in 2025 — your addressable market', src: 'World Bank, 2025' },
+      { v: '\u20BD11.5T', l: 'E-commerce in 2025, +28% YoY growth', src: 'Xinhua / Data Insight, 2026' },
+      { v: '+14%', l: 'Nominal wage growth in 2025 — spending power up', src: 'Rosstat, 2025' },
+      { v: '1,000+', l: 'Western brands exited — low competition, open niches', src: 'Yale SOM / CELI' }
+    ];
+    const vacuum = [
+      { v: '1,000+', l: "Global giants left: IKEA, McDonald's, Shell, BMW, H&M, Zara...", src: 'Yale SOM / CELI' },
+      { v: '547', l: 'Fully exited by Jan 2026 — entire sectors left empty', src: 'Yale SOM / CELI' },
+      { v: '$107B+', l: 'Writedowns & lost revenue by foreign firms', src: 'Reuters, 2024' },
+      { v: '+10%', l: 'IT market growth forecast 2026 — fastest sector', src: 'TASS, 2025' }
+    ];
+    const sectors = [
+      { name: 'Automotive', brands: 'Toyota, BMW, Mercedes, VW, Hyundai, Renault', body: 'Most major brands halted sales & production. Chinese brands now hold 60%+ market share.' },
+      { name: 'IT & Software', brands: 'SAP, Oracle, Microsoft, Adobe, Cisco', body: 'Enterprise software fully vacated. \u20BD1.5T domestic market in 2025, import substitution booming.' },
+      { name: 'Retail & Fashion', brands: 'IKEA, Zara, H&M, Uniqlo, Decathlon', body: "Hundreds of storefronts vacated overnight. Local replacements can't match quality or scale." },
+      { name: 'Finance & Insurance', brands: 'Citi, HSBC, Allianz, AXA, Raiffeisen', body: 'Major banks and insurers withdrew. Payment infrastructure gaps remain wide open.' },
+      { name: 'Industrial & Engineering', brands: 'Siemens, ABB, Bosch, Schneider, Rockwell', body: 'Automation, equipment, engineering services — wide open for new entrants.' }
+    ];
+    const pains = [
+      { t: 'Regulatory maze', d: 'Unique legal, tax and compliance requirements that catch foreign companies off guard.' },
+      { t: 'Months of setup', d: 'Opening an entity, bank accounts and hiring — all take 3–6 months without local expertise.' },
+      { t: 'Cultural wall', d: 'Language barriers, negotiation culture and relationship-driven business make DIY entry risky.' },
+      { t: 'Payments & sanctions', d: 'Complex payment infrastructure and shifting sanctions landscape require experienced navigation.' }
+    ];
+    const phases = [
+      { n: '01', week: 'Week 1–2', t: 'Market Design & Strategy', d: 'We validate your product-market fit and build a bulletproof go-to-market plan before spending a ruble.', items: ['Product-market fit assessment for Russia', 'ICP & target segment definition', 'Competitive landscape & pricing strategy', 'Go-to-market roadmap'] },
+      { n: '02', week: 'Week 2–4', t: 'Launch Team Deployment', d: 'Top-tier specialists handpicked from the market, assembled into your dedicated team, and trained by you — in record time.', items: ['Dedicated project lead assigned', 'Sales/BD manager on the ground', 'Marketing & content localization', 'Legal & compliance advisor'] },
+      { n: '03', week: 'Week 4–10', t: 'Commercial Rollout', d: 'First deals, first revenue. All payments processed through our infrastructure and settled to you via clean contracts in your currency.', items: ['Active outreach & pipeline building', 'Partner & distributor negotiations', 'Pilot projects & first deals', 'Payments via our local infra, settled to you internationally'] },
+      { n: '04', week: 'Week 10+', t: 'Full Operations & Scale', d: 'We become your operating arm in Russia — handling compliance, logistics, and growth while you focus on product.', items: ['We act as your distributor, reseller, or local representative', 'Legal, accounting & compliance fully covered by our team', 'BD performance tracked — underperformers replaced fast', 'Continuous scaling: new channels, regions, partnerships'] },
+      { n: '05', week: "When you're ready", t: 'Overtake & Handoff', d: "When you're ready to own it — we transfer everything into your own entity, seamlessly.", items: ['You decide when to incorporate your own entity', 'We assist with legal entity registration & setup', 'Seamless transfer of team, clients & contracts', 'Ongoing advisory support during transition'] }
+    ];
+    const edge = [
+      { t: 'Banking & Finance Network', d: "Direct relationships with top-tier Russian banks. We navigate payment infrastructure, FX, and compliance so you don't have to." },
+      { t: 'Foreign Trade Expertise', d: 'Decades of combined experience in cross-border trade, import/export logistics, customs, and international settlements.' },
+      { t: 'Sales & Marketing Machine', d: 'Battle-tested B2B and B2C playbooks for the Russian market — from lead generation to closing enterprise deals.' },
+      { t: 'Industry Associations', d: 'Active partnerships with all major trade chambers, industry unions, and business associations across key sectors.' },
+      { t: 'Legal & Regulatory Cover', d: 'In-house legal counsel with deep knowledge of Russian corporate law, sanctions compliance, and IP protection.' },
+      { t: 'Government & Institutional Access', d: 'Working relationships with trade development agencies, special economic zones, and regional investment bodies.' }
+    ];
+    const packages = [
+      { n: 'Package 01', t: 'Sales Development (BDE)', d: 'A dedicated sales specialist working for you from our office — trained, managed, and fully equipped.', items: ['BDE specialist recruitment from the market', 'Workspace in our coworking office', 'Brand localization & marketing support', 'Traffic & lead generation', 'Legal & accounting support'] },
+      { n: 'Package 02', t: 'Marketplace Entry (Ozon, WB)', d: 'Launch sales on Ozon and Wildberries from scratch — from store registration to first orders.', items: ['Marketplace manager recruitment', 'Workspace in our coworking office', 'Store registration, product cards & pricing', 'Promotion & advertising on platforms', 'Legal & accounting support'] },
+      { n: 'Package 03', t: 'Deal Support & Mediation', d: 'Your mediator and eyes on the ground — when the buyer and seller exist, but the deal needs control.', items: ['Cross-border trade mediation', 'Logistics & customs clearance', 'Payment route engineering', 'Legal control & documentation', 'On-site inspections & acceptance'] }
+    ];
+    const models = [
+      { label: 'Model A', t: 'Revenue Share', d: 'We invest our resources into your launch — team, infrastructure, operations — and earn a success fee as a % of sales. You pay nothing upfront. We succeed only when you do.', best: 'companies ready to commit to Russia long-term and willing to share upside.' },
+      { label: 'Model B', t: 'Service Fee', d: 'You pay a fixed monthly fee for our operational services — team, legal, accounting, sales ops. Predictable costs, full transparency.', best: 'companies that want full control over economics and prefer a vendor model.' }
+    ];
+    const faqData = [
+      { q: 'Do we need to register a company in Russia to start?', a: 'No. You can start selling through our infrastructure and local entity from day one — we handle contracts, payments and compliance. You incorporate your own entity only when it makes sense for you.' },
+      { q: 'How fast can we start selling?', a: 'We build the sales motion in parallel with setup, so first commercial conversations typically begin within weeks — first deals usually land within the first 4–10 weeks.' },
+      { q: 'What industries do you work with?', a: 'Technology, manufacturing, agriculture, real estate, consumer goods and industrial — anywhere a foreign company can fill the gap left by exited Western brands.' },
+      { q: 'How do you handle sanctions and compliance?', a: 'In-house legal counsel and banking partners keep every step within the current regulatory framework — cross-border payments, KYC and contracts are structured for full compliance.' },
+      { q: 'What does it cost?', a: 'There is no fixed price list. We negotiate the balance between our investment and your payment — from full revenue share to a fixed service fee — case by case.' },
+      { q: "What happens when we're ready to incorporate?", a: 'We transfer everything — team, clients and contracts — into your own entity, assist with registration, and provide ongoing advisory support through the transition.' },
+      { q: 'Can we start with just one city or region?', a: "Yes. Many clients start with one city or channel to prove the model, then scale to new regions, channels and partnerships once it's working." },
+      { q: "What if it doesn't work?", a: "Our incentives are aligned with yours — under revenue share we only earn when you sell. We track BD performance closely and adjust fast, so you're never paying for activity that isn't producing results." }
+    ];
+    const faq = faqData.map((f, i) => ({
+      q: f.q, a: f.a,
+      open: i === this.state.faqOpen,
+      sign: i === this.state.faqOpen ? '\u2013' : '+',
+      bodyStyle: 'max-height:' + (i === this.state.faqOpen ? '320px' : '0') + ';overflow:hidden;transition:max-height var(--duration-slow) var(--ease-standard)',
+      toggle: () => this.toggleFaq(i)
+    }));
+
+    const events = [
+      { id: 'spief', slot: 'aurion-ev-spief', title: '\u041F\u041C\u042D\u0424 / SPIEF 2026', date: 'June 3–6, 2026', loc: 'St. Petersburg, Russia', photo: 'Drop a forum photo — SPIEF hall', body: "Russia's flagship economic forum. 20,000+ delegates, 130+ countries. Key platform for signing international trade agreements." },
+      { id: 'innoprom', slot: 'aurion-ev-innoprom', title: 'INNOPROM 2026', date: 'July 6–9, 2026', loc: 'Yekaterinburg, Russia', photo: 'Drop a forum photo — INNOPROM', body: "Russia's main industrial trade fair — manufacturing, automation and engineering. A direct line to industrial buyers and partners." },
+      { id: 'canton', slot: 'aurion-ev-canton', title: 'Canton Fair 2026', date: 'Apr 15 – May 5, 2026', loc: 'Guangzhou, China', photo: 'Drop a forum photo — Canton Fair', body: "China's largest import & export fair. Where Chinese manufacturers meet the partners who can take them into Russia." },
+      { id: 'gitex', slot: 'aurion-ev-gitex', title: 'GITEX Global 2026', date: 'Oct 12–16, 2026', loc: 'Dubai, UAE', photo: 'Drop a forum photo — GITEX Dubai', body: 'The Middle East tech and trade gateway — connecting Gulf, Indian and Asian companies with new markets.' }
+    ];
+    const active = events[this.state.eventIndex];
+    const eventDots = events.map((e, i) => ({
+      go: () => this.setState({ eventIndex: i }),
+      style: 'width:' + (i === this.state.eventIndex ? '22px' : '8px') + ';height:8px;border-radius:999px;border:none;cursor:pointer;padding:0;background:' + (i === this.state.eventIndex ? 'var(--ink-800)' : 'var(--line-strong)') + ';transition:width var(--duration-base) var(--ease-standard)'
+    }));
+
+    // Languages shown by ENDONYM (own name, own script) — robust across OSes, correct i18n.
+    const langDefs = [
+      { key: 'en', name: 'English', code: 'EN' },
+      { key: 'ru', name: '\u0420\u0443\u0441\u0441\u043A\u0438\u0439', code: 'RU' },
+      { key: 'zh', name: '\u4E2D\u6587', code: 'ZH' },
+      { key: 'hi', name: '\u0939\u093F\u0928\u094D\u0926\u0940', code: 'HI' },
+      { key: 'tr', name: 'T\u00FCrk\u00E7e', code: 'TR' },
+      { key: 'ar', name: '\u0627\u0644\u0639\u0631\u0628\u064A\u0629', code: 'AR' },
+      { key: 'pt', name: 'Portugu\u00EAs', code: 'PT' }
+    ];
+    const currentLang = langDefs.find(l => l.key === this.state.lang) || langDefs[0];
+    const langItemBase = 'display:flex;align-items:center;justify-content:space-between;gap:18px;width:100%;text-align:start;border:none;cursor:pointer;font-family:inherit;font-size:14.5px;font-weight:600;padding:11px 16px;letter-spacing:.01em';
+    const langOptions = langDefs.map(l => {
+      const on = l.key === this.state.lang;
+      return {
+        name: l.name, code: l.code,
+        pick: () => { this.pickLang(l.key); this.setState({ langMenuOpen: false }); },
+        check: on ? '\u2713' : '',
+        style: langItemBase + ';background:' + (on ? 'var(--parchment-200)' : 'transparent') + ';color:' + (on ? 'var(--ink-800)' : 'var(--stone-600)')
+      };
+    });
+
+    const locations = ['Moscow, Russia', 'Dubai, UAE', 'New Delhi, India', 'Shanghai, China'];
+    const audience = [
+      { name: 'China', flag: '\uD83C\uDDE8\uD83C\uDDF3' },
+      { name: 'India', flag: '\uD83C\uDDEE\uD83C\uDDF3' },
+      { name: 'The Gulf', flag: '\uD83C\uDDE6\uD83C\uDDEA' },
+      { name: 'T\u00FCrkiye', flag: '\uD83C\uDDF9\uD83C\uDDF7' },
+      { name: 'LATAM', flag: '\uD83C\uDF0E' }
+    ];
+
+    const isMobile = this.state.isMobile;
+    const navLinks = [
+      { label: 'Approach', href: '#approach' },
+      { label: 'About', href: '#about' },
+      { label: 'FAQ', href: '#faq' },
+      { label: 'Solutions', href: '#packages' },
+      { label: 'Deal Structure', href: '#deal' }
+    ].map(l => ({ label: l.label, href: l.href, go: () => this.closeMenu() }));
+
+    const baseInput = 'border:1px solid var(--line-strong);border-radius:var(--radius-sm);padding:12px 14px;font-size:15px;color:var(--ink-800);background:#fff;width:100%';
+    const errInput = 'border:1px solid #9B2C2C;border-radius:var(--radius-sm);padding:12px 14px;font-size:15px;color:var(--ink-800);background:#fff;width:100%';
+    const f = this.state.form;
+    const showErr = this.state.touched;
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim());
+
+    return {
+      whyRussia, vacuum, sectors, pains, phases, edge, packages, models, faq, locations, audience,
+      langOptions, currentLangName: currentLang.name,
+      langMenuOpen: this.state.langMenuOpen,
+      toggleLangMenu: () => this.setState(s => ({ langMenuOpen: !s.langMenuOpen })),
+      wechatOpen: this.state.wechatOpen,
+      toggleWechat: () => this.toggleWechat(),
+      activeEvent: active, eventDots,
+      prevEvent: () => this.prevEvent(),
+      nextEvent: () => this.nextEvent(),
+
+      navDesktopStyle: isMobile ? 'display:none' : 'display:flex;align-items:center;gap:30px',
+      hamburgerStyle: (isMobile ? 'display:flex' : 'display:none') + ';flex-direction:column;gap:5px;background:transparent;border:none;cursor:pointer;padding:8px',
+      menuOpen: this.state.menuOpen,
+      showMobileMenu: isMobile && this.state.menuOpen,
+      navLinks,
+      toggleMenu: () => this.toggleMenu(),
+      closeMenuContact: () => { this.closeMenu(); this.track('cta_click', { id: 'get_in_touch_mobile' }); },
+      trackContact: () => this.track('cta_click', { id: 'contact' }),
+
+      sent: this.state.sent,
+      showForm: !this.state.sent,
+      form: f,
+      hasError: showErr && (!f.company.trim() || !f.name.trim() || !emailOk),
+      errorMsg: this.state.errorMsg,
+      inputStyle: baseInput,
+      companyStyle: (showErr && !f.company.trim()) ? errInput : baseInput,
+      nameStyle: (showErr && !f.name.trim()) ? errInput : baseInput,
+      emailStyle: (showErr && !emailOk) ? errInput : baseInput,
+      onCompany: (e) => this.setField('company', e.target.value),
+      onName: (e) => this.setField('name', e.target.value),
+      onEmail: (e) => this.setField('email', e.target.value),
+      onCountry: (e) => this.setField('country', e.target.value),
+      onIndustry: (e) => this.setField('industry', e.target.value),
+      onMessage: (e) => this.setField('message', e.target.value),
+      submit: (e) => this.submit(e)
+    };
+  }
+}
+</script>
+</body>
+</html>

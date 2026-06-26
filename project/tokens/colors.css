@@ -1,0 +1,59 @@
+/* ============================================================
+   AURION — COLOR SYSTEM
+   A warm, editorial palette: parchment surfaces, near-black
+   "ink", and a single champagne-gold accent. No pure white,
+   no pure black, no second accent. Restraint is the brand.
+   ============================================================ */
+:root {
+  /* --- Base scale: warm parchment surfaces --- */
+  --parchment-50:  #F7F3EC; /* lightest lift */
+  --parchment-100: #F3EFE7; /* PRIMARY PAGE BACKGROUND */
+  --parchment-200: #EFE9DD; /* alternate / sunken section */
+  --parchment-300: #E7DECF; /* hairline fills, dashed chips */
+
+  /* --- Base scale: ink (warm near-black) --- */
+  --ink-900: #0E0C09; /* deepest — footer */
+  --ink-800: #15120E; /* PRIMARY INK — text & dark sections */
+  --ink-700: #2A2620; /* raised dark surface */
+
+  /* --- Text on light --- */
+  --stone-600: #574F40; /* secondary / body-on-light */
+  --stone-500: #8A8270; /* muted, captions, notes */
+
+  /* --- Accent: champagne gold / bronze --- */
+  --gold-600: #946A30; /* gold, pressed */
+  --gold-500: #A87C3D; /* PRIMARY ACCENT (on light) */
+  --gold-300: #CDA869; /* accent on dark surfaces */
+
+  /* --- Hairlines & strokes (ink at low alpha) --- */
+  --line-weak:   rgba(21, 18, 14, 0.10);
+  --line:        rgba(21, 18, 14, 0.14);
+  --line-strong: rgba(21, 18, 14, 0.22);
+  --line-on-dark: rgba(243, 239, 231, 0.22);
+
+  /* ============================================================
+     SEMANTIC ALIASES — reach for these in product code.
+     ============================================================ */
+  --surface-page:    var(--parchment-100);
+  --surface-sunken:  var(--parchment-200);
+  --surface-card:    var(--parchment-100);
+  --surface-inverse: var(--ink-800);
+  --surface-footer:  var(--ink-900);
+
+  --text-primary:    var(--ink-800);
+  --text-secondary:  var(--stone-600);
+  --text-muted:      var(--stone-500);
+  --text-on-inverse: var(--parchment-100);
+  --text-on-inverse-dim: rgba(243, 239, 231, 0.70);
+
+  --accent:          var(--gold-500);
+  --accent-hover:    var(--gold-600);
+  --accent-on-dark:  var(--gold-300);
+
+  --border:          var(--line);
+  --border-strong:   var(--line-strong);
+  --border-on-dark:  var(--line-on-dark);
+
+  --selection-bg:    var(--ink-800);
+  --selection-fg:    var(--parchment-100);
+}

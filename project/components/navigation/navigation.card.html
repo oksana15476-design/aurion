@@ -1,0 +1,19 @@
+<!-- @dsCard group="Components" viewport="700x300" name="LangSwitcher" subtitle="7-locale flag + local-name menu" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>body{margin:0;font-family:var(--font-body);background:var(--surface-page)}
+#r{padding:26px 24px;display:flex;justify-content:flex-end;min-height:260px}</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+</head><body><div id="r"></div>
+<script type="text/babel">
+const NS = Object.values(window).find(v => v && v.LangSwitcher) || {};
+const { LangSwitcher } = NS;
+function Demo(){
+  const [lang,setLang]=React.useState('en');
+  return <LangSwitcher value={lang} onChange={setLang}/>;
+}
+ReactDOM.createRoot(document.getElementById('r')).render(<Demo/>);
+</script>
+</body></html>
