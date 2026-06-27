@@ -1,0 +1,10 @@
+.env.local
+
+# Skill local config overrides
+.claude/skills/*/config/*.local
+
+# Skill credentials / API keys — NEVER commit
+.claude/skills/*/config/.env
+.claude/skills/*/config/service_account_key.json
+.claude/skills/*/config/config.json
+.claude/skills/yandex-wordstat/cache/iam_token.json
