@@ -67,13 +67,15 @@
       "@id": "https://aurion.fund/#faq",
       "mainEntity": [
         { "@type": "Question", "name": "Do we need to register a company in Russia to start?", "acceptedAnswer": { "@type": "Answer", "text": "No. You can start selling through our infrastructure and local entity from day one — we handle contracts, payments and compliance. You incorporate your own entity only when it makes sense for you." } },
+        { "@type": "Question", "name": "What if it doesn't work?", "acceptedAnswer": { "@type": "Answer", "text": "Our incentives are aligned with yours — under revenue share, if you don't sell, we don't earn, so our money is on the line with yours. We track BD performance closely and adjust fast, so you're never paying for activity that isn't producing results." } },
+        { "@type": "Question", "name": "Is it legal for my company to do business in Russia right now?", "acceptedAnswer": { "@type": "Answer", "text": "For most goods and sectors, yes — and we structure every deal to stay inside both Russia's rules and your own jurisdiction's. We screen each opportunity for compliance before we start, and we tell you plainly if something can't be done." } },
+        { "@type": "Question", "name": "How do I get paid, and in what currency?", "acceptedAnswer": { "@type": "Answer", "text": "Customers pay into our local infrastructure. We settle to you internationally against clean contracts, in your currency. You see the payment route before any money moves." } },
         { "@type": "Question", "name": "How fast can we start selling?", "acceptedAnswer": { "@type": "Answer", "text": "We build the sales motion in parallel with setup, so first commercial conversations typically begin within weeks — first deals usually land within the first 4–10 weeks." } },
+        { "@type": "Question", "name": "What does it cost?", "acceptedAnswer": { "@type": "Answer", "text": "There is no fixed price list. We negotiate the balance between our investment and your payment — from full revenue share to a fixed service fee — case by case." } },
         { "@type": "Question", "name": "What industries do you work with?", "acceptedAnswer": { "@type": "Answer", "text": "Technology, manufacturing, agriculture, real estate, consumer goods and industrial — anywhere a foreign company can fill the gap left by exited Western brands." } },
         { "@type": "Question", "name": "How do you handle sanctions and compliance?", "acceptedAnswer": { "@type": "Answer", "text": "In-house legal counsel and banking partners keep every step within the current regulatory framework — cross-border payments, KYC and contracts are structured for full compliance." } },
-        { "@type": "Question", "name": "What does it cost?", "acceptedAnswer": { "@type": "Answer", "text": "There is no fixed price list. We negotiate the balance between our investment and your payment — from full revenue share to a fixed service fee — case by case." } },
-        { "@type": "Question", "name": "What happens when we're ready to incorporate?", "acceptedAnswer": { "@type": "Answer", "text": "We transfer everything — team, clients and contracts — into your own entity, assist with registration, and provide ongoing advisory support through the transition." } },
-        { "@type": "Question", "name": "Can we start with just one city or region?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Many clients start with one city or channel to prove the model, then scale to new regions, channels and partnerships once it's working." } },
-        { "@type": "Question", "name": "What if it doesn't work?", "acceptedAnswer": { "@type": "Answer", "text": "Our incentives are aligned with yours — under revenue share we only earn when you sell. We track BD performance closely and adjust fast, so you're never paying for activity that isn't producing results." } }
+        { "@type": "Question", "name": "What's the smallest way to start?", "acceptedAnswer": { "@type": "Answer", "text": "One city or one channel, to prove the model before you scale. You can stop, or move everything into your own entity, whenever you decide. No long lock-in." } },
+        { "@type": "Question", "name": "What happens when we're ready to incorporate?", "acceptedAnswer": { "@type": "Answer", "text": "We transfer everything — team, clients and contracts — into your own entity, assist with registration, and provide ongoing advisory support through the transition." } }
       ]
     }
   ]
@@ -264,9 +266,118 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
   .hero-btns{flex-direction:column;align-items:stretch}
   .hero-btns a{text-align:center}
 }
+
+/* ============================================================
+   PRODUCTION POLISH — design system pass + CRO components
+   (appended last so these win over earlier rules)
+   ============================================================ */
+:root{--text-caption:#6E6656}            /* AA-safe muted caption on parchment */
+
+/* Skip link */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:var(--ink-800);color:var(--parchment-100);padding:10px 16px;border-radius:0 0 var(--radius-sm) 0}
+.skip-link:focus{left:0}
+
+/* Eyebrow: the brand's 30px gold rule */
+.eyebrow{display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:30px;height:1px;background:currentColor;flex:none;opacity:.9}
+.eyebrow-center{display:flex;flex-direction:column;align-items:center;gap:12px}
+.eyebrow-center::before{content:"";width:30px;height:1px;background:currentColor}
+
+/* No pure white; gold focus halo on fields */
+.form-input{background:var(--parchment-50)}
+.form-input:focus{outline:none;border-color:var(--ink-800);box-shadow:0 0 0 3px rgba(168,124,61,.18)}
+.form-field{color:var(--text-caption)}
+
+/* Cards: tighter corners, no default shadow (hairlines do the work) */
+.card,.edge-card,.pkg-card,.faq-item,.tl-card{border-radius:var(--radius-sm)}
+.card,.pkg-card,.carousel-wrap{box-shadow:none}
+.card--panel{border-radius:var(--radius-md)}
+
+/* Focus parity with hover on buttons */
+.btn-primary:focus-visible,.nav-cta:focus-visible,.mob-cta:focus-visible{background:var(--accent)}
+.btn-outline:focus-visible{border-color:var(--ink-800)}
+.btn-gold:focus-visible{background:var(--parchment-100)}
+
+/* Nav: gold underline reveal + scroll elevation state */
+.nav{transition:box-shadow var(--duration-base) var(--ease-standard),background var(--duration-base) var(--ease-standard),border-color var(--duration-base) var(--ease-standard)}
+.nav.is-scrolled{background:rgba(243,239,231,.92);box-shadow:0 1px 0 var(--line),0 10px 30px -22px rgba(21,18,14,.45);border-bottom-color:transparent}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform var(--duration-base) var(--ease-standard)}
+.nav-links a:hover::after,.nav-links a:focus-visible::after{transform:scaleX(1)}
+[dir=rtl] .nav-links a::after{transform-origin:right}
+
+/* Section seams: hairline + gold tick at light↔dark joins; real "sunken" read */
+.sec-dark,.sec-darker{position:relative;border-top:1px solid rgba(243,239,231,.10)}
+.sec-dark::before,.sec-darker::before{content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:64px;height:2px;background:var(--accent-on-dark);opacity:.85}
+.sec-sunken{box-shadow:inset 0 1px 0 var(--line-weak),inset 0 11px 18px -16px rgba(21,18,14,.16)}
+
+/* Hairline grid — the brand's signature: cells on an ink wash, 1px gaps read as drawn rules */
+.hairgrid{background:var(--line);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;gap:1px!important}
+.hairgrid > *{background:var(--parchment-50);border:0!important;border-radius:0!important}
+.hairgrid-dark{background:var(--border-on-dark);border:1px solid var(--border-on-dark)}
+.hairgrid-dark > *{background:var(--ink-800)}
+.hairgrid.grid-vacuum > *,.hairgrid.grid-pain > *{padding:30px 28px!important}
+.hairgrid.grid-sectors > *{padding:28px 24px!important}
+/* edge-card hover survives the gridded (borderless) state */
+.edge-card{position:relative}
+.edge-card::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px transparent;transition:box-shadow var(--duration-base) var(--ease-standard);pointer-events:none}
+.edge-card:hover::after,.edge-card:focus-within::after{box-shadow:inset 0 0 0 1px var(--accent)}
+
+/* Hero: matted hairline canvas (asset-free anchor) */
+.hero{position:relative;overflow:hidden;padding:64px var(--gutter) 80px}
+.hero-canvas{position:relative;max-width:var(--container-max);margin:0 auto;padding:72px clamp(24px,4vw,72px) 76px;border:1px solid var(--line);border-radius:var(--radius-md);background:linear-gradient(var(--line-weak) 1px,transparent 1px) 0 0/100% 64px,var(--parchment-50)}
+.hero-canvas::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(120% 90% at 50% 38%,transparent 52%,var(--parchment-50) 100%)}
+.hero-canvas > *{position:relative;z-index:1}
+.hero-chip{margin:32px auto 0;max-width:600px;display:flex;align-items:center;gap:16px;background:var(--parchment-100);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 22px;text-align:start}
+.hero-chip-rule{width:30px;height:1px;background:var(--accent);flex:none}
+.hero-microcopy{margin-top:16px;font-size:13.5px;color:var(--text-caption)}
+
+/* Trust bar — answers real/legal/safe/can-they-talk in one glance */
+.trust-bar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--parchment-100)}
+.trust-grid{max-width:var(--container-max);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-cell{padding:26px 24px;border-inline-start:1px solid var(--line-weak)}
+.trust-cell:first-child{border-inline-start:0}
+.trust-num{font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--ink-800);letter-spacing:-.01em}
+.trust-label{margin-top:6px;font-size:13px;line-height:1.45;color:var(--text-caption)}
+@media(max-width:860px){.trust-grid{grid-template-columns:repeat(2,1fr)}.trust-cell:nth-child(2){border-inline-start:0}}
+@media(max-width:480px){.trust-grid{grid-template-columns:1fr}.trust-cell{border-inline-start:0;border-top:1px solid var(--line-weak)}.trust-cell:first-child{border-top:0}}
+
+/* "How you get paid" 3-step flow */
+.pay-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;margin-top:20px}
+.pay-step{background:var(--parchment-50);padding:26px 24px}
+.pay-step .n{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--accent);letter-spacing:.1em}
+.pay-step h4{font-family:var(--font-display);font-weight:600;font-size:17px;margin-top:10px;letter-spacing:-.01em}
+.pay-step p{margin-top:8px;font-size:14px;line-height:1.55;color:var(--stone-600)}
+@media(max-width:680px){.pay-flow{grid-template-columns:1fr}}
+
+/* Carousel: matted editorial plate + ink caption chip (asset-free) */
+.carousel-img{position:relative;min-height:340px;display:flex;align-items:center;justify-content:center;padding:14px;background:var(--parchment-200)}
+.carousel-img::before{content:"";position:absolute;inset:14px;border:1px solid var(--line-strong);border-radius:var(--radius-xs);background:repeating-linear-gradient(135deg,var(--line-weak) 0 1px,transparent 1px 9px),var(--parchment-50);pointer-events:none}
+.carousel-img-ph{position:relative;z-index:1;font-family:var(--font-display);font-weight:600;font-size:clamp(20px,2.3vw,30px);line-height:1.05;letter-spacing:var(--tracking-heading);color:var(--ink-800);text-align:center;padding:28px;max-width:24ch}
+.carousel-img-ph::after{content:"";display:block;width:40px;height:1px;background:var(--accent);margin:16px auto 0}
+.carousel-badge{position:absolute;inset-inline-start:24px;top:24px;z-index:2;background:rgba(21,18,14,.86);color:var(--parchment-100);backdrop-filter:var(--blur-caption);font-size:12px;font-weight:600;letter-spacing:.04em;padding:7px 13px;border-radius:var(--radius-xs);box-shadow:none}
+.carousel-ctrl{border-top:1px solid var(--line);padding-top:22px}
+.carousel-btn:hover,.carousel-btn:focus-visible{border-color:var(--accent);color:var(--accent)}
+
+/* Scroll reveal (gated on prefers-reduced-motion in JS) */
+[data-reveal]{opacity:0;transform:translateY(14px);transition:opacity var(--duration-slow) var(--ease-standard),transform var(--duration-slow) var(--ease-standard)}
+[data-reveal].is-in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1!important;transform:none!important}}
+
+/* Success-state instant channels */
+.sent-actions{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+
+/* Sticky mobile CTA */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;gap:10px;padding:10px 14px;background:var(--nav-bg);backdrop-filter:var(--blur-nav);border-top:1px solid var(--line);transform:translateY(110%);transition:transform var(--duration-base) var(--ease-standard)}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta .btn-primary{flex:1;text-align:center;padding:14px 18px}
+.sticky-cta .ch-btn{background:var(--parchment-50)}
+@media(max-width:860px){.sticky-cta{display:flex}}
+@media(max-width:600px){.hero-canvas{padding:40px 20px 48px;border-radius:var(--radius-sm)}.carousel-img{min-height:240px}.carousel-content{padding:28px 24px}.sec-darker{padding-top:56px}}
 </style>
 </head>
 <body>
+<a href="#top" class="skip-link">Skip to content</a>
 
 <!-- ===== NAV ===== -->
 <header class="nav" id="siteNav">
@@ -314,28 +425,42 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
 <main>
 
 <!-- ===== HERO ===== -->
-<section id="top" style="max-width:var(--container-max);margin:0 auto;padding:88px var(--gutter) 84px;text-align:center">
-  <div class="eyebrow">Your first step into the Russian market</div>
-  <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(40px,6vw,82px);line-height:.99;letter-spacing:var(--tracking-display);max-width:16ch;margin:0 auto">
-    We help companies <em style="font-style:italic;color:var(--accent)">enter Russia</em><br>through execution, <em style="font-style:italic;color:var(--accent)">not theory.</em>
-  </h1>
-  <p style="margin:30px auto 0;font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:var(--stone-600);max-width:54ch">
-    Market entry, sales launch &amp; venture building — across technology, manufacturing, agriculture, real estate and other industries.
-  </p>
-  <div style="margin:34px auto 0;max-width:560px;background:var(--parchment-200);border:1px solid var(--line);border-radius:var(--radius-md);padding:18px 24px;font-size:16px;line-height:1.5">
-    We <span style="color:var(--accent);font-weight:600">co-invest</span> in your market entry infrastructure — skin in the game from day one.
+<section id="top" class="hero">
+  <div class="hero-canvas" style="text-align:center">
+    <div class="eyebrow eyebrow-center" style="justify-content:center">Your first step into the Russian market</div>
+    <h1 style="font-family:var(--font-display);font-weight:600;font-size:var(--display-hero);line-height:var(--leading-tight);letter-spacing:var(--tracking-display);max-width:16ch;margin:24px auto 0">
+      We help companies <em style="font-style:italic;color:var(--accent)">enter Russia</em><br>through execution, <em style="font-style:italic;color:var(--accent)">not theory.</em>
+    </h1>
+    <p style="margin:28px auto 0;font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:var(--stone-600);max-width:58ch">
+      We become your local team in Russia — sales, legal cover and payments — and we co-invest, so we only win when you do. First deals in weeks, not a slide deck.
+    </p>
+    <div class="hero-chip">
+      <span class="hero-chip-rule"></span>
+      <span style="font-size:16px;line-height:1.5">We <span style="color:var(--accent);font-weight:600">co-invest</span> our own resources into your launch — team, infrastructure, operations. Under revenue share you pay nothing upfront and we earn only when you sell.</span>
+    </div>
+    <div class="hero-btns" style="margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+      <a href="#contact" class="btn-primary" data-track="cta_click">Get your Russia entry plan</a>
+      <a href="#legal" class="btn-outline">How it works &amp; getting paid</a>
+    </div>
+    <div class="hero-microcopy">No retainer to talk. We'll tell you in the first call whether Russia is worth it for you.</div>
+    <div style="margin-top:40px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 22px;justify-content:center;align-items:center">
+      <span style="font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-caption)">Built for companies from</span>
+      <span style="display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent)"></span>China</span>
+      <span style="display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent)"></span>India</span>
+      <span style="display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent)"></span>The Gulf</span>
+      <span style="display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent)"></span>Türkiye</span>
+      <span style="display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent)"></span>LATAM</span>
+    </div>
   </div>
-  <div class="hero-btns" style="margin-top:36px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
-    <a href="#contact" class="btn-primary" data-track="cta_click">Start a Conversation</a>
-    <a href="#approach" class="btn-outline">Our Methodology</a>
-  </div>
-  <div style="margin-top:42px;display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:center;align-items:center">
-    <span style="font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stone-500)">Built for companies from</span>
-    <span style="display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent)"></span>China</span>
-    <span style="display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent)"></span>India</span>
-    <span style="display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent)"></span>The Gulf</span>
-    <span style="display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent)"></span>Türkiye</span>
-    <span style="display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent)"></span>LATAM</span>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<section class="trust-bar" aria-label="Why companies trust AURION">
+  <div class="trust-grid">
+    <div class="trust-cell"><div class="trust-num">4 offices</div><div class="trust-label">Moscow · Dubai · New Delhi · Shanghai</div></div>
+    <div class="trust-cell"><div class="trust-num">In-house legal counsel</div><div class="trust-label">Every step inside the current framework</div></div>
+    <div class="trust-cell"><div class="trust-num">You pay when you sell</div><div class="trust-label">Revenue-share option — nothing upfront</div></div>
+    <div class="trust-cell"><div class="trust-num">Your language &amp; timezone</div><div class="trust-label">EN · RU · 中文 · हिन्दी · Türkçe · العربية · PT</div></div>
   </div>
 </section>
 
@@ -380,7 +505,7 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
 <section class="sec-dark">
   <div class="wrap" style="text-align:center">
     <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(28px,3.8vw,50px);line-height:1.08;letter-spacing:var(--tracking-heading);max-width:24ch;margin:0 auto">Western brands leaving created a <span style="color:var(--accent-on-dark)">vacuum</span> — <span style="color:var(--accent-on-dark)">massive opportunity</span> for companies from China, India, GCC, Turkey, LATAM, and beyond.</h2>
-    <div class="grid-vacuum">
+    <div class="grid-vacuum hairgrid hairgrid-dark">
       <div class="card-dark" style="padding:30px 24px">
         <div style="font-family:var(--font-display);font-weight:700;font-size:40px;letter-spacing:-.02em;color:var(--accent-on-dark)">1,000+</div>
         <div style="margin-top:10px;font-size:14.5px;line-height:1.45;color:var(--text-on-inverse-dim)">Global giants left: IKEA, McDonald's, Shell, BMW, H&amp;M, Zara…</div>
@@ -407,7 +532,7 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
   <!-- WHO LEFT -->
   <div class="wrap" style="margin-top:60px">
     <h3 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,2.6vw,34px);text-align:center;letter-spacing:var(--tracking-heading);margin-bottom:44px">Who left. What opened.</h3>
-    <div class="grid-sectors">
+    <div class="grid-sectors hairgrid hairgrid-dark">
       <div class="card-dark" style="padding:26px 22px;display:flex;flex-direction:column">
         <div style="font-family:var(--font-display);font-weight:600;font-size:18px;color:var(--accent-on-dark);letter-spacing:-.01em">Automotive</div>
         <div style="margin-top:12px;font-size:12.5px;line-height:1.5;color:rgba(243,239,231,.55)">Toyota, BMW, Mercedes, VW, Hyundai, Renault</div>
@@ -432,44 +557,6 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
         <div style="font-family:var(--font-display);font-weight:600;font-size:18px;color:var(--accent-on-dark);letter-spacing:-.01em">Industrial &amp; Engineering</div>
         <div style="margin-top:12px;font-size:12.5px;line-height:1.5;color:rgba(243,239,231,.55)">Siemens, ABB, Bosch, Schneider, Rockwell</div>
         <div style="margin-top:16px;font-size:14px;line-height:1.55;color:var(--text-on-inverse-dim)">Automation, equipment, engineering services — wide open for new entrants.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== THE PAIN (dark deeper) ===== -->
-<section class="sec-darker" id="about">
-  <div class="wrap" style="text-align:center">
-    <div class="eyebrow eyebrow-dark">The pain is real</div>
-    <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(30px,4.4vw,56px);line-height:1.02;letter-spacing:var(--tracking-heading)">Why entering Russia is <span style="text-decoration:line-through;opacity:.45">easy</span> <em style="color:var(--accent-on-dark)">not straightforward</em></h2>
-    <div class="grid-pain">
-      <div class="card-dark" style="padding:30px 28px">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-          <span style="width:26px;height:1px;background:var(--accent-on-dark)"></span>
-          <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">Regulatory maze</h3>
-        </div>
-        <p style="font-size:15px;line-height:1.6;color:var(--text-on-inverse-dim)">Unique legal, tax and compliance requirements that catch foreign companies off guard.</p>
-      </div>
-      <div class="card-dark" style="padding:30px 28px">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-          <span style="width:26px;height:1px;background:var(--accent-on-dark)"></span>
-          <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">Months of setup</h3>
-        </div>
-        <p style="font-size:15px;line-height:1.6;color:var(--text-on-inverse-dim)">Opening an entity, bank accounts and hiring — all take 3–6 months without local expertise.</p>
-      </div>
-      <div class="card-dark" style="padding:30px 28px">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-          <span style="width:26px;height:1px;background:var(--accent-on-dark)"></span>
-          <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">Cultural wall</h3>
-        </div>
-        <p style="font-size:15px;line-height:1.6;color:var(--text-on-inverse-dim)">Language barriers, negotiation culture and relationship-driven business make DIY entry risky.</p>
-      </div>
-      <div class="card-dark" style="padding:30px 28px">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-          <span style="width:26px;height:1px;background:var(--accent-on-dark)"></span>
-          <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">Payments &amp; sanctions</h3>
-        </div>
-        <p style="font-size:15px;line-height:1.6;color:var(--text-on-inverse-dim)">Complex payment infrastructure and shifting sanctions landscape require experienced navigation.</p>
       </div>
     </div>
   </div>
@@ -562,6 +649,81 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
   </div>
 </section>
 
+<!-- ===== LEGAL, PAYMENTS & SANCTIONS (de-risk) ===== -->
+<!-- LEGAL REVIEW NEEDED: confirm all compliance/sanctions/payments wording with counsel before launch -->
+<section class="sec-sunken" id="legal">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="eyebrow eyebrow-center" style="justify-content:center">Built to be safe</div>
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(30px,3.8vw,48px);letter-spacing:var(--tracking-heading)">Legal, payments, and sanctions — handled.</h2>
+      <p style="margin:18px auto 0;font-size:17px;line-height:1.55;color:var(--stone-600);max-width:56ch">The three questions every foreign company asks before entering Russia. Here are the straight answers.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div style="width:30px;height:1px;background:var(--accent);margin-bottom:18px"></div>
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">Is this legal?</h3>
+        <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--stone-600)">In-house legal counsel structures every contract, payment and KYC step inside the current regulatory framework. You see the structure before you commit. Nothing happens off the books.</p>
+      </div>
+      <div class="card">
+        <div style="width:30px;height:1px;background:var(--accent);margin-bottom:18px"></div>
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">How do I actually get paid?</h3>
+        <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--stone-600)">Customers pay through our local infrastructure. We settle to you internationally, in your currency, against clean contracts. You always know where the money is and when it lands.</p>
+      </div>
+      <div class="card">
+        <div style="width:30px;height:1px;background:var(--accent);margin-bottom:18px"></div>
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">What about sanctions?</h3>
+        <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--stone-600)">We work only within compliant trade. We structure deals to keep you inside the rules of your own jurisdiction and Russia's — and we tell you plainly when something can't be done. We will not put your company at risk for a deal.</p>
+      </div>
+    </div>
+    <div style="margin-top:44px">
+      <div class="eyebrow eyebrow-center" style="justify-content:center;margin-bottom:0">How the money reaches you</div>
+      <div class="pay-flow">
+        <div class="pay-step"><div class="n">01</div><h4>Customer pays</h4><p>Your buyer pays into our local entity, in rubles, through compliant rails.</p></div>
+        <div class="pay-step"><div class="n">02</div><h4>We reconcile</h4><p>We match it to your contract and our agreed fee or revenue share — fully transparent.</p></div>
+        <div class="pay-step"><div class="n">03</div><h4>You receive</h4><p>A clean international settlement lands in your account, in your currency.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE HARD PARTS (dark) — kept, but after the solution ===== -->
+<section class="sec-darker" id="about">
+  <div class="wrap" style="text-align:center">
+    <div class="eyebrow eyebrow-dark eyebrow-center" style="justify-content:center">Going it alone is hard</div>
+    <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(30px,4.4vw,56px);line-height:1.02;letter-spacing:var(--tracking-heading)">Why entering Russia is <span style="text-decoration:line-through;opacity:.45">easy</span> <em style="color:var(--accent-on-dark)">not straightforward</em></h2>
+    <div class="grid-pain hairgrid hairgrid-dark">
+      <div class="card-dark" style="padding:30px 28px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+          <span style="width:26px;height:1px;background:var(--accent-on-dark)"></span>
+          <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">Regulatory maze</h3>
+        </div>
+        <p style="font-size:15px;line-height:1.6;color:var(--text-on-inverse-dim)">Unique legal, tax and compliance requirements that catch foreign companies off guard — we handle them.</p>
+      </div>
+      <div class="card-dark" style="padding:30px 28px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+          <span style="width:26px;height:1px;background:var(--accent-on-dark)"></span>
+          <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">Months of setup</h3>
+        </div>
+        <p style="font-size:15px;line-height:1.6;color:var(--text-on-inverse-dim)">Opening an entity, bank accounts and hiring take 3–6 months alone. With us you operate in weeks.</p>
+      </div>
+      <div class="card-dark" style="padding:30px 28px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+          <span style="width:26px;height:1px;background:var(--accent-on-dark)"></span>
+          <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">Cultural wall</h3>
+        </div>
+        <p style="font-size:15px;line-height:1.6;color:var(--text-on-inverse-dim)">Language barriers, negotiation culture and relationship-driven business make DIY entry risky.</p>
+      </div>
+      <div class="card-dark" style="padding:30px 28px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+          <span style="width:26px;height:1px;background:var(--accent-on-dark)"></span>
+          <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">Payments &amp; sanctions</h3>
+        </div>
+        <p style="font-size:15px;line-height:1.6;color:var(--text-on-inverse-dim)">Complex payment infrastructure and a shifting sanctions landscape — navigated by people who do it daily.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== WHERE WE'LL BE ===== -->
 <section class="sec-sunken">
   <div class="wrap">
@@ -571,7 +733,7 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
       <p style="margin:18px auto 0;font-size:17px;line-height:1.55;color:var(--stone-600);max-width:56ch">We attend the most important trade forums across Russia, China, India, and the Middle East — so you don't have to navigate alone.</p>
     </div>
     <div class="carousel-wrap">
-      <div class="carousel-grid" id="carouselContent">
+      <div class="carousel-grid" id="carouselContent" aria-live="polite">
         <!-- Populated by JS -->
       </div>
     </div>
@@ -585,26 +747,26 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
       <div class="eyebrow">Why Aurion</div>
       <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(30px,3.8vw,48px);line-height:1.02;letter-spacing:var(--tracking-heading)">Everything you need, already on the ground.</h2>
     </div>
-    <div class="grid-edge">
+    <div class="grid-edge hairgrid">
       <div class="edge-card">
         <div style="width:30px;height:1px;background:var(--accent);margin-bottom:18px"></div>
         <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">Banking &amp; Finance Network</h3>
-        <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--stone-600)">Direct relationships with top-tier Russian banks. We navigate payment infrastructure, FX, and compliance so you don't have to.</p>
+        <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--stone-600)">Direct relationships with Russian banks. We navigate payment infrastructure, FX, and compliance so you don't have to.</p>
       </div>
       <div class="edge-card">
         <div style="width:30px;height:1px;background:var(--accent);margin-bottom:18px"></div>
         <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">Foreign Trade Expertise</h3>
-        <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--stone-600)">Decades of combined experience in cross-border trade, import/export logistics, customs, and international settlements.</p>
+        <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--stone-600)">Hands-on experience in cross-border trade, import/export logistics, customs, and international settlements.</p>
       </div>
       <div class="edge-card">
         <div style="width:30px;height:1px;background:var(--accent);margin-bottom:18px"></div>
         <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">Sales &amp; Marketing Machine</h3>
-        <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--stone-600)">Battle-tested B2B and B2C playbooks for the Russian market — from lead generation to closing enterprise deals.</p>
+        <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--stone-600)">Proven B2B and B2C playbooks for the Russian market — from lead generation to closing enterprise deals.</p>
       </div>
       <div class="edge-card">
         <div style="width:30px;height:1px;background:var(--accent);margin-bottom:18px"></div>
         <h3 style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em">Industry Associations</h3>
-        <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--stone-600)">Active partnerships with all major trade chambers, industry unions, and business associations across key sectors.</p>
+        <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--stone-600)">Active partnerships with major trade chambers, industry unions, and business associations across key sectors.</p>
       </div>
       <div class="edge-card">
         <div style="width:30px;height:1px;background:var(--accent);margin-bottom:18px"></div>
@@ -741,40 +903,60 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
         </div>
       </div>
 
-      <div class="card">
+      <div class="card card--panel">
         <div class="form-sent" id="formSent">
           <div class="form-check">✓</div>
-          <p style="margin-top:20px;font-family:var(--font-display);font-weight:600;font-size:22px;line-height:1.3;max-width:22ch">Thank you — we'll be in touch shortly.</p>
-          <p style="margin-top:12px;font-size:14.5px;color:var(--stone-600);max-width:30ch">Your message has been prepared. We typically reply the same business day.</p>
+          <p style="margin-top:20px;font-family:var(--font-display);font-weight:600;font-size:22px;line-height:1.3;max-width:22ch">Thank you — we've got it.</p>
+          <p style="margin-top:12px;font-size:14.5px;color:var(--stone-600);max-width:32ch">We reply the same business day, in your language. Want to skip the wait?</p>
+          <div class="sent-actions">
+            <a href="https://wa.me/" target="_blank" rel="noopener" class="ch-btn" data-track="cta_click">WhatsApp us now</a>
+            <a href="https://t.me/" target="_blank" rel="noopener" class="ch-btn" data-track="cta_click">Telegram</a>
+          </div>
         </div>
         <form id="leadForm" novalidate>
-          <div style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em;color:var(--ink-800);margin-bottom:16px">Tell us about your entry</div>
+          <div style="font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.01em;color:var(--ink-800)">Tell us about your entry</div>
+          <div style="font-size:13px;color:var(--text-caption);margin:6px 0 16px">Two minutes. No retainer to talk.</div>
           <div style="display:flex;flex-direction:column;gap:16px">
-            <label class="form-field">Company *
-              <input class="form-input" id="fCompany" name="company" autocomplete="organization" required>
-            </label>
             <div class="form-row">
               <label class="form-field">Name *
                 <input class="form-input" id="fName" name="name" autocomplete="name" required>
               </label>
-              <label class="form-field">Email *
+              <label class="form-field">Work email *
                 <input class="form-input" id="fEmail" name="email" type="email" autocomplete="email" required>
               </label>
             </div>
             <div class="form-row">
-              <label class="form-field">Country
+              <label class="form-field">Company
+                <input class="form-input" id="fCompany" name="company" autocomplete="organization">
+              </label>
+              <label class="form-field">Country / market
                 <input class="form-input" id="fCountry" name="country" autocomplete="country-name">
               </label>
+            </div>
+            <div class="form-row">
               <label class="form-field">Industry
-                <input class="form-input" id="fIndustry" name="industry">
+                <select class="form-input" id="fIndustry" name="industry">
+                  <option value="">Select…</option>
+                  <option>Technology</option>
+                  <option>Manufacturing</option>
+                  <option>Agriculture</option>
+                  <option>Real estate</option>
+                  <option>Consumer goods</option>
+                  <option>Industrial</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label class="form-field">WhatsApp / Telegram / WeChat
+                <input class="form-input" id="fMessenger" name="messenger" placeholder="@handle or phone">
               </label>
             </div>
             <label class="form-field">What do you want to achieve in Russia?
               <textarea class="form-input" id="fMessage" name="message" rows="3" style="resize:vertical"></textarea>
             </label>
+            <input type="text" id="fWebsite" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
             <div class="form-alert" id="formError" role="alert"></div>
-            <button type="submit" class="btn-primary" style="width:100%;padding:16px 28px;font-size:15px;font-weight:700;border-radius:var(--radius-pill)" data-track="cta_click">Request a plan</button>
-            <div style="font-size:12px;color:var(--stone-500);text-align:center;line-height:1.5">By submitting you agree to our <a href="#" style="text-decoration:underline">Privacy Policy</a>. We never share your data.</div>
+            <button type="submit" class="btn-primary" style="width:100%;padding:16px 28px;font-size:15px;font-weight:700;border-radius:var(--radius-pill)" data-track="cta_click">Get my entry plan</button>
+            <div style="font-size:12px;color:var(--text-caption);text-align:center;line-height:1.5">No retainer to talk. We reply the same business day, in your language. Your details stay private — we never share them. <a href="#" style="text-decoration:underline">Privacy Policy</a>.</div>
           </div>
         </form>
       </div>
@@ -822,6 +1004,12 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
   <div class="footer-bottom">© 2026 AURION. All rights reserved.</div>
 </footer>
 
+<!-- ===== STICKY MOBILE CTA ===== -->
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <a href="#contact" class="btn-primary" data-track="cta_click">Get my entry plan</a>
+  <a href="https://wa.me/" target="_blank" rel="noopener" class="ch-btn" aria-label="WhatsApp" data-track="cta_click">WhatsApp</a>
+</div>
+
 <script>
 (function () {
   'use strict';
@@ -837,27 +1025,15 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
     { key: 'pt', name: 'Português',  code: 'PT' }
   ];
 
+  // Upcoming forums only (as of 2026-06-27). SPIEF (Jun) and Canton Fair (Apr–May) have passed for 2026.
+  // [VERIFY] confirm AURION's actual attendance before implying presence; add 2027 dates when announced.
   var EVENTS = [
-    {
-      title: 'ПМЭФ / SPIEF 2026',
-      date: 'June 3–6, 2026',
-      loc: 'St. Petersburg, Russia',
-      body: "Russia's flagship economic forum. 20,000+ delegates, 130+ countries. Key platform for signing international trade agreements.",
-      ph: 'SPIEF 2026\nSt. Petersburg'
-    },
     {
       title: 'INNOPROM 2026',
       date: 'July 6–9, 2026',
       loc: 'Yekaterinburg, Russia',
       body: "Russia's main industrial trade fair — manufacturing, automation and engineering. A direct line to industrial buyers and partners.",
       ph: 'INNOPROM 2026\nYekaterinburg'
-    },
-    {
-      title: 'Canton Fair 2026',
-      date: 'Apr 15 – May 5, 2026',
-      loc: 'Guangzhou, China',
-      body: "China's largest import & export fair. Where Chinese manufacturers meet the partners who can take them into Russia.",
-      ph: 'Canton Fair 2026\nGuangzhou'
     },
     {
       title: 'GITEX Global 2026',
@@ -874,8 +1050,24 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
       a: 'No. You can start selling through our infrastructure and local entity from day one — we handle contracts, payments and compliance. You incorporate your own entity only when it makes sense for you.'
     },
     {
+      q: "What if it doesn't work?",
+      a: "Our incentives are aligned with yours — under revenue share, if you don't sell, we don't earn, so our money is on the line with yours. We track BD performance closely and adjust fast, so you're never paying for activity that isn't producing results."
+    },
+    {
+      q: 'Is it legal for my company to do business in Russia right now?',
+      a: "For most goods and sectors, yes — and we structure every deal to stay inside both Russia's rules and your own jurisdiction's. We screen each opportunity for compliance before we start, and we tell you plainly if something can't be done."
+    },
+    {
+      q: 'How do I get paid, and in what currency?',
+      a: 'Customers pay into our local infrastructure. We settle to you internationally against clean contracts, in your currency. You see the payment route before any money moves.'
+    },
+    {
       q: 'How fast can we start selling?',
       a: 'We build the sales motion in parallel with setup, so first commercial conversations typically begin within weeks — first deals usually land within the first 4–10 weeks.'
+    },
+    {
+      q: 'What does it cost?',
+      a: 'There is no fixed price list. We negotiate the balance between our investment and your payment — from full revenue share to a fixed service fee — case by case.'
     },
     {
       q: 'What industries do you work with?',
@@ -886,20 +1078,12 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
       a: 'In-house legal counsel and banking partners keep every step within the current regulatory framework — cross-border payments, KYC and contracts are structured for full compliance.'
     },
     {
-      q: 'What does it cost?',
-      a: 'There is no fixed price list. We negotiate the balance between our investment and your payment — from full revenue share to a fixed service fee — case by case.'
+      q: "What's the smallest way to start?",
+      a: "One city or one channel, to prove the model before you scale. You can stop, or move everything into your own entity, whenever you decide. No long lock-in."
     },
     {
       q: "What happens when we're ready to incorporate?",
       a: "We transfer everything — team, clients and contracts — into your own entity, assist with registration, and provide ongoing advisory support through the transition."
-    },
-    {
-      q: 'Can we start with just one city or region?',
-      a: "Yes. Many clients start with one city or channel to prove the model, then scale to new regions, channels and partnerships once it's working."
-    },
-    {
-      q: "What if it doesn't work?",
-      a: "Our incentives are aligned with yours — under revenue share we only earn when you sell. We track BD performance closely and adjust fast, so you're never paying for activity that isn't producing results."
     }
   ];
 
@@ -1019,11 +1203,11 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
     list.innerHTML = FAQ_DATA.map(function (f, i) {
       var open = i === state.faqOpen;
       return '<div class="faq-item">' +
-        '<button class="faq-btn" data-faq="' + i + '" aria-expanded="' + open + '">' +
+        '<button class="faq-btn" data-faq="' + i + '" aria-expanded="' + open + '" aria-controls="faq-body-' + i + '">' +
         '<span>' + f.q + '</span>' +
-        '<span class="faq-sign">' + (open ? '–' : '+') + '</span>' +
+        '<span class="faq-sign" aria-hidden="true">' + (open ? '–' : '+') + '</span>' +
         '</button>' +
-        '<div class="faq-body' + (open ? ' open' : '') + '" id="faq-body-' + i + '">' +
+        '<div class="faq-body' + (open ? ' open' : '') + '" id="faq-body-' + i + '" role="region">' +
         '<p>' + f.a + '</p>' +
         '</div></div>';
     }).join('');
@@ -1077,22 +1261,27 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
   /* ── FORM ── */
   function submitForm(e) {
     e.preventDefault();
-    var company = document.getElementById('fCompany').value.trim();
+    // Honeypot — if filled, treat as a bot: show success, send nothing.
+    var hp = document.getElementById('fWebsite');
+    if (hp && hp.value) {
+      document.getElementById('leadForm').style.display = 'none';
+      document.getElementById('formSent').className = 'form-sent show';
+      return;
+    }
     var name = document.getElementById('fName').value.trim();
     var email = document.getElementById('fEmail').value.trim();
+    var company = document.getElementById('fCompany').value.trim();
     var country = document.getElementById('fCountry').value.trim();
     var industry = document.getElementById('fIndustry').value.trim();
+    var messenger = document.getElementById('fMessenger').value.trim();
     var message = document.getElementById('fMessage').value.trim();
     var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     var err = document.getElementById('formError');
     var errMsg = '';
 
-    // Mark error fields
-    ['fCompany','fName','fEmail'].forEach(function (id) {
-      document.getElementById(id).classList.remove('err');
-    });
-    if (!company) { document.getElementById('fCompany').classList.add('err'); errMsg = 'Please enter your company name.'; }
-    else if (!name) { document.getElementById('fName').classList.add('err'); errMsg = 'Please enter your name.'; }
+    // Only Name + Email are required.
+    ['fName','fEmail'].forEach(function (id) { document.getElementById(id).classList.remove('err'); });
+    if (!name) { document.getElementById('fName').classList.add('err'); errMsg = 'Please enter your name.'; }
     else if (!emailOk) { document.getElementById('fEmail').classList.add('err'); errMsg = 'Please enter a valid email address.'; }
 
     if (errMsg) {
@@ -1104,12 +1293,15 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
 
     track('lead_submit', { country: country, industry: industry, lang: state.lang });
 
+    // NOTE: mailto is a no-backend fallback — wire a real CRM/webhook endpoint before launch.
     try {
-      var body = 'Company: ' + company + '\nName: ' + name + '\nEmail: ' + email +
+      var body = 'Name: ' + name + '\nEmail: ' + email +
+        (company ? '\nCompany: ' + company : '') +
         (country ? '\nCountry: ' + country : '') +
         (industry ? '\nIndustry: ' + industry : '') +
+        (messenger ? '\nMessenger: ' + messenger : '') +
         (message ? '\n\n' + message : '');
-      window.location.href = 'mailto:info@aurion.fund?subject=' + encodeURIComponent('Market entry enquiry — ' + company) + '&body=' + encodeURIComponent(body);
+      window.location.href = 'mailto:info@aurion.fund?subject=' + encodeURIComponent('Market entry enquiry — ' + (company || name)) + '&body=' + encodeURIComponent(body);
     } catch (ex) {}
 
     document.getElementById('leadForm').style.display = 'none';
@@ -1197,6 +1389,38 @@ input::placeholder,textarea::placeholder{color:var(--stone-500)}
   } else {
     init();
   }
+})();
+
+/* ── Sticky-nav scroll state ── */
+(function () {
+  var nav = document.getElementById('siteNav'); if (!nav) return;
+  var onScroll = function () { nav.classList.toggle('is-scrolled', window.scrollY > 8); };
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+/* ── Sticky mobile CTA — appears after the hero ── */
+(function () {
+  var bar = document.getElementById('stickyCta'); if (!bar) return;
+  var hero = document.getElementById('top');
+  var onScroll = function () {
+    var past = hero ? (window.scrollY > hero.offsetHeight - 80) : (window.scrollY > 600);
+    bar.classList.toggle('show', past);
+    bar.setAttribute('aria-hidden', past ? 'false' : 'true');
+  };
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+/* ── Scroll reveal — opacity/translate only, honours reduced-motion ── */
+(function () {
+  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if (rm || !('IntersectionObserver' in window)) return;
+  var nodes = document.querySelectorAll('.wrap > h2, .wrap > h3, .card, .pkg-card, .deal-model, .deal-combo, .edge-card, .tl-card, .carousel-wrap, .faq-list, .grid-stats, .pay-flow, .trust-cell');
+  if (!nodes.length) return;
+  nodes.forEach(function (n) { n.setAttribute('data-reveal', ''); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+  nodes.forEach(function (n) { io.observe(n); });
 })();
 </script>
 </body>
