@@ -1,0 +1,8 @@
+/* AURION Design System — global entry point.
+   Consumers link THIS file only. Keep it to @import lines. */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap");
+@import "./tokens/fonts.css";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/effects.css";

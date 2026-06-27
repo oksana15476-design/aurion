@@ -1,0 +1,38 @@
+/* ============================================================
+   AURION — EFFECTS: radius, borders, shadow, motion
+   Corners are nearly square (2–6px) — editorial, not app-y.
+   Pills (999px) only for nav chips, tags and buttons.
+   Shadows are rare and soft; the system leans on hairlines.
+   ============================================================ */
+:root {
+  /* --- Radius --- */
+  --radius-xs: 2px;   /* image frames, tags-as-squares, badges */
+  --radius-sm: 4px;   /* cards, inputs */
+  --radius-md: 6px;   /* form panel, dropdown */
+  --radius-pill: 999px; /* buttons, chips, nav lang toggle */
+
+  /* --- Border widths --- */
+  --border-hair: 1px;
+
+  /* --- Shadows (soft, warm, used sparingly) --- */
+  --shadow-dropdown: 0 16px 40px rgba(21, 18, 14, 0.18);
+  --shadow-card-float: 0 1px 3px rgba(21, 18, 14, 0.08);
+  --shadow-cta: 0 18px 50px rgba(168, 124, 61, 0.18);
+
+  /* --- Blur (sticky nav, image caption) --- */
+  --blur-nav: blur(14px);
+  --blur-caption: blur(4px);
+  --nav-bg: rgba(243, 239, 231, 0.82);
+
+  /* --- Motion --- */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 120ms;
+  --duration-base: 220ms;
+  --duration-slow: 420ms;
+
+  /* Hover convention: ink fills become gold; bordered elements
+     darken their border; links lift opacity .78 -> 1.
+     Press convention: no scale on buttons; chips/tiles may use
+     a subtle gold border. Keep transforms minimal & editorial. */
+}

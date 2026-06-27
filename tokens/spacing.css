@@ -1,0 +1,34 @@
+/* ============================================================
+   AURION — SPACING & LAYOUT
+   8px base rhythm. Sections breathe (108px vertical). One fixed
+   container width keeps every surface aligned to the same grid.
+   ============================================================ */
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-26: 104px;
+  --space-27: 108px; /* canonical section padding (top & bottom) */
+
+  /* --- Layout --- */
+  --container-max: 1240px;  /* every section's inner max-width */
+  --gutter: 32px;           /* container horizontal padding */
+  --section-y: 108px;       /* vertical section padding */
+  --grid-gap: 1px;          /* hairline grid between bordered cells */
+  --card-gap: 20px;         /* gap between standalone cards */
+  --col-gap: 56px;          /* gap between two big columns */
+
+  /* --- Component spacing --- */
+  --pad-card: 40px 34px 46px; /* service card */
+  --pad-card-sm: 32px 28px;   /* deal / form card */
+  --nav-y: 18px;              /* nav vertical padding */
+}

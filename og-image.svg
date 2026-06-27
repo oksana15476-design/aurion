@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="AURION — Market entry into Russia, through execution not theory">
+  <rect width="1200" height="630" fill="#F3EFE7"/>
+  <rect x="32" y="32" width="1136" height="566" fill="none" stroke="#A87C3D" stroke-opacity="0.45" stroke-width="1"/>
+  <g font-family="Archivo, 'Helvetica Neue', Arial, sans-serif">
+    <text x="90" y="150" font-size="22" letter-spacing="4" fill="#A87C3D" font-weight="600">MARKET ENTRY INTO RUSSIA</text>
+    <text x="86" y="300" font-size="150" font-weight="700" letter-spacing="22" fill="#15120E">AURION</text>
+    <circle cx="1010" cy="252" r="16" fill="#A87C3D"/>
+  </g>
+  <text x="90" y="392" font-family="'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="46" fill="#574F40">We help companies <tspan fill="#A87C3D" font-style="italic">enter Russia</tspan> through</text>
+  <text x="90" y="450" font-family="'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="46" fill="#574F40">execution, <tspan fill="#A87C3D" font-style="italic">not theory.</tspan></text>
+  <line x1="90" y1="520" x2="1110" y2="520" stroke="#15120E" stroke-opacity="0.14" stroke-width="1"/>
+  <text x="90" y="565" font-family="'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#8A8270" letter-spacing="1">Moscow &#183; Dubai &#183; New Delhi &#183; Shanghai</text>
+  <text x="1110" y="565" text-anchor="end" font-family="'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#8A8270">aurion.fund</text>
+</svg>
