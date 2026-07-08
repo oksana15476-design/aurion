@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURION — вывод бизнеса за рубеж без своего юрлица</title>
+<meta name="description" content="Выведите бизнес в другую юрисдикцию без открытия своей компании за границей. Приём платежей, оплата рекламы и расходов, юробвязка — на инфраструктуре AURION. Минимальная цена ошибки.">
+<link rel="canonical" href="https://aurion.example/vyvod-za-rubezh/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#15120E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AURION">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Вывод бизнеса за рубеж — без своего юрлица">
+<meta property="og:description" content="Работайте в новой юрисдикции на инфраструктуре AURION: платежи, оплата рекламы и расходов, юробвязка — на нашей стороне.">
+<meta property="og:url" content="https://aurion.example/vyvod-za-rubezh/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Вывод бизнеса за рубеж — без своего юрлица">
+<meta name="twitter:description" content="Тестируйте новый рынок с минимальной ценой ошибки — на инфраструктуре AURION.">
+<!-- yandex-verification: подставить код после подтверждения домена -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"AURION — вывод бизнеса за рубеж без своего юрлица","serviceType":"Международный выход на рынок через инфраструктуру-агрегатор","areaServed":["KZ","AE","AM","CN","TR"],"provider":{"@type":"Organization","name":"AURION"},"description":"Работа в иностранной юрисдикции без открытия собственного юрлица: приём платежей, оплата расходов и рекламы, юридическая обвязка на стороне AURION."}</script>
+<style>
+  :root{
+    --parchment-100:#F3EFE7; --parchment-200:#EFE9DD; --parchment-300:#E7DECF;
+    --ink-900:#0E0C09; --ink-800:#15120E; --ink-700:#2A2620;
+    --stone-600:#574F40; --stone-500:#8A8270;
+    --gold-600:#946A30; --gold-500:#A87C3D; --gold-300:#CDA869;
+    --line-weak:rgba(21,18,14,.10); --line:rgba(21,18,14,.14); --line-strong:rgba(21,18,14,.22);
+    --line-on-dark:rgba(243,239,231,.22);
+    --font-display:"Archivo","Noto Sans SC",system-ui,sans-serif;
+    --font-body:"Hanken Grotesk","Noto Sans SC",system-ui,sans-serif;
+    --ease:cubic-bezier(.2,0,0,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:var(--font-body); color:var(--ink-800); background:var(--parchment-100);
+    font-size:17px; line-height:1.5; -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column; min-height:100%;
+  }
+  a{color:inherit}
+  .wrap{width:100%; max-width:1240px; margin:0 auto; padding:0 32px}
+
+  /* header */
+  header{position:sticky; top:0; z-index:10; background:rgba(243,239,231,.82); backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line-weak)}
+  .hd{display:flex; align-items:center; justify-content:space-between; height:64px}
+  .brand{font-family:var(--font-display); font-weight:700; letter-spacing:.22em; font-size:16px}
+  .brand .dot{color:var(--gold-500)}
+  .hd .meta{font-size:13px; color:var(--stone-500); letter-spacing:.02em}
+
+  /* main one-screen */
+  main{flex:1 0 auto; display:flex; align-items:center; padding:44px 0}
+  .grid{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; width:100%}
+
+  .eyebrow{font-family:var(--font-display); text-transform:uppercase; letter-spacing:.18em;
+    font-size:12.5px; font-weight:600; color:var(--gold-600); margin-bottom:18px}
+  h1{font-family:var(--font-display); font-weight:600; letter-spacing:-.025em; line-height:1.04;
+    font-size:clamp(34px,4.6vw,58px); margin-bottom:20px}
+  h1 .g{color:var(--gold-500)}
+  .lead{font-size:19px; color:var(--stone-600); max-width:34em; margin-bottom:28px}
+
+  .points{list-style:none; display:grid; gap:1px; background:var(--line);
+    border:1px solid var(--line); border-radius:4px; overflow:hidden; margin-bottom:26px}
+  .points li{background:var(--parchment-100); padding:14px 18px; display:flex; gap:12px; align-items:flex-start;
+    font-size:15.5px}
+  .points .m{color:var(--gold-500); font-family:var(--font-display); font-weight:700; line-height:1.35}
+  .points b{font-weight:600}
+  .points span{color:var(--stone-600)}
+
+  .proof{font-size:14px; color:var(--stone-500); display:flex; gap:10px; align-items:center}
+  .proof .bar{width:26px; height:1px; background:var(--line-strong)}
+
+  /* form card */
+  .form-card{position:relative; background:var(--parchment-100); border:1px solid var(--line-strong);
+    border-radius:6px; padding:30px 30px 26px; box-shadow:0 1px 3px rgba(21,18,14,.08)}
+  .fc-title{font-family:var(--font-display); font-weight:600; letter-spacing:-.02em; font-size:22px; margin-bottom:6px}
+  .fc-sub{font-size:14px; color:var(--stone-500); margin-bottom:22px}
+  .field{margin-bottom:16px}
+  .field label{display:block; font-size:13px; font-weight:600; color:var(--ink-800); margin-bottom:7px}
+  .field .req{color:var(--gold-500)}
+  .field .opt{color:var(--stone-500); font-weight:500}
+  .control input,.control select{width:100%; font-family:var(--font-body); font-size:15.5px; color:var(--ink-800);
+    background:var(--parchment-200); border:1px solid var(--line); border-radius:4px; padding:12px 13px; outline:none;
+    transition:border-color .18s var(--ease),background .18s var(--ease)}
+  .control input::placeholder{color:var(--stone-500)}
+  .control select.placeholder{color:var(--stone-500)}
+  .control input:focus,.control select:focus{border-color:var(--gold-500); background:var(--parchment-100)}
+  .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+
+  .btn{width:100%; font-family:var(--font-display); font-weight:600; font-size:16px; letter-spacing:.01em;
+    color:var(--parchment-100); background:var(--ink-800); border:1px solid var(--ink-800); border-radius:999px;
+    padding:14px 20px; cursor:pointer; margin-top:6px; transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease)}
+  .btn:hover{background:var(--gold-500); border-color:var(--gold-500); color:var(--ink-900)}
+  .consent{display:flex; gap:9px; align-items:flex-start; margin:16px 2px 0}
+  .consent input{width:16px; height:16px; margin-top:1px; accent-color:var(--gold-500); flex-shrink:0; cursor:pointer}
+  .consent label{font-size:11.5px; line-height:1.45; color:var(--stone-500)}
+  .consent a{color:var(--gold-600); font-weight:600; text-decoration:none}
+  .consent a:hover{text-decoration:underline}
+  .err{display:none; font-size:12.5px; color:#9a3324; margin-top:12px}
+
+  .form-loader{position:absolute; inset:0; z-index:6; display:none; align-items:center; justify-content:center;
+    background:rgba(243,239,231,.7); backdrop-filter:blur(2px); border-radius:6px}
+  .form-card.updating .form-loader{display:flex}
+  .fl-spin{width:26px; height:26px; border:2px solid var(--line-strong); border-top-color:var(--gold-500);
+    border-radius:50%; animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  .fc-success{display:none; text-align:center; padding:14px 4px}
+  .form-card.done .fc-form{display:none}
+  .form-card.done .fc-success{display:block}
+  .fc-success .ok{font-family:var(--font-display); font-weight:600; font-size:22px; letter-spacing:-.02em; margin-bottom:8px}
+  .fc-success p{font-size:14.5px; color:var(--stone-600)}
+  .fc-success .ticket{display:inline-block; margin-top:16px; font-size:12.5px; font-weight:700; color:var(--gold-600);
+    background:var(--parchment-200); border:1px solid var(--line); padding:9px 16px; border-radius:999px}
+
+  footer{flex-shrink:0; border-top:1px solid var(--line-weak); padding:16px 0}
+  .ft{display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:var(--stone-500); gap:16px; flex-wrap:wrap}
+
+  @media (max-width:900px){
+    .grid{grid-template-columns:1fr; gap:34px}
+    main{padding:32px 0}
+    .wrap{padding:0 20px}
+    .order-form{order:-1}
+  }
+</style>
+</head>
+<body>
+<header><div class="wrap hd">
+  <div class="brand">AURION<span class="dot">.</span></div>
+  <div class="meta">Выход на зарубежный рынок под ключ</div>
+</div></header>
+
+<main><div class="wrap"><div class="grid">
+
+  <section class="copy">
+    <div class="eyebrow">Диверсификация без релокейта</div>
+    <h1>Выведите бизнес за рубеж — <span class="g">без своего юрлица</span> за границей.</h1>
+    <p class="lead">Вы работаете в новой юрисдикции на инфраструктуре AURION. Юридическая обвязка,
+      приём платежей и оплата расходов — на нашей стороне. Минимум трудозатрат, минимальная цена ошибки.</p>
+
+    <ul class="points">
+      <li><span class="m">01</span><span><b>Без своей компании и счёта за рубежом.</b> Работаете по договору на юрлице AURION — не тратите месяцы и деньги на регистрацию.</span></li>
+      <li><span class="m">02</span><span><b>Приём платежей от зарубежных клиентов.</b> Легально принимаете выручку в валюте.</span></li>
+      <li><span class="m">03</span><span><b>Оплата рекламы и сервисов за рубежом.</b> Платите за продвижение и операционные расходы без блокировок.</span></li>
+      <li><span class="m">04</span><span><b>Дистрибьюторский договор под ключ.</b> Комплаенс и валютный контроль — наша зона ответственности.</span></li>
+    </ul>
+
+    <div class="proof"><span class="bar"></span>Тестируете новый рынок сейчас — переходите на собственную структуру, когда спрос подтвердится.</div>
+  </section>
+
+  <section class="order-form">
+    <div class="form-card" id="card">
+      <form class="fc-form" id="form" novalidate>
+        <div class="fc-title">Заявка на разбор</div>
+        <div class="fc-sub">Ответим и предложим сценарий выхода под вашу нишу.</div>
+
+        <div class="field">
+          <label for="niche">Сфера бизнеса <span class="req">*</span></label>
+          <div class="control">
+            <select id="niche" class="placeholder">
+              <option value="" disabled selected>Выберите нишу</option>
+              <option>Онлайн-школа / инфобизнес</option>
+              <option>E-commerce / селлер</option>
+              <option>IT / SaaS / агентство</option>
+              <option>Импорт-экспорт / ВЭД</option>
+              <option>Другое</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="market">Целевой рынок <span class="req">*</span></label>
+          <div class="control">
+            <select id="market" class="placeholder">
+              <option value="" disabled selected>Куда выходите</option>
+              <option>Казахстан</option>
+              <option>ОАЭ</option>
+              <option>Армения</option>
+              <option>Азия (Китай / Гонконг / Турция)</option>
+              <option>Ещё не выбрал</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="contact">Telegram или телефон <span class="req">*</span></label>
+          <div class="control">
+            <input type="text" id="contact" inputmode="text" placeholder="@username или +7 ___ ___-__-__">
+          </div>
+        </div>
+
+        <!-- honeypot -->
+        <div class="hp"><label>Компания<input type="text" id="hp_company" tabindex="-1" autocomplete="off"></label></div>
+
+        <button type="submit" class="btn" id="submit">Оставить заявку →</button>
+
+        <div class="consent">
+          <input type="checkbox" id="agree">
+          <label for="agree">Соглашаюсь на обработку данных по <a href="/privacy.html">политике конфиденциальности</a>.</label>
+        </div>
+        <div class="err" id="err">Проверьте поля и попробуйте ещё раз.</div>
+      </form>
+
+      <div class="form-loader" aria-hidden="true"><span class="fl-spin"></span></div>
+
+      <div class="fc-success">
+        <div class="ok">Заявка принята</div>
+        <p>Свяжемся с вами в ближайшее время и предложим сценарий выхода на рынок.</p>
+        <div class="ticket" id="ticket">Заявка № AUR-000000</div>
+      </div>
+    </div>
+  </section>
+
+</div></div></main>
+
+<footer><div class="wrap ft">
+  <div>© AURION — выход на зарубежный рынок без своего юрлица</div>
+  <div>Не является публичной офертой. Условия — по итогам консультации.</div>
+</div></footer>
+
+<script>
+(function(){
+  'use strict';
+  // URL обработчика заявок. Пусто = демо-режим (успех показывается, но заявка не уходит).
+  // Для боевого приёма: подключить backend/lead-amocrm.php (как в domwedone) или форм-сервис,
+  // возвращающий {"ok":true}.
+  var LEAD_ENDPOINT = '';
+
+  var form=document.getElementById('form'), card=document.getElementById('card'),
+      niche=document.getElementById('niche'), market=document.getElementById('market'),
+      contact=document.getElementById('contact'), agree=document.getElementById('agree'),
+      hp=document.getElementById('hp_company'), err=document.getElementById('err');
+
+  [niche,market].forEach(function(sel){ sel.addEventListener('change',function(){ if(sel.value) sel.classList.remove('placeholder'); }); });
+
+  function fail(msg){ err.textContent=msg||'Проверьте поля и попробуйте ещё раз.'; err.style.display='block'; }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    err.style.display='none';
+    if(hp.value){ return; } // бот
+    if(!niche.value || !market.value){ return fail('Выберите нишу и целевой рынок.'); }
+    if(!contact.value.trim() || contact.value.trim().length<3){ return fail('Укажите Telegram или телефон для связи.'); }
+    if(!agree.checked){ return fail('Отметьте согласие на обработку данных.'); }
+
+    var ticket='AUR-'+Math.floor(100000+Math.random()*900000);
+    document.getElementById('ticket').textContent='Заявка № '+ticket;
+
+    var qs=new URLSearchParams(location.search), utm={};
+    ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(k){ if(qs.get(k)) utm[k]=qs.get(k); });
+
+    var payload={
+      ticket:ticket, niche:niche.value, market:market.value, contact:contact.value.trim(),
+      consent:!!agree.checked, page:location.href, referrer:document.referrer||'',
+      utm:utm, ts:new Date().toISOString()
+    };
+
+    card.classList.add('updating');
+    var wait=new Promise(function(r){ setTimeout(r,700); });
+    function done(){ card.classList.remove('updating'); card.classList.add('done'); }
+
+    if(!LEAD_ENDPOINT){ console.warn('[lead] LEAD_ENDPOINT не задан — демо-режим, заявка не отправлена.', payload); wait.then(done); return; }
+
+    Promise.all([wait, fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ return r.json().catch(function(){ throw new Error('Сервер вернул не JSON'); }); })
+      .then(function(j){ if(!j||j.ok!==true) throw new Error((j&&j.error)||'Ошибка CRM'); })
+    ]).then(done).catch(function(ex){ card.classList.remove('updating'); fail('Не удалось отправить заявку. Напишите нам напрямую.'); console.error(ex); });
+  });
+})();
+</script>
+</body></html>
