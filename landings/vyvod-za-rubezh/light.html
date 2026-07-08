@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURION — вывод бизнеса за рубеж без своего юрлица (светлая версия)</title>
+<meta name="description" content="Выведите бизнес в другую юрисдикцию без открытия своей компании за границей. Приём платежей, оплата рекламы и расходов, юробвязка — на инфраструктуре AURION.">
+<link rel="canonical" href="https://aurion.example/vyvod-za-rubezh/light/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#F3EFE7">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AURION">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Вывод бизнеса за рубеж — без своего юрлица">
+<meta property="og:description" content="Работайте в новой юрисдикции на инфраструктуре AURION: платежи, оплата рекламы и расходов, юробвязка — на нашей стороне.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment-50:#F7F3EC; --parchment-100:#F3EFE7; --parchment-200:#EFE9DD; --parchment-300:#E7DECF;
+    --ink-900:#0E0C09; --ink-800:#15120E; --ink-700:#2A2620;
+    --stone-600:#574F40; --stone-500:#8A8270; --stone-400:#A69C88;
+    --gold-600:#946A30; --gold-500:#A87C3D; --gold-400:#C0925A; --gold-300:#CDA869; --gold-200:#E4C98F;
+    --line-weak:rgba(21,18,14,.09); --line:rgba(21,18,14,.14); --line-strong:rgba(21,18,14,.22);
+    --line-dk:rgba(243,239,231,.16);
+    --font-display:"Archivo","Noto Sans SC",system-ui,sans-serif;
+    --font-body:"Hanken Grotesk","Noto Sans SC",system-ui,sans-serif;
+    --ease:cubic-bezier(.2,0,0,1); --r:14px; --r-sm:8px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);color:var(--ink-800);font-size:17px;line-height:1.5;background:var(--parchment-100);
+    -webkit-font-smoothing:antialiased;position:relative;min-height:100vh;overflow-x:hidden}
+  body::before{content:"";position:fixed;top:-260px;right:-180px;width:760px;height:760px;border-radius:50%;
+    background:radial-gradient(circle,rgba(168,124,61,.13),transparent 62%);pointer-events:none;z-index:0}
+  body::after{content:"";position:fixed;bottom:-300px;left:-220px;width:680px;height:680px;border-radius:50%;
+    background:radial-gradient(circle,rgba(205,168,105,.12),transparent 66%);pointer-events:none;z-index:0}
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  a{color:inherit;text-decoration:none}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(243,239,231,.8);backdrop-filter:blur(14px) saturate(120%);border-bottom:1px solid var(--line-weak)}
+  .hd{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+  .brand{font-family:var(--font-display);font-weight:800;letter-spacing:.22em;font-size:17px}
+  .brand .dot{color:var(--gold-500)}
+  .brand small{display:block;font-family:var(--font-body);font-weight:500;letter-spacing:.02em;font-size:11px;color:var(--stone-500);margin-top:2px}
+  .hd-right{display:flex;align-items:center;gap:20px}
+  .phone{text-align:right;line-height:1.2}
+  .phone b{font-family:var(--font-display);font-weight:700;font-size:16px}
+  .phone small{display:block;font-size:11px;color:var(--stone-500)}
+  .btn-ghost{font-family:var(--font-display);font-weight:600;font-size:14px;border:1px solid var(--line-strong);border-radius:999px;padding:10px 20px;transition:.2s var(--ease)}
+  .btn-ghost:hover{border-color:var(--gold-500);color:var(--gold-600)}
+
+  main{padding:44px 0 40px}
+  .eyebrow{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:600;color:var(--gold-600);margin-bottom:16px}
+  .top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:12px}
+  h1{font-family:var(--font-display);font-weight:700;letter-spacing:-.03em;line-height:1.02;font-size:clamp(34px,4.6vw,60px);max-width:16ch}
+  h1 .g{color:var(--gold-500)}
+  .live{display:inline-flex;align-items:center;gap:9px;background:var(--parchment-200);border:1px solid var(--line);border-radius:999px;
+    padding:9px 15px;font-size:12.5px;color:var(--stone-600);font-weight:500;white-space:nowrap}
+  .live .d{position:relative;width:9px;height:9px;border-radius:50%;background:var(--gold-500);flex-shrink:0}
+  .live .d::after{content:"";position:absolute;inset:-5px;border-radius:50%;background:rgba(168,124,61,.4);animation:pulse 1.9s ease-out infinite}
+  .live b{color:var(--gold-600);font-weight:700}
+  .lead{font-size:18.5px;color:var(--stone-600);max-width:40ch;margin:14px 0 30px}
+  .lead b{color:var(--ink-800);font-weight:600}
+
+  .cols{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:start}
+  .col{display:flex;flex-direction:column;gap:20px}
+
+  /* stat chips */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .stat{background:var(--parchment-100);padding:18px 18px;transition:background .2s var(--ease)}
+  .stat:hover{background:var(--parchment-50)}
+  .stat .lbl{font-size:12px;color:var(--stone-500);margin-bottom:7px;line-height:1.3}
+  .stat .num{font-family:var(--font-display);font-weight:700;font-size:28px;letter-spacing:-.02em}
+  .stat .num .u{color:var(--gold-500);font-size:19px}
+
+  .subline{background:var(--parchment-200);border:1px solid var(--line);border-radius:var(--r-sm);padding:15px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .subline b{font-family:var(--font-display);font-weight:700;font-size:15.5px}
+  .subline b .g{color:var(--gold-600)}
+  .subline span{font-size:12.5px;color:var(--stone-500)}
+
+  .dirhead{font-family:var(--font-display);font-weight:700;font-size:16px}
+  .dirhead .g{color:var(--gold-600)}
+  .dirs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .dir{background:var(--parchment-100);border:1px solid var(--line);border-radius:var(--r-sm);padding:15px 16px;
+    display:flex;flex-direction:column;gap:9px;min-height:100px;transition:transform .2s var(--ease),border-color .2s var(--ease),box-shadow .2s var(--ease)}
+  .dir:hover{transform:translateY(-3px);border-color:var(--gold-500);box-shadow:0 12px 22px -14px rgba(21,18,14,.28)}
+  .dir .flag{font-size:23px;line-height:1}
+  .dir .n{font-family:var(--font-display);font-weight:700;font-size:15px;margin-top:auto}
+  .dir .t{align-self:flex-start;font-size:11px;font-weight:700;font-family:var(--font-display);letter-spacing:.02em;background:var(--parchment-300);color:var(--gold-600);padding:4px 10px;border-radius:999px;border:1px solid var(--line)}
+
+  /* form card — dark focal on parchment */
+  .form-card{position:relative;background:linear-gradient(180deg,var(--ink-800),var(--ink-900));color:var(--parchment-100);
+    border-radius:var(--r);padding:26px 26px 22px;box-shadow:0 30px 66px -30px rgba(21,18,14,.5)}
+  .fc-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+  .fc-title{font-family:var(--font-display);font-weight:700;font-size:21px;letter-spacing:-.02em}
+  .fc-cur{font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.06em;background:var(--gold-300);color:var(--ink-900);padding:7px 12px;border-radius:999px}
+  .field{margin-bottom:13px}
+  .field label{display:block;font-size:12.5px;font-weight:600;color:var(--parchment-100);margin-bottom:6px}
+  .field .req{color:var(--gold-300)}
+  .ctrl input,.ctrl select{width:100%;font-family:var(--font-body);font-size:15.5px;color:var(--parchment-100);
+    background:var(--ink-700);border:1px solid var(--line-dk);border-radius:9px;padding:13px 14px;outline:none;transition:.18s var(--ease)}
+  .ctrl input::placeholder{color:var(--stone-400)}
+  .ctrl select.ph{color:var(--stone-400)}
+  .ctrl input:focus,.ctrl select:focus{border-color:var(--gold-300);box-shadow:0 0 0 3px rgba(205,168,105,.2)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .btn{width:100%;font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--ink-900);background:var(--gold-300);
+    border:none;border-radius:11px;padding:15px 20px;cursor:pointer;margin-top:5px;transition:transform .12s var(--ease),background .2s var(--ease)}
+  .btn:hover{background:var(--gold-200)}
+  .btn:active{transform:scale(.99)}
+  .consent{display:flex;gap:9px;align-items:flex-start;margin:13px 2px 0}
+  .consent input{width:16px;height:16px;margin-top:1px;accent-color:var(--gold-300);flex-shrink:0;cursor:pointer}
+  .consent label{font-size:11px;line-height:1.45;color:var(--stone-400)}
+  .consent a{color:var(--gold-300);font-weight:700}
+  .err{display:none;font-size:12px;font-weight:600;color:#e2887a;margin-top:10px}
+  .form-loader{position:absolute;inset:0;z-index:6;display:none;flex-direction:column;align-items:center;justify-content:center;gap:15px;background:rgba(14,12,9,.9);border-radius:var(--r)}
+  .form-card.loading .form-loader{display:flex}
+  .pl-txt{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--gold-200)}
+  .pbar{width:200px;height:7px;border-radius:999px;background:rgba(243,239,231,.14);overflow:hidden}
+  .pbar span{display:block;height:100%;width:5%;border-radius:999px;background:var(--gold-300);transition:width 1.6s cubic-bezier(.3,.8,.3,1)}
+  .form-card.loading .pbar span{width:100%}
+  .fc-success{display:none;text-align:center;padding:18px 6px}
+  .form-card.done .fc-form{display:none}.form-card.done .fc-success{display:block}
+  .fc-success .ic{width:52px;height:52px;border-radius:50%;background:var(--gold-300);color:var(--ink-900);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 14px;animation:pop .45s cubic-bezier(.22,1,.36,1)}
+  .fc-success .ok{font-family:var(--font-display);font-weight:700;font-size:21px;margin-bottom:6px}
+  .fc-success p{font-size:14px;color:var(--stone-400)}
+  .fc-success .ticket{display:inline-block;margin-top:14px;font-family:var(--font-display);font-size:12px;font-weight:700;color:var(--ink-900);background:var(--gold-300);padding:9px 16px;border-radius:999px}
+
+  footer{border-top:1px solid var(--line-weak);padding:20px 0;margin-top:30px}
+  .ft{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--stone-500)}
+  .ft a{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:600;color:var(--stone-600);transition:.2s var(--ease)}
+  .ft a:hover{border-color:var(--gold-500);color:var(--gold-600)}
+
+  @keyframes pulse{0%{transform:scale(.5);opacity:.85}100%{transform:scale(1.6);opacity:0}}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes pop{0%{transform:scale(.5);opacity:0}100%{transform:scale(1);opacity:1}}
+  .reveal{opacity:0;animation:rise .7s var(--ease) forwards}
+  .d1{animation-delay:.05s}.d2{animation-delay:.13s}.d3{animation-delay:.21s}.d4{animation-delay:.29s}.d5{animation-delay:.37s}.d6{animation-delay:.45s}
+
+  @media (max-width:980px){.cols{grid-template-columns:1fr;gap:18px}.col-form{order:-1}.stats{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.wrap{padding:0 16px}.hd-right .phone{display:none}h1{font-size:32px}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1}}
+</style>
+</head>
+<body>
+<header><div class="wrap hd">
+  <div class="brand">AURION<span class="dot">.</span><small>выход на зарубежный рынок под ключ</small></div>
+  <div class="hd-right">
+    <div class="phone"><b>+7 495 000-00-00</b><small>Пн–Пт, 10:00–19:00 МСК</small></div>
+    <a href="#form" class="btn-ghost">Оставить заявку</a>
+  </div>
+</div></header>
+
+<main><div class="wrap">
+  <div class="reveal d1"><div class="eyebrow">Диверсификация без релокейта</div></div>
+  <div class="top reveal d1">
+    <h1>Выведите бизнес за рубеж — <span class="g">без своей компании</span> за границей.</h1>
+    <div class="live"><span class="d"></span>Рынок диверсификации растёт · <b>2026</b></div>
+  </div>
+  <p class="lead reveal d2">Вы работаете в новой юрисдикции на инфраструктуре AURION. Юробвязка, приём платежей и оплата расходов — <b>на нашей стороне</b>. Минимум трудозатрат, минимальная цена ошибки.</p>
+
+  <div class="cols">
+    <div class="col">
+      <section class="stats reveal d3">
+        <div class="stat"><div class="lbl">Компаний РФ уже в ОАЭ</div><div class="num" id="c1">0<span class="u">+</span></div></div>
+        <div class="stat"><div class="lbl">Банков отказывают в платежах из РФ</div><div class="num" id="c2">0<span class="u">%</span></div></div>
+        <div class="stat"><div class="lbl">Бизнесов с падением выручки</div><div class="num" id="c3">0<span class="u">%</span></div></div>
+        <div class="stat"><div class="lbl">До запуска на рынке</div><div class="num">~недели</div></div>
+      </section>
+
+      <div class="subline reveal d4"><b>Своя компания — <span class="g">этап 2</span></b><span>переход, когда спрос подтвердится</span></div>
+
+      <div class="dirhead reveal d4">Юрисдикции <span class="g">под задачу</span></div>
+      <section class="dirs reveal d5">
+        <div class="dir"><span class="flag">🇰🇿</span><span class="n">Казахстан</span><span class="t">ЕАЭС · рубли</span></div>
+        <div class="dir"><span class="flag">🇦🇪</span><span class="n">ОАЭ · Дубай</span><span class="t">статус · масштаб</span></div>
+        <div class="dir"><span class="flag">🇦🇲</span><span class="n">Армения</span><span class="t">быстрый старт</span></div>
+        <div class="dir"><span class="flag">🌏</span><span class="n">Азия</span><span class="t">Китай · Гонконг +</span></div>
+      </section>
+    </div>
+
+    <div class="col col-form">
+      <section class="form-card reveal d3" id="form">
+        <form class="fc-form" id="lead" novalidate>
+          <div class="fc-head"><div class="fc-title">Заявка на разбор</div><div class="fc-cur">KZ · AE · AM · CN</div></div>
+          <div class="field"><label for="niche">Сфера бизнеса <span class="req">*</span></label>
+            <div class="ctrl"><select id="niche" class="ph">
+              <option value="" disabled selected>Выберите нишу</option>
+              <option>Онлайн-школа / инфобизнес</option><option>E-commerce / селлер</option>
+              <option>IT / SaaS / агентство</option><option>Импорт-экспорт / ВЭД</option><option>Другое</option>
+            </select></div></div>
+          <div class="field"><label for="market">Целевой рынок <span class="req">*</span></label>
+            <div class="ctrl"><select id="market" class="ph">
+              <option value="" disabled selected>Куда выходите</option>
+              <option>Казахстан</option><option>ОАЭ</option><option>Армения</option><option>Азия (Китай / Гонконг / Турция)</option><option>Ещё не выбрал</option>
+            </select></div></div>
+          <div class="field"><label for="contact">Telegram или телефон <span class="req">*</span></label>
+            <div class="ctrl"><input type="text" id="contact" placeholder="@username или +7 ___ ___-__-__"></div></div>
+          <div class="hp"><label>Компания<input type="text" id="hp_company" tabindex="-1" autocomplete="off"></label></div>
+          <button type="submit" class="btn" id="submit">Оставить заявку →</button>
+          <div class="consent"><input type="checkbox" id="agree"><label for="agree">Соглашаюсь на обработку данных по <a href="/privacy.html">политике конфиденциальности</a>.</label></div>
+          <div class="err" id="err">Проверьте поля и попробуйте ещё раз.</div>
+        </form>
+        <div class="form-loader" aria-hidden="true"><div class="pl-txt">Готовим сценарий выхода…</div><div class="pbar"><span></span></div></div>
+        <div class="fc-success"><div class="ic">✓</div><div class="ok">Заявка принята</div><p>Свяжемся и предложим сценарий выхода под вашу нишу.</p><div class="ticket" id="ticket">Заявка № AUR-000000</div></div>
+      </section>
+    </div>
+  </div>
+</div></main>
+
+<footer><div class="wrap ft">
+  <div><b style="color:var(--stone-600)">AURION</b> · выход на зарубежный рынок без своего юрлица · не является публичной офертой, условия — по итогам консультации</div>
+  <div style="display:flex;gap:10px"><a href="/oferta.html">Оферта</a><a href="/privacy.html">Конфиденциальность</a></div>
+</div></footer>
+
+<script>
+(function(){
+  'use strict';
+  var LEAD_ENDPOINT=''; // пусто = демо-режим. Боевой: backend/lead-amocrm.php или форм-сервис, отвечающий {"ok":true}.
+  function countUp(el,to){ if(!el) return; var dur=1200,start=performance.now();
+    var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(r){el.childNodes[0].nodeValue=to.toLocaleString('ru-RU');return;}
+    function s(t){var p=Math.min((t-start)/dur,1),v=Math.round(to*(1-Math.pow(1-p,3)));el.childNodes[0].nodeValue=v.toLocaleString('ru-RU');if(p<1)requestAnimationFrame(s);}requestAnimationFrame(s);}
+  window.addEventListener('load',function(){ setTimeout(function(){countUp(document.getElementById('c1'),13500);countUp(document.getElementById('c2'),42);countUp(document.getElementById('c3'),69);},400); });
+  var form=document.getElementById('lead'),card=document.getElementById('form'),niche=document.getElementById('niche'),market=document.getElementById('market'),contact=document.getElementById('contact'),agree=document.getElementById('agree'),hp=document.getElementById('hp_company'),err=document.getElementById('err');
+  [niche,market].forEach(function(s){s.addEventListener('change',function(){if(s.value)s.classList.remove('ph');});});
+  function fail(m){err.textContent=m||'Проверьте поля.';err.style.display='block';}
+  form.addEventListener('submit',function(e){e.preventDefault();err.style.display='none';
+    if(hp.value)return; if(!niche.value||!market.value)return fail('Выберите нишу и целевой рынок.');
+    if(contact.value.trim().length<3)return fail('Укажите Telegram или телефон.'); if(!agree.checked)return fail('Отметьте согласие на обработку данных.');
+    var ticket='AUR-'+Math.floor(100000+Math.random()*900000);document.getElementById('ticket').textContent='Заявка № '+ticket;
+    var qs=new URLSearchParams(location.search),utm={};['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(k){if(qs.get(k))utm[k]=qs.get(k);});
+    var payload={ticket:ticket,niche:niche.value,market:market.value,contact:contact.value.trim(),consent:!!agree.checked,page:location.href,referrer:document.referrer||'',utm:utm,ts:new Date().toISOString()};
+    card.classList.add('loading');var wait=new Promise(function(r){setTimeout(r,1500);});function done(){card.classList.remove('loading');card.classList.add('done');}
+    if(!LEAD_ENDPOINT){console.warn('[lead] демо-режим',payload);wait.then(done);return;}
+    Promise.all([wait,fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json().catch(function(){throw new Error('not json');});}).then(function(j){if(!j||j.ok!==true)throw new Error((j&&j.error)||'CRM error');})]).then(done).catch(function(ex){card.classList.remove('loading');fail('Не удалось отправить. Напишите напрямую.');console.error(ex);});
+  });
+})();
+</script>
+</body></html>
