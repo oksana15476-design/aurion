@@ -6,7 +6,7 @@
 <meta name="description" content="Выведите бизнес в другую юрисдикцию без открытия своей компании за границей. Приём платежей, оплата рекламы и расходов, юробвязка — на инфраструктуре AURION. Минимальная цена ошибки.">
 <link rel="canonical" href="https://aurion.example/vyvod-za-rubezh/">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="theme-color" content="#15120E">
+<meta name="theme-color" content="#0E0C09">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AURION">
 <meta property="og:locale" content="ru_RU">
@@ -16,187 +16,243 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Вывод бизнеса за рубеж — без своего юрлица">
 <meta name="twitter:description" content="Тестируйте новый рынок с минимальной ценой ошибки — на инфраструктуре AURION.">
-<!-- yandex-verification: подставить код после подтверждения домена -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"AURION — вывод бизнеса за рубеж без своего юрлица","serviceType":"Международный выход на рынок через инфраструктуру-агрегатор","areaServed":["KZ","AE","AM","CN","TR"],"provider":{"@type":"Organization","name":"AURION"},"description":"Работа в иностранной юрисдикции без открытия собственного юрлица: приём платежей, оплата расходов и рекламы, юридическая обвязка на стороне AURION."}</script>
 <style>
   :root{
-    --parchment-100:#F3EFE7; --parchment-200:#EFE9DD; --parchment-300:#E7DECF;
-    --ink-900:#0E0C09; --ink-800:#15120E; --ink-700:#2A2620;
-    --stone-600:#574F40; --stone-500:#8A8270;
-    --gold-600:#946A30; --gold-500:#A87C3D; --gold-300:#CDA869;
-    --line-weak:rgba(21,18,14,.10); --line:rgba(21,18,14,.14); --line-strong:rgba(21,18,14,.22);
-    --line-on-dark:rgba(243,239,231,.22);
+    --ink-900:#0E0C09; --ink-800:#15120E; --ink-700:#211D17; --ink-650:#2A251D;
+    --parchment-100:#F3EFE7; --parchment-200:#EFE9DD;
+    --stone-300:#B7AE9C; --stone-400:#9A917E; --stone-500:#8A8270;
+    --gold-600:#946A30; --gold-500:#A87C3D; --gold-400:#C0925A; --gold-300:#CDA869; --gold-200:#E4C98F;
+    --line-on-dark:rgba(243,239,231,.12); --line-on-dark-2:rgba(243,239,231,.20);
     --font-display:"Archivo","Noto Sans SC",system-ui,sans-serif;
     --font-body:"Hanken Grotesk","Noto Sans SC",system-ui,sans-serif;
     --ease:cubic-bezier(.2,0,0,1);
+    --r:16px; --r-sm:11px;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
   body{
-    font-family:var(--font-body); color:var(--ink-800); background:var(--parchment-100);
-    font-size:17px; line-height:1.5; -webkit-font-smoothing:antialiased;
-    display:flex; flex-direction:column; min-height:100%;
+    font-family:var(--font-body); color:var(--parchment-100); font-size:17px; line-height:1.5;
+    -webkit-font-smoothing:antialiased; background:var(--ink-900); position:relative; min-height:100vh; overflow-x:hidden;
   }
-  a{color:inherit}
-  .wrap{width:100%; max-width:1240px; margin:0 auto; padding:0 32px}
+  /* ambient warm glows for depth/life */
+  body::before{content:"";position:fixed;top:-280px;right:-200px;width:820px;height:820px;border-radius:50%;
+    background:radial-gradient(circle,rgba(205,168,105,.16),transparent 62%);pointer-events:none;z-index:0}
+  body::after{content:"";position:fixed;bottom:-320px;left:-240px;width:760px;height:760px;border-radius:50%;
+    background:radial-gradient(circle,rgba(168,124,61,.12),transparent 65%);pointer-events:none;z-index:0}
+  .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  a{color:inherit;text-decoration:none}
 
   /* header */
-  header{position:sticky; top:0; z-index:10; background:rgba(243,239,231,.82); backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--line-weak)}
-  .hd{display:flex; align-items:center; justify-content:space-between; height:64px}
-  .brand{font-family:var(--font-display); font-weight:700; letter-spacing:.22em; font-size:16px}
-  .brand .dot{color:var(--gold-500)}
-  .hd .meta{font-size:13px; color:var(--stone-500); letter-spacing:.02em}
+  header{position:sticky;top:0;z-index:20;background:rgba(14,12,9,.72);backdrop-filter:blur(14px) saturate(120%);
+    border-bottom:1px solid var(--line-on-dark)}
+  .hd{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+  .brand{font-family:var(--font-display);font-weight:800;letter-spacing:.22em;font-size:17px;color:var(--parchment-100)}
+  .brand .dot{color:var(--gold-300)}
+  .brand small{display:block;font-family:var(--font-body);font-weight:500;letter-spacing:.02em;font-size:11px;color:var(--stone-500);margin-top:2px}
+  .hd-right{display:flex;align-items:center;gap:22px}
+  .phone{text-align:right;line-height:1.2}
+  .phone b{font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:.01em}
+  .phone small{display:block;font-size:11px;color:var(--stone-500)}
+  .btn-ghost{font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--parchment-100);
+    border:1px solid var(--line-on-dark-2);border-radius:999px;padding:10px 20px;transition:.2s var(--ease)}
+  .btn-ghost:hover{border-color:var(--gold-300);color:var(--gold-200)}
 
-  /* main one-screen */
-  main{flex:1 0 auto; display:flex; align-items:center; padding:44px 0}
-  .grid{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; width:100%}
+  main{padding:34px 0 40px}
+  .cols{display:grid;grid-template-columns:1.02fr 1.05fr;gap:22px;align-items:start}
+  .col{display:flex;flex-direction:column;gap:22px}
 
-  .eyebrow{font-family:var(--font-display); text-transform:uppercase; letter-spacing:.18em;
-    font-size:12.5px; font-weight:600; color:var(--gold-600); margin-bottom:18px}
-  h1{font-family:var(--font-display); font-weight:600; letter-spacing:-.025em; line-height:1.04;
-    font-size:clamp(34px,4.6vw,58px); margin-bottom:20px}
-  h1 .g{color:var(--gold-500)}
-  .lead{font-size:19px; color:var(--stone-600); max-width:34em; margin-bottom:28px}
+  .panel{background:linear-gradient(180deg,var(--ink-800),var(--ink-900));border:1px solid var(--line-on-dark);
+    border-radius:var(--r);padding:30px}
 
-  .points{list-style:none; display:grid; gap:1px; background:var(--line);
-    border:1px solid var(--line); border-radius:4px; overflow:hidden; margin-bottom:26px}
-  .points li{background:var(--parchment-100); padding:14px 18px; display:flex; gap:12px; align-items:flex-start;
-    font-size:15.5px}
-  .points .m{color:var(--gold-500); font-family:var(--font-display); font-weight:700; line-height:1.35}
-  .points b{font-weight:600}
-  .points span{color:var(--stone-600)}
+  /* hero */
+  .tags{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+  .tag{font-family:var(--font-display);font-weight:600;font-size:12px;letter-spacing:.02em;padding:7px 14px;border-radius:999px}
+  .tag.line{border:1px solid var(--line-on-dark-2);color:var(--stone-300)}
+  .tag.gold{background:var(--gold-300);color:var(--ink-900)}
+  h1{font-family:var(--font-display);font-weight:700;letter-spacing:-.03em;line-height:1.03;
+    font-size:clamp(33px,4vw,50px);margin-bottom:16px}
+  h1 .g{color:var(--gold-300)}
+  .lead{font-size:17.5px;color:var(--stone-300);max-width:33em}
+  .lead b{color:var(--parchment-100);font-weight:600}
 
-  .proof{font-size:14px; color:var(--stone-500); display:flex; gap:10px; align-items:center}
-  .proof .bar{width:26px; height:1px; background:var(--line-strong)}
+  /* form card — focal, gold */
+  .form-card{position:relative;background:linear-gradient(180deg,var(--gold-300),var(--gold-400));
+    border-radius:var(--r);padding:26px 26px 22px;color:var(--ink-900);box-shadow:0 30px 70px -34px rgba(205,168,105,.55),0 2px 0 rgba(255,255,255,.15) inset}
+  .fc-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+  .fc-title{font-family:var(--font-display);font-weight:700;font-size:21px;letter-spacing:-.02em}
+  .fc-cur{font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.06em;background:var(--ink-900);color:var(--gold-200);padding:7px 12px;border-radius:999px}
+  .field{margin-bottom:13px}
+  .field label{display:block;font-family:var(--font-body);font-size:12.5px;font-weight:600;color:var(--ink-800);margin-bottom:6px}
+  .field .req{color:var(--gold-600)}
+  .ctrl input,.ctrl select{width:100%;font-family:var(--font-body);font-size:15.5px;color:var(--ink-900);
+    background:#FBF7EF;border:1px solid rgba(21,18,14,.14);border-radius:10px;padding:13px 14px;outline:none;
+    transition:box-shadow .18s var(--ease),border-color .18s var(--ease)}
+  .ctrl input::placeholder{color:var(--stone-500)}
+  .ctrl select.ph{color:var(--stone-500)}
+  .ctrl input:focus,.ctrl select:focus{border-color:var(--ink-800);box-shadow:0 0 0 3px rgba(21,18,14,.16)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .btn{width:100%;font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:.01em;color:var(--gold-200);
+    background:var(--ink-900);border:none;border-radius:12px;padding:15px 20px;cursor:pointer;margin-top:5px;
+    transition:transform .12s var(--ease),background .2s var(--ease),color .2s var(--ease);box-shadow:0 14px 30px -12px rgba(14,12,9,.6)}
+  .btn:hover{background:var(--ink-800);color:var(--gold-200)}
+  .btn:active{transform:scale(.99)}
+  .consent{display:flex;gap:9px;align-items:flex-start;margin:13px 2px 0}
+  .consent input{width:16px;height:16px;margin-top:1px;accent-color:var(--ink-900);flex-shrink:0;cursor:pointer}
+  .consent label{font-size:11px;line-height:1.45;color:var(--ink-700)}
+  .consent a{color:var(--gold-600);font-weight:700}
+  .err{display:none;font-size:12px;font-weight:600;color:#7a2018;margin-top:10px}
 
-  /* form card */
-  .form-card{position:relative; background:var(--parchment-100); border:1px solid var(--line-strong);
-    border-radius:6px; padding:30px 30px 26px; box-shadow:0 1px 3px rgba(21,18,14,.08)}
-  .fc-title{font-family:var(--font-display); font-weight:600; letter-spacing:-.02em; font-size:22px; margin-bottom:6px}
-  .fc-sub{font-size:14px; color:var(--stone-500); margin-bottom:22px}
-  .field{margin-bottom:16px}
-  .field label{display:block; font-size:13px; font-weight:600; color:var(--ink-800); margin-bottom:7px}
-  .field .req{color:var(--gold-500)}
-  .field .opt{color:var(--stone-500); font-weight:500}
-  .control input,.control select{width:100%; font-family:var(--font-body); font-size:15.5px; color:var(--ink-800);
-    background:var(--parchment-200); border:1px solid var(--line); border-radius:4px; padding:12px 13px; outline:none;
-    transition:border-color .18s var(--ease),background .18s var(--ease)}
-  .control input::placeholder{color:var(--stone-500)}
-  .control select.placeholder{color:var(--stone-500)}
-  .control input:focus,.control select:focus{border-color:var(--gold-500); background:var(--parchment-100)}
-  .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
-
-  .btn{width:100%; font-family:var(--font-display); font-weight:600; font-size:16px; letter-spacing:.01em;
-    color:var(--parchment-100); background:var(--ink-800); border:1px solid var(--ink-800); border-radius:999px;
-    padding:14px 20px; cursor:pointer; margin-top:6px; transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease)}
-  .btn:hover{background:var(--gold-500); border-color:var(--gold-500); color:var(--ink-900)}
-  .consent{display:flex; gap:9px; align-items:flex-start; margin:16px 2px 0}
-  .consent input{width:16px; height:16px; margin-top:1px; accent-color:var(--gold-500); flex-shrink:0; cursor:pointer}
-  .consent label{font-size:11.5px; line-height:1.45; color:var(--stone-500)}
-  .consent a{color:var(--gold-600); font-weight:600; text-decoration:none}
-  .consent a:hover{text-decoration:underline}
-  .err{display:none; font-size:12.5px; color:#9a3324; margin-top:12px}
-
-  .form-loader{position:absolute; inset:0; z-index:6; display:none; align-items:center; justify-content:center;
-    background:rgba(243,239,231,.7); backdrop-filter:blur(2px); border-radius:6px}
-  .form-card.updating .form-loader{display:flex}
-  .fl-spin{width:26px; height:26px; border:2px solid var(--line-strong); border-top-color:var(--gold-500);
-    border-radius:50%; animation:spin .8s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-
-  .fc-success{display:none; text-align:center; padding:14px 4px}
+  .form-loader{position:absolute;inset:0;z-index:6;display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+    background:rgba(205,168,105,.86);backdrop-filter:blur(2px);border-radius:var(--r)}
+  .form-card.loading .form-loader{display:flex}
+  .pbar{width:200px;height:7px;border-radius:999px;background:rgba(14,12,9,.18);overflow:hidden}
+  .pbar span{display:block;height:100%;width:5%;border-radius:999px;background:var(--ink-900);transition:width 1.6s cubic-bezier(.3,.8,.3,1)}
+  .form-card.loading .pbar span{width:100%}
+  .pl-txt{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--ink-900)}
+  .fc-success{display:none;text-align:center;padding:18px 6px}
   .form-card.done .fc-form{display:none}
   .form-card.done .fc-success{display:block}
-  .fc-success .ok{font-family:var(--font-display); font-weight:600; font-size:22px; letter-spacing:-.02em; margin-bottom:8px}
-  .fc-success p{font-size:14.5px; color:var(--stone-600)}
-  .fc-success .ticket{display:inline-block; margin-top:16px; font-size:12.5px; font-weight:700; color:var(--gold-600);
-    background:var(--parchment-200); border:1px solid var(--line); padding:9px 16px; border-radius:999px}
+  .fc-success .ic{width:52px;height:52px;border-radius:50%;background:var(--ink-900);color:var(--gold-300);display:flex;
+    align-items:center;justify-content:center;font-size:26px;margin:0 auto 14px;animation:pop .45s cubic-bezier(.22,1,.36,1)}
+  .fc-success .ok{font-family:var(--font-display);font-weight:700;font-size:21px;letter-spacing:-.02em;margin-bottom:6px}
+  .fc-success p{font-size:14px;color:var(--ink-700)}
+  .fc-success .ticket{display:inline-block;margin-top:14px;font-family:var(--font-display);font-size:12px;font-weight:700;
+    color:var(--gold-200);background:var(--ink-900);padding:9px 16px;border-radius:999px}
 
-  footer{flex-shrink:0; border-top:1px solid var(--line-weak); padding:16px 0}
-  .ft{display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:var(--stone-500); gap:16px; flex-wrap:wrap}
+  /* live pill */
+  .liverow{display:flex;justify-content:flex-end}
+  .live{display:inline-flex;align-items:center;gap:9px;background:var(--ink-800);border:1px solid var(--line-on-dark);
+    border-radius:999px;padding:9px 15px;font-size:12.5px;color:var(--stone-300);font-weight:500}
+  .live .d{position:relative;width:9px;height:9px;border-radius:50%;background:var(--gold-300);flex-shrink:0}
+  .live .d::after{content:"";position:absolute;inset:-5px;border-radius:50%;background:rgba(205,168,105,.45);animation:pulse 1.9s ease-out infinite}
+  .live b{color:var(--gold-200);font-weight:700}
 
-  @media (max-width:900px){
-    .grid{grid-template-columns:1fr; gap:34px}
-    main{padding:32px 0}
-    .wrap{padding:0 20px}
-    .order-form{order:-1}
+  .rhead{font-family:var(--font-display);font-weight:700;font-size:clamp(19px,2vw,23px);letter-spacing:-.02em;line-height:1.15}
+  .rhead .g{color:var(--gold-300)}
+
+  /* stat chips */
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .stat{background:var(--ink-800);border:1px solid var(--line-on-dark);border-radius:var(--r-sm);padding:16px 17px;
+    transition:transform .2s var(--ease),border-color .2s var(--ease)}
+  .stat:hover{transform:translateY(-3px);border-color:var(--line-on-dark-2)}
+  .stat .lbl{font-size:12px;color:var(--stone-400);margin-bottom:6px}
+  .stat .num{font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:-.02em;color:var(--parchment-100)}
+  .stat .num .u{color:var(--gold-300);font-size:18px}
+
+  .subline{background:var(--ink-800);border:1px solid var(--line-on-dark);border-radius:var(--r-sm);
+    padding:14px 17px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .subline b{font-family:var(--font-display);font-weight:700;font-size:15px}
+  .subline b .g{color:var(--gold-300)}
+  .subline span{font-size:12.5px;color:var(--stone-400)}
+
+  /* jurisdiction direction cards */
+  .dirhead{font-family:var(--font-display);font-weight:700;font-size:16px;margin:2px 0 -6px}
+  .dirhead .g{color:var(--gold-300)}
+  .dirs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .dir{background:var(--ink-800);border:1px solid var(--line-on-dark);border-radius:var(--r-sm);padding:16px 16px;
+    display:flex;flex-direction:column;gap:10px;min-height:104px;transition:transform .2s var(--ease),border-color .2s var(--ease),background .2s var(--ease)}
+  .dir:hover{transform:translateY(-3px);border-color:var(--gold-300);background:var(--ink-700)}
+  .dir .flag{font-size:24px;line-height:1}
+  .dir .n{font-family:var(--font-display);font-weight:700;font-size:15.5px;margin-top:auto}
+  .dir .t{align-self:flex-start;font-size:11px;font-weight:700;font-family:var(--font-display);letter-spacing:.02em;
+    background:var(--gold-300);color:var(--ink-900);padding:4px 10px;border-radius:999px}
+
+  /* footer */
+  footer{border-top:1px solid var(--line-on-dark);padding:20px 0;margin-top:8px}
+  .ft{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--stone-500)}
+  .ft a{color:var(--stone-300);border:1px solid var(--line-on-dark);border-radius:999px;padding:8px 16px;font-weight:600;transition:.2s var(--ease)}
+  .ft a:hover{border-color:var(--gold-300);color:var(--gold-200)}
+
+  /* animation */
+  @keyframes pulse{0%{transform:scale(.5);opacity:.85}100%{transform:scale(1.6);opacity:0}}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes pop{0%{transform:scale(.5);opacity:0}100%{transform:scale(1);opacity:1}}
+  .reveal{opacity:0;animation:rise .7s var(--ease) forwards}
+  .d1{animation-delay:.05s}.d2{animation-delay:.13s}.d3{animation-delay:.21s}.d4{animation-delay:.29s}
+  .d5{animation-delay:.37s}.d6{animation-delay:.45s}.d7{animation-delay:.53s}
+
+  @media (max-width:980px){
+    .cols{grid-template-columns:1fr;gap:18px}
+    .col-form{order:-1}
+    main{padding:24px 0 32px}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 16px}
+    .hd-right .phone{display:none}
+    .stats,.dirs{grid-template-columns:1fr 1fr}
+    h1{font-size:30px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1}
   }
 </style>
 </head>
 <body>
 <header><div class="wrap hd">
-  <div class="brand">AURION<span class="dot">.</span></div>
-  <div class="meta">Выход на зарубежный рынок под ключ</div>
+  <div class="brand">AURION<span class="dot">.</span><small>выход на зарубежный рынок под ключ</small></div>
+  <div class="hd-right">
+    <div class="phone"><b>+7 495 000-00-00</b><small>Пн–Пт, 10:00–19:00 МСК</small></div>
+    <a href="#form" class="btn-ghost">Оставить заявку</a>
+  </div>
 </div></header>
 
-<main><div class="wrap"><div class="grid">
+<main><div class="wrap"><div class="cols">
 
-  <section class="copy">
-    <div class="eyebrow">Диверсификация без релокейта</div>
-    <h1>Выведите бизнес за рубеж — <span class="g">без своего юрлица</span> за границей.</h1>
-    <p class="lead">Вы работаете в новой юрисдикции на инфраструктуре AURION. Юридическая обвязка,
-      приём платежей и оплата расходов — на нашей стороне. Минимум трудозатрат, минимальная цена ошибки.</p>
+  <!-- LEFT: hero + form -->
+  <div class="col col-form">
+    <section class="panel reveal d1">
+      <div class="tags">
+        <span class="tag line">Диверсификация без релокейта</span>
+        <span class="tag gold">Без своего юрлица</span>
+      </div>
+      <h1>Выведите бизнес за рубеж — <span class="g">без своей компании</span> за границей.</h1>
+      <p class="lead">Вы работаете в новой юрисдикции на инфраструктуре AURION. Юробвязка, приём платежей и оплата расходов — <b>на нашей стороне</b>. Минимум трудозатрат, минимальная цена ошибки.</p>
+    </section>
 
-    <ul class="points">
-      <li><span class="m">01</span><span><b>Без своей компании и счёта за рубежом.</b> Работаете по договору на юрлице AURION — не тратите месяцы и деньги на регистрацию.</span></li>
-      <li><span class="m">02</span><span><b>Приём платежей от зарубежных клиентов.</b> Легально принимаете выручку в валюте.</span></li>
-      <li><span class="m">03</span><span><b>Оплата рекламы и сервисов за рубежом.</b> Платите за продвижение и операционные расходы без блокировок.</span></li>
-      <li><span class="m">04</span><span><b>Дистрибьюторский договор под ключ.</b> Комплаенс и валютный контроль — наша зона ответственности.</span></li>
-    </ul>
-
-    <div class="proof"><span class="bar"></span>Тестируете новый рынок сейчас — переходите на собственную структуру, когда спрос подтвердится.</div>
-  </section>
-
-  <section class="order-form">
-    <div class="form-card" id="card">
-      <form class="fc-form" id="form" novalidate>
-        <div class="fc-title">Заявка на разбор</div>
-        <div class="fc-sub">Ответим и предложим сценарий выхода под вашу нишу.</div>
+    <section class="form-card reveal d3" id="form">
+      <form class="fc-form" id="lead" novalidate>
+        <div class="fc-head">
+          <div class="fc-title">Заявка на разбор</div>
+          <div class="fc-cur">KZ · AE · AM · CN</div>
+        </div>
 
         <div class="field">
           <label for="niche">Сфера бизнеса <span class="req">*</span></label>
-          <div class="control">
-            <select id="niche" class="placeholder">
-              <option value="" disabled selected>Выберите нишу</option>
-              <option>Онлайн-школа / инфобизнес</option>
-              <option>E-commerce / селлер</option>
-              <option>IT / SaaS / агентство</option>
-              <option>Импорт-экспорт / ВЭД</option>
-              <option>Другое</option>
-            </select>
-          </div>
+          <div class="ctrl"><select id="niche" class="ph">
+            <option value="" disabled selected>Выберите нишу</option>
+            <option>Онлайн-школа / инфобизнес</option>
+            <option>E-commerce / селлер</option>
+            <option>IT / SaaS / агентство</option>
+            <option>Импорт-экспорт / ВЭД</option>
+            <option>Другое</option>
+          </select></div>
         </div>
 
         <div class="field">
           <label for="market">Целевой рынок <span class="req">*</span></label>
-          <div class="control">
-            <select id="market" class="placeholder">
-              <option value="" disabled selected>Куда выходите</option>
-              <option>Казахстан</option>
-              <option>ОАЭ</option>
-              <option>Армения</option>
-              <option>Азия (Китай / Гонконг / Турция)</option>
-              <option>Ещё не выбрал</option>
-            </select>
-          </div>
+          <div class="ctrl"><select id="market" class="ph">
+            <option value="" disabled selected>Куда выходите</option>
+            <option>Казахстан</option>
+            <option>ОАЭ</option>
+            <option>Армения</option>
+            <option>Азия (Китай / Гонконг / Турция)</option>
+            <option>Ещё не выбрал</option>
+          </select></div>
         </div>
 
         <div class="field">
           <label for="contact">Telegram или телефон <span class="req">*</span></label>
-          <div class="control">
-            <input type="text" id="contact" inputmode="text" placeholder="@username или +7 ___ ___-__-__">
-          </div>
+          <div class="ctrl"><input type="text" id="contact" placeholder="@username или +7 ___ ___-__-__"></div>
         </div>
 
-        <!-- honeypot -->
         <div class="hp"><label>Компания<input type="text" id="hp_company" tabindex="-1" autocomplete="off"></label></div>
 
         <button type="submit" class="btn" id="submit">Оставить заявку →</button>
-
         <div class="consent">
           <input type="checkbox" id="agree">
           <label for="agree">Соглашаюсь на обработку данных по <a href="/privacy.html">политике конфиденциальности</a>.</label>
@@ -204,70 +260,100 @@
         <div class="err" id="err">Проверьте поля и попробуйте ещё раз.</div>
       </form>
 
-      <div class="form-loader" aria-hidden="true"><span class="fl-spin"></span></div>
+      <div class="form-loader" aria-hidden="true">
+        <div class="pl-txt">Готовим сценарий выхода…</div>
+        <div class="pbar"><span></span></div>
+      </div>
 
       <div class="fc-success">
+        <div class="ic">✓</div>
         <div class="ok">Заявка принята</div>
-        <p>Свяжемся с вами в ближайшее время и предложим сценарий выхода на рынок.</p>
+        <p>Свяжемся и предложим сценарий выхода под вашу нишу.</p>
         <div class="ticket" id="ticket">Заявка № AUR-000000</div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
+
+  <!-- RIGHT: live + stats + directions -->
+  <div class="col">
+    <div class="liverow reveal d2"><div class="live"><span class="d"></span>Рынок диверсификации растёт · <b>2026</b></div></div>
+
+    <section class="reveal d3">
+      <div class="rhead">За недели — рабочий контур за рубежом: <span class="g">платежи, реклама, юробвязка</span> на стороне AURION.</div>
+    </section>
+
+    <section class="stats reveal d4">
+      <div class="stat"><div class="lbl">Компаний РФ уже в ОАЭ</div><div class="num" id="c1">0<span class="u">+</span></div></div>
+      <div class="stat"><div class="lbl">Банков отказывают в платежах из РФ</div><div class="num" id="c2">0<span class="u">%</span></div></div>
+      <div class="stat"><div class="lbl">Бизнесов с падением выручки</div><div class="num" id="c3">0<span class="u">%</span></div></div>
+      <div class="stat"><div class="lbl">До запуска на рынке</div><div class="num">~недели</div></div>
+    </section>
+
+    <div class="subline reveal d5"><b>Своя компания — <span class="g">этап 2</span></b><span>переход, когда спрос подтвердится</span></div>
+
+    <div class="dirhead reveal d5">Юрисдикции <span class="g">под задачу</span></div>
+    <section class="dirs reveal d6">
+      <div class="dir"><span class="flag">🇰🇿</span><span class="n">Казахстан</span><span class="t">ЕАЭС · рубли</span></div>
+      <div class="dir"><span class="flag">🇦🇪</span><span class="n">ОАЭ · Дубай</span><span class="t">статус · масштаб</span></div>
+      <div class="dir"><span class="flag">🇦🇲</span><span class="n">Армения</span><span class="t">быстрый старт</span></div>
+      <div class="dir"><span class="flag">🌏</span><span class="n">Азия</span><span class="t">Китай · Гонконг +</span></div>
+    </section>
+  </div>
 
 </div></div></main>
 
 <footer><div class="wrap ft">
-  <div>© AURION — выход на зарубежный рынок без своего юрлица</div>
-  <div>Не является публичной офертой. Условия — по итогам консультации.</div>
+  <div><b style="color:var(--stone-300)">AURION</b> · выход на зарубежный рынок без своего юрлица · не является публичной офертой, условия — по итогам консультации</div>
+  <div style="display:flex;gap:10px"><a href="/oferta.html">Оферта</a><a href="/privacy.html">Конфиденциальность</a></div>
 </div></footer>
 
 <script>
 (function(){
   'use strict';
-  // URL обработчика заявок. Пусто = демо-режим (успех показывается, но заявка не уходит).
-  // Для боевого приёма: подключить backend/lead-amocrm.php (как в domwedone) или форм-сервис,
-  // возвращающий {"ok":true}.
-  var LEAD_ENDPOINT = '';
+  var LEAD_ENDPOINT=''; // пусто = демо-режим. Боевой приём: backend/lead-amocrm.php (как в domwedone) или форм-сервис, отвечающий {"ok":true}.
 
-  var form=document.getElementById('form'), card=document.getElementById('card'),
+  // count-up stats
+  function countUp(el,to,suffixEl){
+    if(!el) return; var dur=1200, start=performance.now();
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce){ el.childNodes[0].nodeValue=to.toLocaleString('ru-RU'); return; }
+    function step(t){var p=Math.min((t-start)/dur,1);var v=Math.round(to*(1-Math.pow(1-p,3)));
+      el.childNodes[0].nodeValue=v.toLocaleString('ru-RU'); if(p<1) requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  window.addEventListener('load',function(){
+    setTimeout(function(){ countUp(document.getElementById('c1'),13500); countUp(document.getElementById('c2'),42); countUp(document.getElementById('c3'),69); },400);
+  });
+
+  var form=document.getElementById('lead'), card=document.getElementById('form'),
       niche=document.getElementById('niche'), market=document.getElementById('market'),
       contact=document.getElementById('contact'), agree=document.getElementById('agree'),
       hp=document.getElementById('hp_company'), err=document.getElementById('err');
-
-  [niche,market].forEach(function(sel){ sel.addEventListener('change',function(){ if(sel.value) sel.classList.remove('placeholder'); }); });
-
-  function fail(msg){ err.textContent=msg||'Проверьте поля и попробуйте ещё раз.'; err.style.display='block'; }
+  [niche,market].forEach(function(s){ s.addEventListener('change',function(){ if(s.value) s.classList.remove('ph'); }); });
+  function fail(m){ err.textContent=m||'Проверьте поля и попробуйте ещё раз.'; err.style.display='block'; }
 
   form.addEventListener('submit',function(e){
-    e.preventDefault();
-    err.style.display='none';
-    if(hp.value){ return; } // бот
-    if(!niche.value || !market.value){ return fail('Выберите нишу и целевой рынок.'); }
-    if(!contact.value.trim() || contact.value.trim().length<3){ return fail('Укажите Telegram или телефон для связи.'); }
-    if(!agree.checked){ return fail('Отметьте согласие на обработку данных.'); }
+    e.preventDefault(); err.style.display='none';
+    if(hp.value) return;
+    if(!niche.value||!market.value) return fail('Выберите нишу и целевой рынок.');
+    if(contact.value.trim().length<3) return fail('Укажите Telegram или телефон для связи.');
+    if(!agree.checked) return fail('Отметьте согласие на обработку данных.');
 
     var ticket='AUR-'+Math.floor(100000+Math.random()*900000);
     document.getElementById('ticket').textContent='Заявка № '+ticket;
-
     var qs=new URLSearchParams(location.search), utm={};
     ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(k){ if(qs.get(k)) utm[k]=qs.get(k); });
+    var payload={ticket:ticket,niche:niche.value,market:market.value,contact:contact.value.trim(),
+      consent:!!agree.checked,page:location.href,referrer:document.referrer||'',utm:utm,ts:new Date().toISOString()};
 
-    var payload={
-      ticket:ticket, niche:niche.value, market:market.value, contact:contact.value.trim(),
-      consent:!!agree.checked, page:location.href, referrer:document.referrer||'',
-      utm:utm, ts:new Date().toISOString()
-    };
-
-    card.classList.add('updating');
-    var wait=new Promise(function(r){ setTimeout(r,700); });
-    function done(){ card.classList.remove('updating'); card.classList.add('done'); }
-
-    if(!LEAD_ENDPOINT){ console.warn('[lead] LEAD_ENDPOINT не задан — демо-режим, заявка не отправлена.', payload); wait.then(done); return; }
-
+    card.classList.add('loading');
+    var wait=new Promise(function(r){ setTimeout(r,1500); });
+    function done(){ card.classList.remove('loading'); card.classList.add('done'); }
+    if(!LEAD_ENDPOINT){ console.warn('[lead] демо-режим, заявка не отправлена.',payload); wait.then(done); return; }
     Promise.all([wait, fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-      .then(function(r){ return r.json().catch(function(){ throw new Error('Сервер вернул не JSON'); }); })
-      .then(function(j){ if(!j||j.ok!==true) throw new Error((j&&j.error)||'Ошибка CRM'); })
-    ]).then(done).catch(function(ex){ card.classList.remove('updating'); fail('Не удалось отправить заявку. Напишите нам напрямую.'); console.error(ex); });
+      .then(function(r){return r.json().catch(function(){throw new Error('not json');});})
+      .then(function(j){if(!j||j.ok!==true) throw new Error((j&&j.error)||'CRM error');})
+    ]).then(done).catch(function(ex){ card.classList.remove('loading'); fail('Не удалось отправить. Напишите нам напрямую.'); console.error(ex); });
   });
 })();
 </script>
